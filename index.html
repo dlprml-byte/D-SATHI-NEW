@@ -3,126 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#d71920">
-
-<title>D-SATHI</title>
-
-<script src="https://cdn.jsdelivr.net/npm/nepali-date-converter@3.4.0/dist/nepali-date-converter.umd.min.js"></script>
+<meta name="theme-color" content="#c90030">
+<title>NEPAL SATHI</title>
 
 <style>
 *{box-sizing:border-box}
-
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f4f5f7;
-color:#222;
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f3f4f8;
+ color:#222;
 }
-
 header{
-background:#d71920;
-color:white;
-padding:23px 16px;
-border-radius:0 0 22px 22px;
+ background:linear-gradient(135deg,#a90025,#ed1745);
+ color:white;
+ padding:20px;
+ border-radius:0 0 22px 22px;
 }
-
-header h1{
-margin:0;
-font-size:28px;
+header h1{margin:0;font-size:27px}
+.search{
+ width:100%;padding:13px;
+ border:0;border-radius:12px;
+ margin-top:15px;
 }
-
-header p{
-margin:7px 0 0;
-}
-
-.container{
-padding:15px;
-}
-
-.card{
-background:white;
-padding:18px;
-margin-bottom:15px;
-border-radius:16px;
-box-shadow:0 3px 12px #ddd;
-}
-
-.title{
-color:#d71920;
-font-size:19px;
-font-weight:bold;
-margin-bottom:12px;
-}
-
-.date{
-font-size:27px;
-font-weight:bold;
-color:#d71920;
-}
-
-.weather{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.temp{
-font-size:35px;
-font-weight:bold;
-}
-
-.small{
-color:#777;
-font-size:14px;
-}
-
-article{
-padding:12px 0;
-border-bottom:1px solid #eee;
-}
-
-article h3{
-font-size:15px;
-margin:0 0 8px;
-}
-
-article a{
-color:#d71920;
-text-decoration:none;
-font-weight:bold;
-}
-
-button{
-background:#d71920;
-color:white;
-border:none;
-padding:10px 15px;
-border-radius:8px;
-}
-
 nav{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-bottom:15px;
+ display:flex;
+ overflow-x:auto;
+ background:white;
+ position:sticky;
+ top:0;
+ z-index:10;
+ box-shadow:0 2px 8px #ddd;
 }
-
 nav a{
-background:white;
-padding:15px 5px;
-border-radius:12px;
-text-align:center;
-text-decoration:none;
-color:#222;
-font-size:13px;
-box-shadow:0 2px 7px #ddd;
+ min-width:75px;
+ padding:13px 5px;
+ text-align:center;
+ color:#c90030;
+ text-decoration:none;
+ font-size:12px;
+ font-weight:bold;
 }
-
+nav span{display:block;font-size:22px}
+.container{padding:14px}
+h2{color:#c90030}
+.card{
+ background:white;
+ padding:17px;
+ border-radius:15px;
+ margin-bottom:13px;
+ box-shadow:0 2px 8px #ddd;
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+}
+.menu{
+ background:white;
+ text-align:center;
+ padding:15px 3px;
+ border-radius:14px;
+ text-decoration:none;
+ color:#222;
+ font-size:12px;
+ font-weight:bold;
+ box-shadow:0 2px 7px #ddd;
+}
+.menu span{
+ display:block;
+ font-size:27px;
+ margin-bottom:8px;
+}
+button{
+ border:0;
+ background:#c90030;
+ color:white;
+ padding:11px 16px;
+ border-radius:9px;
+ cursor:pointer;
+ margin:3px;
+}
+input,textarea{
+ width:100%;
+ padding:12px;
+ border:1px solid #ddd;
+ border-radius:10px;
+ margin:7px 0;
+}
+.post{
+ background:white;
+ padding:15px;
+ border-radius:14px;
+ margin:12px 0;
+}
+.post img{
+ width:100%;
+ border-radius:10px;
+}
+.actions{
+ display:flex;
+ gap:15px;
+ margin-top:12px;
+}
+.actions button{
+ background:#fff0f3;
+ color:#c90030;
+}
+section{
+ padding-top:10px;
+ scroll-margin-top:65px;
+}
+#shorts{
+ background:#151515;
+ color:white;
+ padding:18px;
+ border-radius:16px;
+ text-align:center;
+}
+#shorts h2{color:white}
+.video{
+ background:#292929;
+ padding:25px 10px;
+ border-radius:15px;
+ margin:12px 0;
+}
+.game{
+ display:inline-block;
+ background:#fff0f3;
+ color:#c90030;
+ padding:16px;
+ margin:5px;
+ border-radius:12px;
+}
+#board{
+ display:grid;
+ grid-template-columns:repeat(3,75px);
+ gap:5px;
+}
+#board button{
+ width:75px;
+ height:75px;
+ font-size:25px;
+ background:#fff0f3;
+ color:#c90030;
+}
 footer{
-background:#d71920;
-color:white;
-text-align:center;
-padding:20px;
+ background:#b90030;
+ color:white;
+ text-align:center;
+ padding:22px;
+ margin-top:25px;
+}
+.auth-btn{
+ width:100%;
+ margin-top:8px;
 }
 </style>
 </head>
@@ -130,282 +165,200 @@ padding:20px;
 <body>
 
 <header>
-<h1>🇳🇵 D-SATHI</h1>
-<p>नेपालको आफ्नै डिजिटल साथी</p>
-<p>नमस्कार! तपाईंलाई स्वागत छ।</p>
+<h1>🇳🇵 NEPAL SATHI</h1>
+<p>Connect Nepal. Discover More.</p>
+<p>नेपालको आफ्नै डिजिटल साथी ❤️</p>
+<input class="search"
+id="search"
+placeholder="🔍 Search Nepal Sathi..."
+oninput="searchMenu()">
 </header>
+
+<nav>
+<a href="#home"><span>🏠</span>Home</a>
+<a href="#auth"><span>🔐</span>Login</a>
+<a href="#social"><span>📘</span>Social</a>
+<a href="#shorts"><span>🎬</span>Shorts</a>
+<a href="#games"><span>🎮</span>Games</a>
+<a href="#profile"><span>👤</span>Profile</a>
+</nav>
 
 <div class="container">
 
-<!-- MENU -->
+<!-- LOGIN -->
 
-<nav>
-<a href="#calendar">📅<br>पात्रो</a>
-<a href="#weather">🌤️<br>मौसम</a>
-<a href="#news">📰<br>समाचार</a>
-<a href="#health">🏥<br>स्वास्थ्य</a>
-<a href="#doctor">👨‍⚕️<br>डाक्टर</a>
-<a href="#share">📈<br>सेयर बजार</a>
-</nav>
+<section id="auth" class="card">
+<h2>🔐 NEPAL SATHI ACCOUNT</h2>
 
-<!-- CALENDAR -->
+<div id="loginBox">
+<h3>Login / Register</h3>
 
-<div class="card" id="calendar">
+<input id="email"
+type="email"
+placeholder="Email Address">
 
-<div class="title">📅 आजको नेपाली पात्रो</div>
+<input id="password"
+type="password"
+placeholder="Password (कम्तीमा ६ अक्षर)">
 
-<div class="date" id="bs-date">
-पात्रो लोड हुँदैछ...
+<button class="auth-btn"
+onclick="loginUser()">Login</button>
+
+<button class="auth-btn"
+onclick="registerUser()">Create New Account</button>
+
+<button class="auth-btn"
+onclick="resetPassword()">Forgot Password?</button>
 </div>
 
-<p id="bs-day"></p>
-
-<p class="small" id="ad-date"></p>
-
+<div id="userBox" style="display:none">
+<h3>🎉 स्वागत छ!</h3>
+<p id="userEmail"></p>
+<button onclick="logoutUser()">Logout</button>
 </div>
 
-<!-- WEATHER -->
+<p id="authMessage"></p>
+</section>
 
-<div class="card" id="weather">
+<!-- HOME -->
 
-<div class="title">🌤️ पोखराको मौसम</div>
+<section id="home">
+<h2>नमस्कार! स्वागत छ ❤️</h2>
+<p>नेपालको आफ्नै डिजिटल संसार।</p>
 
-<div class="weather">
+<div class="grid" id="menu">
 
-<div>
-<div class="temp" id="temperature">--°C</div>
-<p id="weather-status">मौसम लोड हुँदैछ...</p>
+<a class="menu" href="#social"><span>📘</span>Social Nepal</a>
+<a class="menu" href="#shorts"><span>🎬</span>Nepal Shorts</a>
+<a class="menu" href="#games"><span>🎮</span>Gaming Zone</a>
+<a class="menu" href="#news"><span>📰</span>News</a>
+<a class="menu" href="#patro"><span>📅</span>नेपाली पात्रो</a>
+<a class="menu" href="#weather"><span>🌤️</span>Weather</a>
+<a class="menu" href="#health"><span>🏥</span>Health</a>
+<a class="menu" href="#doctor"><span>👨‍⚕️</span>Doctor</a>
+<a class="menu" href="#nepse"><span>📈</span>NEPSE</a>
+<a class="menu" href="#chat"><span>💬</span>Chat</a>
+<a class="menu" href="#profile"><span>👤</span>Profile</a>
+<a class="menu" href="#services"><span>🇳🇵</span>Services</a>
+
+</div>
+</section>
+
+<!-- SOCIAL -->
+
+<section id="social">
+<h2>📘 SOCIAL NEPAL</h2>
+
+<div class="card">
+<h3>What's on your mind?</h3>
+
+<input id="postText"
+placeholder="आफ्नो विचार लेख्नुहोस्...">
+
+<input type="file"
+id="postImage"
+accept="image/*">
+
+<button onclick="createPost()">+ Create Post</button>
 </div>
 
-<div style="font-size:45px">🌤️</div>
+<div id="feed">
+<div class="post">
+<b>🇳🇵 NEPAL SATHI</b>
+<p>नेपालको आफ्नै Social Network मा स्वागत छ!</p>
+</div>
+</div>
+</section>
 
+<!-- SHORTS -->
+
+<section id="shorts">
+<h2>🎬 NEPAL SHORTS</h2>
+<p>नेपाली भिडियोहरूको संसार</p>
+
+<div class="video">
+<h1>▶️</h1>
+<p>आफ्नो भिडियो छान्नुहोस्</p>
+
+<input type="file"
+id="videoFile"
+accept="video/*">
+
+<button onclick="showVideo()">Play Video Demo</button>
+
+<div id="videoArea"></div>
+</div>
+</section>
+
+<!-- GAMES -->
+
+<section id="games">
+<h2>🎮 GAMING ZONE</h2>
+
+<div class="game">🎲 Ludo</div>
+<div class="game">♟️ Chess</div>
+<div class="game">🏏 Cricket</div>
+<div class="game">🧩 Puzzle</div>
+
+<h3>❌⭕ Tic Tac Toe</h3>
+
+<div id="board">
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
+<button onclick="move(this)"></button>
 </div>
 
-<hr style="border:0;border-top:1px solid #eee">
-
-<p>💧 आर्द्रता: <span id="humidity">--</span></p>
-<p>💨 हावा: <span id="wind">--</span></p>
-<p class="small" id="weather-time"></p>
-
-<button onclick="loadWeather()">🔄 मौसम Refresh</button>
-
-</div>
+<p id="status">X को पालो</p>
+<button onclick="resetGame()">New Game</button>
+</section>
 
 <!-- NEWS -->
 
-<div class="card" id="news">
-
-<div class="title">📰 नेपालका मुख्य समाचार</div>
-
-<div id="news-list">
-समाचार लोड हुँदैछ...
-</div>
-
-<button onclick="loadNews()">🔄 समाचार Refresh</button>
-
-</div>
-
-<!-- OTHER SERVICES -->
-
-<div class="card" id="health">
-<div class="title">🏥 स्वास्थ्य</div>
-<p>स्वास्थ्यसम्बन्धी जानकारी र सुझाव।</p>
-</div>
-
-<div class="card" id="doctor">
-<div class="title">👨‍⚕️ Online Doctor</div>
-<p>Verified Doctor Consultation सेवा छिट्टै।</p>
-</div>
-
-<div class="card" id="share">
-<div class="title">📈 Share Market</div>
-<p>नेपाल स्टक एक्सचेन्जसम्बन्धी जानकारी छिट्टै।</p>
-</div>
-
-</div>
-
-<footer>
-<h3>🇳🇵 D-SATHI</h3>
-<p>Developed by Dilip Rimal</p>
-</footer>
-
-<script>
-
-// NEPALI CALENDAR
-
-function loadCalendar(){
-
-try{
-
-const today = new Date();
-
-const bs = new NepaliDate(today);
-
-document.getElementById("bs-date").innerText =
-bs.format("DD MMMM YYYY","np");
-
-document.getElementById("bs-day").innerText =
-"आज "+bs.format("dddd","np");
-
-document.getElementById("ad-date").innerText =
-"ईस्वी मिति: "+today.toLocaleDateString("en-GB");
-
-}catch(e){
-
-document.getElementById("bs-date").innerText =
-"पात्रो लोड हुन सकेन।";
-
-}
-
-}
-
-// WEATHER
-
-async function loadWeather(){
-
-const status=document.getElementById("weather-status");
-
-status.innerText="मौसम लोड हुँदैछ...";
-
-try{
-
-const url=
-"https://api.open-meteo.com/v1/forecast?latitude=28.2096&longitude=83.9856&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&timezone=Asia%2FKathmandu";
-
-const response=await fetch(url);
-
-if(!response.ok) throw new Error();
-
-const data=await response.json();
-
-const w=data.current;
-
-document.getElementById("temperature").innerText=
-w.temperature_2m+"°C";
-
-document.getElementById("humidity").innerText=
-w.relative_humidity_2m+"%";
-
-document.getElementById("wind").innerText=
-w.wind_speed_10m+" km/h";
-
-document.getElementById("weather-time").innerText=
-"अपडेट: "+w.time.replace("T"," ");
-
-const codes={
-0:"☀️ सफा मौसम",
-1:"🌤️ प्रायः सफा",
-2:"⛅ आंशिक बदली",
-3:"☁️ बादल लागेको",
-45:"🌫️ हुस्सु",
-48:"🌫️ तुवाँलो",
-51:"🌦️ हल्का झरी",
-61:"🌧️ वर्षा",
-63:"🌧️ मध्यम वर्षा",
-65:"🌧️ भारी वर्षा",
-80:"🌦️ पानी पर्ने सम्भावना",
-95:"⛈️ चट्याङसहित वर्षा"
-};
-
-status.innerText=
-codes[w.weather_code] || "मौसम अपडेट उपलब्ध छ";
-
-}catch(e){
-
-status.innerText="मौसम लोड भएन। इन्टरनेट जाँच गर्नुहोस्।";
-
-}
-
-}
-
-// NEWS
-
-async function loadNews(){
-
-const box=document.getElementById("news-list");
-
-box.innerHTML="समाचार लोड हुँदैछ...";
-
-const feed=
-"https://news.google.com/rss?hl=ne&gl=NP&ceid=NP:ne";
-
-try{
-
-const api=
-"https://api.rss2json.com/v1/api.json?rss_url="
-+encodeURIComponent(feed);
-
-const response=await fetch(api);
-
-if(!response.ok) throw new Error();
-
-const data=await response.json();
-
-if(!data.items || data.items.length===0)
-throw new Error();
-
-box.innerHTML=data.items.slice(0,10).map(item=>{
-
-const title=escapeHTML(item.title);
-
-const link=safeLink(item.link);
-
-return `
-<article>
-<h3>${title}</h3>
-<a href="${link}" target="_blank"
-rel="noopener noreferrer">
-पूरा समाचार पढ्नुहोस् →
-</a>
-</article>
-`;
-
-}).join("");
-
-}catch(e){
-
-box.innerHTML=
-"समाचार उपलब्ध भएन। इन्टरनेट जाँच गरेर फेरि प्रयास गर्नुहोस्।";
-
-}
-
-}
-
-function escapeHTML(text){
-
-return String(text).replace(/[&<>"']/g,c=>({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-}[c]));
-
-}
-
-function safeLink(link){
-
-try{
-
-const u=new URL(link);
-
-return u.protocol==="https:" ? u.href : "#";
-
-}catch(e){
-
-return "#";
-
-}
-
-}
-
-// START
-
-loadCalendar();
-loadWeather();
-loadNews();
-
-</script>
-
-</body>
-</html>
+<section id="news">
+<h2>📰 NEPAL NEWS</h2>
+<div id="newsList">समाचार लोड हुँदैछ...</div>
+<button onclick="loadNews()">Refresh News</button>
+</section>
+
+<!-- OTHER FEATURES -->
+
+<section id="patro" class="card">
+<h2>📅 नेपाली पात्रो</h2>
+<p>नेपाली पात्रो सेवा छिट्टै।</p>
+</section>
+
+<section id="weather" class="card">
+<h2>🌤️ Weather Nepal</h2>
+<p>मौसम सेवा छिट्टै।</p>
+</section>
+
+<section id="health" class="card">
+<h2>🏥 Health Nepal</h2>
+<p>स्वास्थ्य जानकारी।</p>
+</section>
+
+<section id="doctor" class="card">
+<h2>👨‍⚕️ Online Doctor</h2>
+<p>Verified Doctor Consultation।</p>
+<p>यो सेवा आपत्कालीन उपचारको विकल्प होइन।</p>
+</section>
+
+<section id="nepse" class="card">
+<h2>📈 NEPSE</h2>
+<p>Share Market जानकारी।</p>
+</section>
+
+<section id="chat" class="card">
+<h2>💬 Nepal Sathi Chat</h2>
+<p>Chat सेवा अर्को चरणमा जोडिनेछ।</p>
+</section>
+
+<section id="profile" class="card">
+<h2>👤 MY PROFILE</h2>
+<p id="profileEmail
