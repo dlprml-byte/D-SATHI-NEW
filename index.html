@@ -2,271 +2,116 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEPAL SATHI</title>
-
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f3f5fb;
- color:#252943;
-}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f1f4fa;color:#17233b}
 header{
- background:linear-gradient(135deg,#14213d,#5145a5,#9b59b6);
- color:white;
- padding:25px 18px 35px;
- border-radius:0 0 25px 25px;
+ padding:55px 15px;text-align:center;color:white;
+ background:linear-gradient(#071b3b88,#071b3bcc),
+ url('https://images.unsplash.com/photo-1568641276587-4b5a0ac73cf6?auto=format&fit=crop&w=1600&q=85') center/cover;
+ border-radius:0 0 25px 25px
 }
-.logo{font-size:26px;font-weight:bold}
-.tagline{font-size:13px;margin-top:7px}
-.container{max-width:700px;margin:auto;padding:16px}
-.login,.card{
- background:white;
- padding:18px;
- margin:15px 0;
- border-radius:16px;
- box-shadow:0 4px 15px #00000010;
-}
-input{
- width:100%;
- padding:13px;
- margin:7px 0;
- border:1px solid #ddd;
- border-radius:9px;
- font-size:16px;
-}
-button{
- width:100%;
- padding:13px;
- border:0;
- border-radius:9px;
- background:#5145a5;
- color:white;
- margin-top:8px;
- font-size:15px;
-}
-#message{font-size:14px}
-.grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
-}
-.card{text-align:center;padding:15px 10px}
-.icon{font-size:32px}
-.card h3{font-size:16px}
-.card a{
- display:block;
- background:#5145a5;
- color:white;
- text-decoration:none;
- padding:10px;
- border-radius:9px;
-}
-.footer{text-align:center;padding:25px;color:#777}
+header h1{font-size:38px;margin:10px}
+header p{font-size:17px}
+nav{background:#10234b;padding:13px;display:flex;gap:20px;overflow:auto;position:sticky;top:0}
+nav a{color:white;text-decoration:none;white-space:nowrap}
+main{max-width:1000px;margin:auto;padding:18px}
+.welcome,.box{background:white;padding:18px;border-radius:15px;margin-bottom:18px}
+h2{color:#173c78}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.card{background:white;text-decoration:none;color:#17233b;text-align:center;padding:22px 8px;border-radius:15px;box-shadow:0 3px 12px #00000010}
+.card span{display:block;font-size:34px;margin-bottom:8px}
+.card b{font-size:16px}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.links a{background:white;padding:13px;border-radius:10px;text-decoration:none;color:#164b91}
+footer{text-align:center;padding:25px;color:#66738a}
 </style>
 </head>
-
 <body>
 
-<header>
- <div class="logo">🇳🇵 NEPAL SATHI</div>
- <div class="tagline">Connect Nepal. Discover More.</div>
- <h2>नमस्कार 🙏</h2>
- <p>नेपालको आफ्नै डिजिटल साथी</p>
+<header id="home">
+<div style="font-size:35px">🇳🇵</div>
+<h1>NEPAL SATHI</h1>
+<p>नेपालको आफ्नै डिजिटल साथी</p>
+<p>Connect Nepal. Discover More.</p>
 </header>
 
-<main class="container">
+<nav>
+<a href="#home">गृहपृष्ठ</a>
+<a href="#services">सेवाहरू</a>
+<a href="#news">समाचार</a>
+<a href="#market">शेयर बजार</a>
+<a href="#about">हाम्रोबारे</a>
+</nav>
 
-<div class="login">
- <h2>👤 Login / Register</h2>
+<main>
 
- <input id="email" type="email"
- placeholder="Email Address">
-
- <input id="password" type="password"
- placeholder="Password (कम्तीमा ६ अक्षर)">
-
- <button onclick="register()">Create New Account</button>
- <button onclick="login()">Login</button>
- <button onclick="resetPassword()">Forgot Password?</button>
- <button onclick="logout()" style="background:#555">Logout</button>
-
- <p id="message">आफ्नो खाता प्रयोग गर्नुहोस्।</p>
+<div class="welcome">
+<h2>🙏 नमस्कार!</h2>
+<p>नेपालका समाचार, पात्रो, मौसम, स्वास्थ्य, शेयर बजार र मनोरञ्जनका सेवाहरू एउटै ठाउँमा।</p>
 </div>
 
-<h2>🌐 Social Media</h2>
-
+<section id="services">
+<h2>🇳🇵 हाम्रा सेवाहरू</h2>
 <div class="grid">
 
-<div class="card">
- <div class="icon">📘</div>
- <h3>Facebook</h3>
- <a href="https://www.facebook.com/">Open</a>
-</div>
+<a class="card" href="#news"><span>📰</span><b>नेपाली समाचार</b></a>
 
-<div class="card">
- <div class="icon">🎵</div>
- <h3>TikTok</h3>
- <a href="https://www.tiktok.com/">Open</a>
-</div>
+<a class="card" href="https://nepalipatro.com.np/" target="_blank"><span>📅</span><b>नेपाली पात्रो</b></a>
 
-<div class="card">
- <div class="icon">▶️</div>
- <h3>YouTube</h3>
- <a href="https://www.youtube.com/">Open</a>
-</div>
+<a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank"><span>🌤️</span><b>मौसम</b></a>
 
-<div class="card">
- <div class="icon">📰</div>
- <h3>Nepal News</h3>
- <a href="https://news.google.com/">Open</a>
-</div>
+<a class="card" href="https://www.mohp.gov.np/" target="_blank"><span>🏥</span><b>स्वास्थ्य</b></a>
 
-<div class="card">
- <div class="icon">📅</div>
- <h3>Nepali Patro</h3>
- <a href="https://www.hamropatro.com/">Open</a>
-</div>
+<a class="card" href="#market"><span>📈</span><b>NEPSE / IPO</b></a>
 
-<div class="card">
- <div class="icon">🌤️</div>
- <h3>Weather</h3>
- <a href="https://www.meteoblue.com/">Open</a>
-</div>
+<a class="card" href="https://www.youtube.com/" target="_blank"><span>▶️</span><b>YouTube</b></a>
 
-<div class="card">
- <div class="icon">🏥</div>
- <h3>Health</h3>
- <a href="https://www.who.int/">Open</a>
-</div>
+<a class="card" href="https://www.youtube.com/shorts/" target="_blank"><span>🎬</span><b>Nepal Shorts</b></a>
 
-<div class="card">
- <div class="icon">📈</div>
- <h3>NEPSE</h3>
- <a href="https://www.nepalstock.com/">Open</a>
-</div>
+<a class="card" href="https://www.crazygames.com/" target="_blank"><span>🎮</span><b>Games</b></a>
 
-<div class="card">
- <div class="icon">🧩</div>
- <h3>Games</h3>
- <a href="https://poki.com/">Play</a>
-</div>
+<a class="card" href="https://www.nepal.gov.np/" target="_blank"><span>🏛️</span><b>नेपाल सरकार</b></a>
 
-<div class="card">
- <div class="icon">🇳🇵</div>
- <h3>Nepal Services</h3>
- <a href="https://www.nepal.gov.np/">Open</a>
-</div>
+<a class="card" href="https://www.ntc.net.np/" target="_blank"><span>📱</span><b>नेपाल टेलिकम</b></a>
 
 </div>
+</section>
+
+<section id="news">
+<h2>📰 नेपाली समाचार</h2>
+<div class="links">
+<a href="https://www.onlinekhabar.com/" target="_blank">अनलाइनखबर ↗</a>
+<a href="https://ekantipur.com/" target="_blank">कान्तिपुर ↗</a>
+<a href="https://www.setopati.com/" target="_blank">सेतोपाटी ↗</a>
+<a href="https://www.ratopati.com/" target="_blank">रातोपाटी ↗</a>
+<a href="https://gorkhapatraonline.com/" target="_blank">गोरखापत्र ↗</a>
+<a href="https://www.nepalnews.com/" target="_blank">नेपाल न्यूज ↗</a>
+</div>
+</section>
+
+<section id="market">
+<h2>📊 शेयर बजार तथा IPO</h2>
+<div class="links">
+<a href="https://www.nepalstock.com/" target="_blank">NEPSE ↗</a>
+<a href="https://meroshare.cdsc.com.np/" target="_blank">MeroShare ↗</a>
+<a href="https://www.sebon.gov.np/" target="_blank">SEBON ↗</a>
+<a href="https://www.sharesansar.com/" target="_blank">ShareSansar ↗</a>
+</div>
+</section>
+
+<section id="about" class="box">
+<h2>NEPAL SATHI बारेमा</h2>
+<p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
+<p>Developer: Dilip Rimal</p>
+<p>Connect Nepal. Discover More.</p>
+</section>
 
 </main>
 
-<div class="footer">
-NEPAL SATHI<br>
-Developed by Dilip Rimal
-</div>
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
-
-<script>
-const firebaseConfig = {
- apiKey: "AIzaSyCiwHiJZhD_eG1F_j9l69Z0UWXnJfKlC8Q",
- authDomain: "nepal-sathi-c66c7.firebaseapp.com",
- projectId: "nepal-sathi-c66c7",
- storageBucket: "nepal-sathi-c66c7.firebasestorage.app",
- messagingSenderId: "362301883663",
- appId: "1:362301883663:web:512f2d32f863c44974aa7a",
- measurementId: "G-7K2D59HB9J"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-function showMessage(message){
- document.getElementById("message").innerText = message;
-}
-
-function getDetails(){
- const email = document.getElementById("email").value.trim();
- const password = document.getElementById("password").value;
-
- if(!email || !password){
-  showMessage("Email र Password भर्नुहोस्।");
-  return null;
- }
-
- if(password.length < 6){
-  showMessage("Password कम्तीमा ६ अक्षरको हुनुपर्छ।");
-  return null;
- }
-
- return {email,password};
-}
-
-async function register(){
- const details = getDetails();
- if(!details) return;
-
- try{
-  await auth.createUserWithEmailAndPassword(
-   details.email,details.password
-  );
-  showMessage("खाता सफलतापूर्वक बन्यो! 🎉");
- }catch(error){
-  showMessage("Error: " + error.message);
- }
-}
-
-async function login(){
- const details = getDetails();
- if(!details) return;
-
- try{
-  await auth.signInWithEmailAndPassword(
-   details.email,details.password
-  );
-  showMessage("Login सफल भयो! स्वागत छ।");
- }catch(error){
-  showMessage("Error: " + error.message);
- }
-}
-
-async function logout(){
- try{
-  await auth.signOut();
-  showMessage("Logout भयो।");
- }catch(error){
-  showMessage(error.message);
- }
-}
-
-async function resetPassword(){
- const email = document.getElementById("email").value.trim();
-
- if(!email){
-  showMessage("पहिले Email लेख्नुहोस्।");
-  return;
- }
-
- try{
-  await auth.sendPasswordResetEmail(email);
-  showMessage("Password reset email पठाइयो।");
- }catch(error){
-  showMessage("Error: " + error.message);
- }
-}
-
-auth.onAuthStateChanged(user=>{
- if(user){
-  showMessage("Login भएको छ: " + user.email);
- }
-});
-</script>
+<footer>🇳🇵 NEPAL SATHI © 2026</footer>
 
 </body>
 </html>
