@@ -2,68 +2,52 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NEPAL SATHI</title>
-
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 
 <style>
 *{box-sizing:border-box}
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:#f3f5fc;
- color:#252b45;
+ background:#f3f5fb;
+ color:#252943;
 }
 header{
- background:linear-gradient(120deg,#172554,#5145a5,#a855f7);
+ background:linear-gradient(135deg,#14213d,#5145a5,#9b59b6);
  color:white;
  padding:25px 18px 35px;
- border-radius:0 0 30px 30px;
+ border-radius:0 0 28px 28px;
 }
-.brand{font-size:25px;font-weight:bold}
+.logo{font-size:26px;font-weight:bold}
 .tagline{font-size:13px;margin-top:7px}
 .hero{margin-top:28px}
 .hero h2{font-size:25px;margin:0 0 8px}
-.hero p{font-size:14px;opacity:.9}
-.container{max-width:650px;margin:auto;padding:16px}
-.box{
- background:white;padding:20px;
- border-radius:18px;margin:15px 0;
- box-shadow:0 5px 20px #0000000c;
-}
-input{
- width:100%;padding:14px;margin:8px 0;
- border:1px solid #ddd;border-radius:10px;
- font-size:16px;
-}
-button{
- border:0;padding:13px;border-radius:10px;
- background:#5145a5;color:white;
- font-size:15px;cursor:pointer;
-}
-.full{width:100%;margin-top:8px}
-#message{color:#d71920;font-size:14px}
-#app{display:none}
-.section-title{margin:25px 2px 14px}
+.hero p{font-size:14px}
+.container{max-width:700px;margin:auto;padding:16px}
+.section-title{margin:25px 0 14px}
 .grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
  gap:13px;
 }
 .card{
- background:white;padding:18px 12px;
- border-radius:17px;text-align:center;
- box-shadow:0 4px 15px #0000000b;
+ background:white;
+ padding:18px 12px;
+ border-radius:17px;
+ text-align:center;
+ box-shadow:0 4px 15px #0000000c;
 }
-.icon{font-size:34px}
-.card h3{font-size:16px;margin:10px 0 5px}
-.card p{font-size:12px;color:#777;margin:0 0 12px}
+.icon{font-size:35px}
+.card h3{font-size:16px;margin:10px 0 6px}
+.card p{font-size:12px;color:#777}
 .card a{
- display:block;text-decoration:none;
- background:#5145a5;color:white;
- padding:10px;border-radius:9px;
+ display:block;
+ text-decoration:none;
+ background:#5145a5;
+ color:white;
+ padding:11px;
+ border-radius:10px;
  font-size:14px;
 }
 .facebook a{background:#1877f2}
@@ -73,9 +57,40 @@ button{
 .patro a{background:#df8a26}
 .health a{background:#168ac2}
 .games a{background:#7c4dba}
+.login{
+ background:white;
+ padding:20px;
+ margin:20px 0;
+ border-radius:17px;
+ box-shadow:0 4px 15px #0000000c;
+}
+input{
+ width:100%;
+ padding:13px;
+ margin:7px 0;
+ border:1px solid #ddd;
+ border-radius:9px;
+ font-size:16px;
+}
+button{
+ width:100%;
+ padding:13px;
+ border:0;
+ border-radius:9px;
+ background:#5145a5;
+ color:white;
+ margin-top:8px;
+ font-size:15px;
+}
+#message{font-size:13px;color:#d71920}
 .footer{
- text-align:center;padding:25px;
- color:#777;font-size:13px;
+ text-align:center;
+ padding:25px;
+ color:#777;
+ font-size:13px;
+}
+@media(max-width:350px){
+ .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -83,8 +98,56 @@ button{
 <body>
 
 <header>
- <div class="brand">🇳🇵 NEPAL SATHI</div>
+ <div class="logo">🇳🇵 NEPAL SATHI</div>
  <div class="tagline">Connect Nepal. Discover More.</div>
 
  <div class="hero">
-  <h2>नमस्कार! 🙏</h2
+  <h2>नमस्कार 🙏</h2>
+  <p>नेपालको आफ्नै डिजिटल साथी</p>
+  <p>सबै डिजिटल सेवा एकै ठाउँमा!</p>
+ </div>
+</header>
+
+<main class="container">
+
+<!-- LOGIN -->
+<div class="login">
+ <h2>👤 Login / Register</h2>
+ <input id="email" type="email" placeholder="Email Address">
+ <input id="password" type="password" placeholder="Password">
+
+ <button onclick="register()">Create New Account</button>
+ <button onclick="login()">Login</button>
+ <button onclick="logout()" style="background:#555">Logout</button>
+
+ <p id="message">आफ्नो खाता प्रयोग गर्नुहोस्।</p>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<h2 class="section-title">🌐 Social Media</h2>
+
+<div class="grid">
+
+ <div class="card facebook">
+  <div class="icon">📘</div>
+  <h3>Facebook</h3>
+  <p>Connect with friends</p>
+  <a href="https://www.facebook.com/" target="_blank">Open Facebook</a>
+ </div>
+
+ <div class="card tiktok">
+  <div class="icon">🎵</div>
+  <h3>TikTok</h3>
+  <p>Watch short videos</p>
+  <a href="https://www.tiktok.com/" target="_blank">Open TikTok</a>
+ </div>
+
+ <div class="card youtube">
+  <div class="icon">▶️</div>
+  <h3>YouTube</h3>
+  <p>Watch videos</p>
+  <a href="https://www.youtube.com/" target="_blank">Open YouTube</a>
+ </div>
+
+ <div class="card">
+  <div class="icon">📸</div
