@@ -107,4 +107,166 @@ button{
 </div>
 
 <div class="card">
- <div class
+ <div class="icon">🎵</div>
+ <h3>TikTok</h3>
+ <a href="https://www.tiktok.com/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">▶️</div>
+ <h3>YouTube</h3>
+ <a href="https://www.youtube.com/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">📰</div>
+ <h3>Nepal News</h3>
+ <a href="https://news.google.com/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">📅</div>
+ <h3>Nepali Patro</h3>
+ <a href="https://www.hamropatro.com/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">🌤️</div>
+ <h3>Weather</h3>
+ <a href="https://www.meteoblue.com/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">🏥</div>
+ <h3>Health</h3>
+ <a href="https://www.who.int/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">📈</div>
+ <h3>NEPSE</h3>
+ <a href="https://www.nepalstock.com/">Open</a>
+</div>
+
+<div class="card">
+ <div class="icon">🧩</div>
+ <h3>Games</h3>
+ <a href="https://poki.com/">Play</a>
+</div>
+
+<div class="card">
+ <div class="icon">🇳🇵</div>
+ <h3>Nepal Services</h3>
+ <a href="https://www.nepal.gov.np/">Open</a>
+</div>
+
+</div>
+
+</main>
+
+<div class="footer">
+NEPAL SATHI<br>
+Developed by Dilip Rimal
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+ apiKey: "AIzaSyCiwHiJZhD_eG1F_j9l69Z0UWXnJfKlC8Q",
+ authDomain: "nepal-sathi-c66c7.firebaseapp.com",
+ projectId: "nepal-sathi-c66c7",
+ storageBucket: "nepal-sathi-c66c7.firebasestorage.app",
+ messagingSenderId: "362301883663",
+ appId: "1:362301883663:web:512f2d32f863c44974aa7a",
+ measurementId: "G-7K2D59HB9J"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+function showMessage(message){
+ document.getElementById("message").innerText = message;
+}
+
+function getDetails(){
+ const email = document.getElementById("email").value.trim();
+ const password = document.getElementById("password").value;
+
+ if(!email || !password){
+  showMessage("Email र Password भर्नुहोस्।");
+  return null;
+ }
+
+ if(password.length < 6){
+  showMessage("Password कम्तीमा ६ अक्षरको हुनुपर्छ।");
+  return null;
+ }
+
+ return {email,password};
+}
+
+async function register(){
+ const details = getDetails();
+ if(!details) return;
+
+ try{
+  await auth.createUserWithEmailAndPassword(
+   details.email,details.password
+  );
+  showMessage("खाता सफलतापूर्वक बन्यो! 🎉");
+ }catch(error){
+  showMessage("Error: " + error.message);
+ }
+}
+
+async function login(){
+ const details = getDetails();
+ if(!details) return;
+
+ try{
+  await auth.signInWithEmailAndPassword(
+   details.email,details.password
+  );
+  showMessage("Login सफल भयो! स्वागत छ।");
+ }catch(error){
+  showMessage("Error: " + error.message);
+ }
+}
+
+async function logout(){
+ try{
+  await auth.signOut();
+  showMessage("Logout भयो।");
+ }catch(error){
+  showMessage(error.message);
+ }
+}
+
+async function resetPassword(){
+ const email = document.getElementById("email").value.trim();
+
+ if(!email){
+  showMessage("पहिले Email लेख्नुहोस्।");
+  return;
+ }
+
+ try{
+  await auth.sendPasswordResetEmail(email);
+  showMessage("Password reset email पठाइयो।");
+ }catch(error){
+  showMessage("Error: " + error.message);
+ }
+}
+
+auth.onAuthStateChanged(user=>{
+ if(user){
+  showMessage("Login भएको छ: " + user.email);
+ }
+});
+</script>
+
+</body>
+</html>
