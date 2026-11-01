@@ -2,7 +2,7 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEPAL SATHI</title>
 
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -13,87 +13,69 @@
 body{
  margin:0;
  font-family:Arial,sans-serif;
- background:#f1f3fa;
- color:#20243a;
+ background:#f3f5fc;
+ color:#252b45;
 }
 header{
- background:linear-gradient(135deg,#182848,#4b3f91,#8e44ad);
+ background:linear-gradient(120deg,#172554,#5145a5,#a855f7);
  color:white;
- padding:28px 18px;
- border-radius:0 0 28px 28px;
+ padding:25px 18px 35px;
+ border-radius:0 0 30px 30px;
 }
-.top{
- display:flex;
- justify-content:space-between;
- align-items:center;
-}
-.logo{font-size:25px;font-weight:bold}
-.tag{font-size:13px;opacity:.9}
-.hero{
- padding:25px 0 10px;
-}
-.hero h2{font-size:25px;margin:5px 0}
-.hero p{opacity:.9}
-.container{
- max-width:650px;
- margin:auto;
- padding:15px;
-}
+.brand{font-size:25px;font-weight:bold}
+.tagline{font-size:13px;margin-top:7px}
+.hero{margin-top:28px}
+.hero h2{font-size:25px;margin:0 0 8px}
+.hero p{font-size:14px;opacity:.9}
+.container{max-width:650px;margin:auto;padding:16px}
 .box{
- background:white;
- padding:18px;
- border-radius:18px;
- margin:15px 0;
- box-shadow:0 5px 18px #20243a12;
+ background:white;padding:20px;
+ border-radius:18px;margin:15px 0;
+ box-shadow:0 5px 20px #0000000c;
 }
 input{
- width:100%;
- padding:14px;
- margin:8px 0;
- border:1px solid #ddd;
- border-radius:10px;
+ width:100%;padding:14px;margin:8px 0;
+ border:1px solid #ddd;border-radius:10px;
  font-size:16px;
 }
 button{
- border:0;
- padding:13px;
- border-radius:11px;
- background:#5145a5;
- color:white;
- font-size:15px;
- cursor:pointer;
+ border:0;padding:13px;border-radius:10px;
+ background:#5145a5;color:white;
+ font-size:15px;cursor:pointer;
 }
 .full{width:100%;margin-top:8px}
 #message{color:#d71920;font-size:14px}
 #app{display:none}
+.section-title{margin:25px 2px 14px}
 .grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
- gap:12px;
+ gap:13px;
 }
 .card{
- background:white;
- padding:19px 12px;
- border-radius:17px;
- text-align:center;
- box-shadow:0 4px 14px #2222220d;
+ background:white;padding:18px 12px;
+ border-radius:17px;text-align:center;
+ box-shadow:0 4px 15px #0000000b;
 }
-.card .icon{font-size:32px}
-.card h3{font-size:15px;margin:10px 0 5px}
-.card p{font-size:12px;color:#777;margin:0}
-.card button{width:100%;margin-top:12px}
-.facebook{background:#1877f2}
-.tiktok{background:#111}
-.youtube{background:#e62117}
-.news{background:#168c70}
-.patro{background:#e18a25}
-.health{background:#2487c9}
-.games{background:#7c4dba}
+.icon{font-size:34px}
+.card h3{font-size:16px;margin:10px 0 5px}
+.card p{font-size:12px;color:#777;margin:0 0 12px}
+.card a{
+ display:block;text-decoration:none;
+ background:#5145a5;color:white;
+ padding:10px;border-radius:9px;
+ font-size:14px;
+}
+.facebook a{background:#1877f2}
+.tiktok a{background:#111}
+.youtube a{background:#e62117}
+.news a{background:#168c70}
+.patro a{background:#df8a26}
+.health a{background:#168ac2}
+.games a{background:#7c4dba}
 .footer{
- text-align:center;
- padding:25px;
- color:#777;
- font-size:13px;
+ text-align:center;padding:25px;
+ color:#777;font-size:13px;
 }
 </style>
 </head>
@@ -101,206 +83,8 @@ button{
 <body>
 
 <header>
- <div class="top">
-  <div class="logo">🇳🇵 NEPAL SATHI</div>
-  <div>🌐 NEP | ENG</div>
- </div>
+ <div class="brand">🇳🇵 NEPAL SATHI</div>
+ <div class="tagline">Connect Nepal. Discover More.</div>
 
  <div class="hero">
-  <h2>नेपालको आफ्नै डिजिटल साथी</h2>
-  <p>Connect Nepal. Discover More.</p>
-  <small>Welcome to NEPAL SATHI ❤️</small>
- </div>
-</header>
-
-<div class="container">
-
-<div id="loginBox" class="box">
- <h2>Welcome 👋</h2>
- <p>Login गर्नुहोस् वा नयाँ खाता बनाउनुहोस्।</p>
-
- <input id="email" type="email" placeholder="Email Address">
- <input id="password" type="password" placeholder="Password">
-
- <button class="full" id="loginBtn">Login</button>
- <button class="full" id="registerBtn">Create New Account</button>
- <button class="full" id="resetBtn" style="background:#555">Forgot Password?</button>
- <p id="message"></p>
-</div>
-
-<div id="app">
-
-<div class="box">
- <h2>नमस्कार 🙏</h2>
- <p id="userEmail"></p>
- <button id="logoutBtn">Logout</button>
-</div>
-
-<h2>🌟 Social Media</h2>
-
-<div class="grid">
-
-<div class="card">
- <div class="icon">📘</div>
- <h3>Facebook</h3>
- <p>Connect with friends</p>
- <button class="facebook" onclick="openSite('https://www.facebook.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">🎵</div>
- <h3>TikTok</h3>
- <p>Watch short videos</p>
- <button class="tiktok" onclick="openSite('https://www.tiktok.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">▶️</div>
- <h3>YouTube</h3>
- <p>Watch videos</p>
- <button class="youtube" onclick="openSite('https://www.youtube.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">📸</div>
- <h3>Instagram</h3>
- <p>Photos and reels</p>
- <button onclick="openSite('https://www.instagram.com/')">Open</button>
-</div>
-
-</div>
-
-<h2>🇳🇵 Nepal Services</h2>
-
-<div class="grid">
-
-<div class="card">
- <div class="icon">📰</div>
- <h3>Nepal News</h3>
- <p>मुख्य समाचार</p>
- <button class="news" onclick="openSite('https://news.google.com/topstories?hl=ne&gl=NP&ceid=NP:ne')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">📅</div>
- <h3>Nepali Patro</h3>
- <p>नेपाली पात्रो</p>
- <button class="patro" onclick="openSite('https://www.hamropatro.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">🌦️</div>
- <h3>Weather</h3>
- <p>मौसम जानकारी</p>
- <button onclick="openSite('https://www.accuweather.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">🏥</div>
- <h3>Health</h3>
- <p>स्वास्थ्य जानकारी</p>
- <button class="health" onclick="openSite('https://www.who.int/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">👨‍⚕️</div>
- <h3>Online Doctor</h3>
- <p>Doctor consultation</p>
- <button class="health" onclick="openSite('https://www.merodoctor.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">📈</div>
- <h3>NEPSE / IPO</h3>
- <p>Share market</p>
- <button onclick="openSite('https://www.nepalstock.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">🎮</div>
- <h3>Gaming Zone</h3>
- <p>Play games</p>
- <button class="games" onclick="openSite('https://www.chess.com/')">Open</button>
-</div>
-
-<div class="card">
- <div class="icon">💬</div>
- <h3>Chat</h3>
- <p>Communication</p>
- <button onclick="alert('Chat सुविधा निर्माण हुँदैछ।')">Open</button>
-</div>
-
-</div>
-</div>
-</div>
-
-<div class="footer">
- NEPAL SATHI © 2026<br>
- Developed by Dilip Rimal 🇳🇵
-</div>
-
-<script>
-function openSite(url){
- window.open(url,"_blank");
-}
-
-const firebaseConfig = {
- apiKey:"AIzaSyCiwHiJZhD_eG1F_j9l69Z0UWXnJfKlC8Q",
- authDomain:"nepal-sathi-c66c7.firebaseapp.com",
- projectId:"nepal-sathi-c66c7",
- storageBucket:"nepal-sathi-c66c7.firebasestorage.app",
- messagingSenderId:"362301883663",
- appId:"1:362301883663:web:512f2d32f863c44974aa7a",
- measurementId:"G-7K2D59HB9J"
-};
-
-firebase.initializeApp(firebaseConfig);
-const auth=firebase.auth();
-
-const email=document.getElementById("email");
-const password=document.getElementById("password");
-const message=document.getElementById("message");
-
-document.getElementById("registerBtn").onclick=async()=>{
- message.innerText="खाता बनाउँदैछ...";
- try{
-  await auth.createUserWithEmailAndPassword(
-   email.value.trim(),password.value
-  );
- }catch(e){message.innerText=e.message;}
-};
-
-document.getElementById("loginBtn").onclick=async()=>{
- message.innerText="Login हुँदैछ...";
- try{
-  await auth.signInWithEmailAndPassword(
-   email.value.trim(),password.value
-  );
- }catch(e){message.innerText=e.message;}
-};
-
-document.getElementById("resetBtn").onclick=async()=>{
- try{
-  await auth.sendPasswordResetEmail(email.value.trim());
-  message.innerText="Reset email पठाइयो।";
- }catch(e){message.innerText=e.message;}
-};
-
-document.getElementById("logoutBtn").onclick=()=>{
- auth.signOut();
-};
-
-auth.onAuthStateChanged(user=>{
- if(user){
-  document.getElementById("loginBox").style.display="none";
-  document.getElementById("app").style.display="block";
-  document.getElementById("userEmail").innerText=user.email;
- }else{
-  document.getElementById("loginBox").style.display="block";
-  document.getElementById("app").style.display="none";
- }
-});
-</script>
-
-</body>
-</html>
+  <h2>नमस्कार! 🙏</h2
