@@ -1,1 +1,8 @@
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#e60000"/>
+  <circle cx="256" cy="256" r="185" fill="white"/>
+  <text x="256" y="330" font-size="220" font-weight="bold"
+        text-anchor="middle" fill="#e60000">D</text>
+  <text x="256" y="420" font-size="48" font-weight="bold"
+        text-anchor="middle" fill="#222">SATHI</text>
+</svg>
