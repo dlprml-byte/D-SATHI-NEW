@@ -28,8 +28,15 @@ h2{color:#173c78}
 .links a{background:white;padding:13px;border-radius:10px;text-decoration:none;color:#164b91}
 footer{text-align:center;padding:25px;color:#66738a}
 </style>
-</head>
-<body>
+</head><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e60000">
+<body><script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js");
+  });
+}
+</script>
 
 <header id="home">
 <div style="font-size:35px">🇳🇵</div>
