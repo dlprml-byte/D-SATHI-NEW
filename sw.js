@@ -1,4 +1,4 @@
-const CACHE_NAME = "d-sathi-v3";
+const CACHE_NAME = "d-sathi-v4";
 
 const FILES_TO_CACHE = [
 "./",
@@ -9,17 +9,15 @@ const FILES_TO_CACHE = [
 "./offline.html"
 ];
 
-// Install
 self.addEventListener("install", event => {
 event.waitUntil(
-caches.open(CACHE_NAME).then(cache => {
-return cache.addAll(FILES_TO_CACHE);
-})
+caches.open(CACHE_NAME).then(cache =>
+cache.addAll(FILES_TO_CACHE)
+)
 );
 self.skipWaiting();
 });
 
-// Activate
 self.addEventListener("activate", event => {
 event.waitUntil(
 caches.keys().then(keys =>
@@ -33,29 +31,28 @@ keys
 self.clients.claim();
 });
 
-// Fetch
 self.addEventListener("fetch", event => {
 if (event.request.method !== "GET") return;
 
+if (event.request.mode === "navigate") {
 event.respondWith(
-fetch(event.request)
-.then(response => {
+fetch(event.request).catch(async () => {
+return await caches.match(event.request) ||
+await caches.match("./offline.html");
+})
+);
+return;
+}
+
+event.respondWith(
+fetch(event.request).then(response => {
 if (response.ok) {
 const copy = response.clone();
-caches.open(CACHE_NAME).then(cache => {
-cache.put(event.request, copy);
-});
+caches.open(CACHE_NAME).then(cache =>
+cache.put(event.request, copy)
+);
 }
 return response;
-})
-.catch(async () => {
-const cached = await caches.match(event.request);
-if (cached) return cached;
-
-    if (event.request.mode === "navigate") {
-      return caches.match("./offline.html");
-    }
-  })
-
+}).catch(() => caches.match(event.request))
 );
 });
