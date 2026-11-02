@@ -1,48 +1,215 @@
 <!DOCTYPE html>
 <html lang="ne">
-<head><link rel="manifest" href="./manifest.json">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEPAL SATHI</title>
+<title>D SATHI</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#e60000">
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f1f4fa;color:#17233b}
+
+body{
+ margin:0;
+ font-family:Arial,"Noto Sans Devanagari",sans-serif;
+ background:#f1f4fa;
+ color:#17233b;
+}
+
+/* TOP ADVERTISEMENT */
+.ad-banner{
+ margin:0;
+ padding:22px 15px;
+ text-align:center;
+ background:linear-gradient(135deg,#fff1c9,#ffe0a3);
+ border-bottom:4px solid #d99a16;
+}
+
+.ad-label{
+ display:inline-block;
+ background:#b40000;
+ color:white;
+ padding:4px 14px;
+ border-radius:20px;
+ font-size:12px;
+ margin-bottom:10px;
+}
+
+.ad-banner h2{
+ color:#a00000;
+ font-size:24px;
+ margin:8px 0;
+}
+
+.ad-banner p{
+ margin:8px 0;
+ line-height:1.7;
+}
+
+.ad-icon{
+ font-size:38px;
+}
+
+.ad-button{
+ display:inline-block;
+ background:#c90000;
+ color:white;
+ text-decoration:none;
+ padding:11px 25px;
+ border-radius:25px;
+ font-weight:bold;
+ margin-top:8px;
+}
+
+/* HEADER */
 header{
- padding:55px 15px;text-align:center;color:white;
+ padding:55px 15px;
+ text-align:center;
+ color:white;
  background:linear-gradient(#071b3b88,#071b3bcc),
  url('https://images.unsplash.com/photo-1568641276587-4b5a0ac73cf6?auto=format&fit=crop&w=1600&q=85') center/cover;
- border-radius:0 0 25px 25px
+ border-radius:0 0 25px 25px;
 }
-header h1{font-size:38px;margin:10px}
-header p{font-size:17px}
-nav{background:#10234b;padding:13px;display:flex;gap:20px;overflow:auto;position:sticky;top:0}
-nav a{color:white;text-decoration:none;white-space:nowrap}
-main{max-width:1000px;margin:auto;padding:18px}
-.welcome,.box{background:white;padding:18px;border-radius:15px;margin-bottom:18px}
+
+header h1{
+ font-size:38px;
+ margin:10px;
+}
+
+header p{
+ font-size:17px;
+}
+
+nav{
+ background:#10234b;
+ padding:13px;
+ display:flex;
+ gap:20px;
+ overflow:auto;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+nav a{
+ color:white;
+ text-decoration:none;
+ white-space:nowrap;
+}
+
+main{
+ max-width:1000px;
+ margin:auto;
+ padding:18px;
+}
+
+.welcome,.box{
+ background:white;
+ padding:18px;
+ border-radius:15px;
+ margin-bottom:18px;
+}
+
 h2{color:#173c78}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-.card{background:white;text-decoration:none;color:#17233b;text-align:center;padding:22px 8px;border-radius:15px;box-shadow:0 3px 12px #00000010}
-.card span{display:block;font-size:34px;margin-bottom:8px}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:13px;
+}
+
+.card{
+ background:white;
+ text-decoration:none;
+ color:#17233b;
+ text-align:center;
+ padding:22px 8px;
+ border-radius:15px;
+ box-shadow:0 3px 12px #00000010;
+}
+
+.card span{
+ display:block;
+ font-size:34px;
+ margin-bottom:8px;
+}
+
 .card b{font-size:16px}
-.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.links a{background:white;padding:13px;border-radius:10px;text-decoration:none;color:#164b91}
-footer{text-align:center;padding:25px;color:#66738a}
+
+.links{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+ gap:10px;
+}
+
+.links a{
+ background:white;
+ padding:13px;
+ border-radius:10px;
+ text-decoration:none;
+ color:#164b91;
+}
+
+footer{
+ text-align:center;
+ padding:25px;
+ color:#66738a;
+}
 </style>
-</head><link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#e60000">
-<body><script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js");
-  });
+</head>
+
+<body>
+
+<!-- SERVICE WORKER -->
+<script>
+if("serviceWorker" in navigator){
+ window.addEventListener("load",()=>{
+ navigator.serviceWorker.register("sw.js");
+ });
 }
 </script>
 
+<!-- TOP BUSINESS ADVERTISEMENT -->
+<section class="ad-banner">
+
+<div class="ad-label">📢 विशेष विज्ञापन</div>
+
+<div class="ad-icon">🌺 🪔 🌸</div>
+
+<h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
+
+<p>
+🙏 पूजापाठका सम्पूर्ण सामग्री<br>
+🎁 आकर्षक उपहार तथा फेन्सी सामान<br>
+🌸 विभिन्न पूजाका आवश्यक सामग्री
+</p>
+
+<p>
+📍 <b>मोदी–२, पातिचौर</b>
+</p>
+
+<a class="ad-button"
+href="https://www.google.com/maps/search/?api=1&query=Modi+2+Patischour+Parbat+Nepal"
+target="_blank">
+📍 स्थान हेर्नुहोस्
+</a>
+
+<p><b>तपाईंको विश्वास, हाम्रो सेवा! ❤️</b></p>
+
+</section>
+
+<!-- HEADER -->
 <header id="home">
+
 <div style="font-size:35px">🇳🇵</div>
-<h1>NEPAL SATHI</h1>
+
+<h1>D SATHI</h1>
+
 <p>नेपालको आफ्नै डिजिटल साथी</p>
+
 <p>Connect Nepal. Discover More.</p>
+
 </header>
 
 <nav>
@@ -57,38 +224,65 @@ if ("serviceWorker" in navigator) {
 
 <div class="welcome">
 <h2>🙏 नमस्कार!</h2>
-<p>नेपालका समाचार, पात्रो, मौसम, स्वास्थ्य, शेयर बजार र मनोरञ्जनका सेवाहरू एउटै ठाउँमा।</p>
+<p>
+नेपालका समाचार, पात्रो, मौसम, स्वास्थ्य,
+शेयर बजार र मनोरञ्जनका सेवाहरू एउटै ठाउँमा।
+</p>
 </div>
 
 <section id="services">
+
 <h2>🇳🇵 हाम्रा सेवाहरू</h2>
+
 <div class="grid">
 
-<a class="card" href="#news"><span>📰</span><b>नेपाली समाचार</b></a>
+<a class="card" href="#news">
+<span>📰</span><b>नेपाली समाचार</b>
+</a>
 
-<a class="card" href="https://nepalipatro.com.np/" target="_blank"><span>📅</span><b>नेपाली पात्रो</b></a>
+<a class="card" href="https://nepalipatro.com.np/" target="_blank">
+<span>📅</span><b>नेपाली पात्रो</b>
+</a>
 
-<a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank"><span>🌤️</span><b>मौसम</b></a>
+<a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank">
+<span>🌤️</span><b>मौसम</b>
+</a>
 
-<a class="card" href="https://www.mohp.gov.np/" target="_blank"><span>🏥</span><b>स्वास्थ्य</b></a>
+<a class="card" href="https://www.mohp.gov.np/" target="_blank">
+<span>🏥</span><b>स्वास्थ्य</b>
+</a>
 
-<a class="card" href="#market"><span>📈</span><b>NEPSE / IPO</b></a>
+<a class="card" href="#market">
+<span>📈</span><b>NEPSE / IPO</b>
+</a>
 
-<a class="card" href="https://www.youtube.com/" target="_blank"><span>▶️</span><b>YouTube</b></a>
+<a class="card" href="https://www.youtube.com/" target="_blank">
+<span>▶️</span><b>YouTube</b>
+</a>
 
-<a class="card" href="https://www.youtube.com/shorts/" target="_blank"><span>🎬</span><b>Nepal Shorts</b></a>
+<a class="card" href="https://www.youtube.com/shorts/" target="_blank">
+<span>🎬</span><b>Nepal Shorts</b>
+</a>
 
-<a class="card" href="https://www.crazygames.com/" target="_blank"><span>🎮</span><b>Games</b></a>
+<a class="card" href="https://www.crazygames.com/" target="_blank">
+<span>🎮</span><b>Games</b>
+</a>
 
-<a class="card" href="https://www.nepal.gov.np/" target="_blank"><span>🏛️</span><b>नेपाल सरकार</b></a>
+<a class="card" href="https://www.nepal.gov.np/" target="_blank">
+<span>🏛️</span><b>नेपाल सरकार</b>
+</a>
 
-<a class="card" href="https://www.ntc.net.np/" target="_blank"><span>📱</span><b>नेपाल टेलिकम</b></a>
+<a class="card" href="https://www.ntc.net.np/" target="_blank">
+<span>📱</span><b>नेपाल टेलिकम</b>
+</a>
 
 </div>
 </section>
 
 <section id="news">
+
 <h2>📰 नेपाली समाचार</h2>
+
 <div class="links">
 <a href="https://www.onlinekhabar.com/" target="_blank">अनलाइनखबर ↗</a>
 <a href="https://ekantipur.com/" target="_blank">कान्तिपुर ↗</a>
@@ -97,28 +291,37 @@ if ("serviceWorker" in navigator) {
 <a href="https://gorkhapatraonline.com/" target="_blank">गोरखापत्र ↗</a>
 <a href="https://www.nepalnews.com/" target="_blank">नेपाल न्यूज ↗</a>
 </div>
+
 </section>
 
 <section id="market">
+
 <h2>📊 शेयर बजार तथा IPO</h2>
+
 <div class="links">
 <a href="https://www.nepalstock.com/" target="_blank">NEPSE ↗</a>
 <a href="https://meroshare.cdsc.com.np/" target="_blank">MeroShare ↗</a>
 <a href="https://www.sebon.gov.np/" target="_blank">SEBON ↗</a>
 <a href="https://www.sharesansar.com/" target="_blank">ShareSansar ↗</a>
 </div>
+
 </section>
 
 <section id="about" class="box">
-<h2>NEPAL SATHI बारेमा</h2>
+
+<h2>D SATHI बारेमा</h2>
+
 <p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
 <p>Developer: Dilip Rimal</p>
 <p>Connect Nepal. Discover More.</p>
+
 </section>
 
 </main>
 
-<footer>🇳🇵 NEPAL SATHI © 2026</footer>
+<footer>
+🇳🇵 D SATHI © 2026
+</footer>
 
 </body>
 </html>
