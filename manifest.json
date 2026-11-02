@@ -1,27 +1,27 @@
 {
-"id": "/D-SATHI-NEW/",
-"name": "D SATHI",
-"short_name": "SATHI",
-"description": "D SATHI - Nepal's Digital Companion",
-"lang": "ne",
-"start_url": "/D-SATHI-NEW/",
-"scope": "/D-SATHI-NEW/",
-"display": "standalone",
-"orientation": "portrait",
-"background_color": "#ffffff",
-"theme_color": "#e60000",
-"icons": [
-{
-"src": "/D-SATHI-NEW/icon192.png",
-"sizes": "512x512",
-"type": "image/png",
-"purpose": "any"
-},
-{
-"src": "/D-SATHI-NEW/icon512.png",
-"sizes": "512x512",
-"type": "image/png",
-"purpose": "any"
-}
-]
+  "id": "/D-SATHI-NEW/",
+  "name": "D SATHI",
+  "short_name": "SATHI",
+  "description": "D SATHI - Nepal's Digital Companion",
+  "lang": "ne",
+  "start_url": "/D-SATHI-NEW/",
+  "scope": "/D-SATHI-NEW/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#e60000",
+  "icons": [
+    {
+      "src": "/D-SATHI-NEW/icon192.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/D-SATHI-NEW/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
