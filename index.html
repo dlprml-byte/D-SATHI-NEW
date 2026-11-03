@@ -3,375 +3,470 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#e60000">
-<meta name="description" content="D SATHI Nepal Digital Platform">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b55">
+<meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी">
 <link rel="manifest" href="./manifest.json">
-<title>D SATHI - Digital Nepal</title>
+<title>D SATHI | Digital Nepal</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f2f4f8;color:#222;font-family:Arial,sans-serif;padding-bottom:75px}
-header{background:linear-gradient(120deg,#d60000,#ff4545);color:white;padding:14px;position:sticky;top:0;z-index:10}
-.top{display:flex;align-items:center;gap:12px}
-.logo{width:45px;height:45px;border-radius:13px;background:white;color:#e60000;display:grid;place-items:center;font-size:22px;font-weight:bold}
-.brand{font-size:23px;font-weight:bold}
-.small{font-size:11px}
-main{max-width:650px;margin:auto;padding:12px}
-.page{display:none}
-.page.active{display:block}
-.card{background:white;border-radius:15px;padding:15px;margin-bottom:13px;box-shadow:0 2px 8px #0000000d}
-h2{font-size:20px}
-h3{font-size:17px}
-button{border:0;border-radius:10px;padding:12px;background:#e60000;color:white;font-weight:bold;cursor:pointer}
-input,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:7px 0;font:inherit}
-textarea{min-height:85px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.tile{background:white;border-radius:14px;padding:15px 5px;text-align:center;font-size:13px;cursor:pointer}
-.tile span{font-size:27px;display:block;margin-bottom:8px}
-.banner{background:linear-gradient(120deg,#171717,#555);color:white;padding:23px;border-radius:16px;margin-bottom:15px}
-.login{min-height:90vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(145deg,#fff,#ffe8e8)}
-.login-box{width:100%;max-width:390px;background:white;padding:25px;border-radius:22px;text-align:center;box-shadow:0 8px 30px #0002}
-.login-logo{width:75px;height:75px;background:#e60000;color:white;border-radius:22px;margin:auto;display:grid;place-items:center;font-size:32px;font-weight:bold}
-.login-btn{width:100%;margin:9px 0;font-size:15px}
-.fb{background:#1877f2}
-.tk{background:#111}
-.guest{background:#eee;color:#333}
-.page-title{font-weight:bold;font-size:20px;margin:14px 0}
-.post-image,.video{width:100%;border-radius:12px;max-height:450px;object-fit:cover}
-.actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.actions button{background:#eee;color:#333}
-nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:8px 2px;box-shadow:0 -2px 12px #0002;z-index:20}
-nav button{background:none;color:#555;padding:5px 2px;font-size:11px}
-nav span{display:block;font-size:20px}
-nav button.selected{color:#e60000}
-.story{display:flex;gap:14px;overflow:auto;margin-bottom:15px}
-.story div{min-width:65px;text-align:center;font-size:12px}
-.story i{display:grid;place-items:center;width:55px;height:55px;border:2px solid #e60000;border-radius:50%;font-size:25px;margin:auto auto 5px}
-footer{text-align:center;color:#888;font-size:12px;padding:20px}
-.hidden{display:none!important}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,"Noto Sans Devanagari",sans-serif;
+ background:#f3f5f9;
+ color:#202b3c;
+}
+header{
+ background:linear-gradient(120deg,#102b55,#174d88);
+ color:white;
+ padding:17px 15px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{
+ width:46px;height:46px;border-radius:13px;
+ background:white;color:#123b70;
+ display:grid;place-items:center;
+ font-size:23px;font-weight:bold;
+}
+.logo h1{font-size:23px;margin:0}
+.logo small{font-size:11px;color:#dceaff}
+.header-right{font-size:25px}
+nav{
+ display:flex;gap:8px;overflow-x:auto;
+ background:#0b2040;padding:10px;
+ position:sticky;top:0;z-index:10;
+}
+nav a{
+ color:white;text-decoration:none;
+ white-space:nowrap;font-size:13px;
+ padding:8px 12px;border-radius:20px;
+ background:#203d64;
+}
+nav a:hover{background:#e0a52b;color:#14213b}
+.container{max-width:1050px;margin:auto;padding:13px}
+.ad{
+ background:linear-gradient(120deg,#fff5d9,#ffe5a5);
+ border:1px solid #e7bd63;
+ border-radius:15px;padding:17px;
+ text-align:center;margin-bottom:15px;
+}
+.ad h2{color:#873b09;margin:5px 0;font-size:20px}
+.ad p{margin:7px 0;color:#63401b}
+.ad small{color:#805b32}
+.section-title{
+ font-size:19px;color:#153b6b;
+ margin:22px 0 12px;
+ border-left:4px solid #e3a52b;
+ padding-left:10px;
+}
+.card{
+ background:white;border-radius:14px;
+ padding:15px;margin-bottom:13px;
+ box-shadow:0 3px 12px #182b4610;
+ border:1px solid #e8edf4;
+}
+.grid{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:10px;
+}
+.service{
+ background:white;border-radius:13px;
+ padding:15px 5px;text-align:center;
+ box-shadow:0 3px 10px #182b4610;
+ text-decoration:none;color:#20334d;
+ border:1px solid #edf0f5;
+}
+.service span{display:block;font-size:27px;margin-bottom:7px}
+.service b{font-size:13px}
+.greeting{
+ background:linear-gradient(120deg,#a51d27,#ed6841);
+ color:white;text-align:center;
+ padding:20px;border-radius:15px;
+ margin-bottom:12px;
+}
+.greeting.chhath{background:linear-gradient(120deg,#a64c08,#e99b26)}
+.greeting h3{margin:5px 0 8px;font-size:20px}
+.greeting p{margin:0;font-size:14px}
+.news-item{
+ padding:11px 0;border-bottom:1px solid #edf0f4;
+}
+.news-item:last-child{border:0}
+.news-item b{color:#183d6b}
+button{
+ border:0;border-radius:9px;
+ padding:10px 15px;background:#174d88;
+ color:white;font-size:14px;cursor:pointer;
+}
+button:hover{opacity:.9}
+input,textarea,select{
+ width:100%;padding:12px;margin:7px 0;
+ border:1px solid #dce2eb;border-radius:9px;
+ font:inherit;background:white;
+}
+textarea{min-height:100px;resize:vertical}
+.score-card{
+ background:linear-gradient(130deg,#102b55,#1c568c);
+ color:white;border-radius:14px;
+ padding:16px;margin:10px 0;
+}
+.score-card h3{margin:0 0 10px}
+.score-line{
+ display:flex;justify-content:space-between;
+ gap:10px;padding:9px 0;
+ border-bottom:1px solid #ffffff30;
+}
+.live-dot{
+ display:inline-block;width:8px;height:8px;
+ border-radius:50%;background:#ff5757;
+ margin-right:5px;
+}
+.muted{color:#7c8798;font-size:13px}
+footer{
+ background:#102b55;color:#dce8f7;
+ text-align:center;padding:20px;margin-top:25px;
+ font-size:13px;
+}
+footer a{color:#ffd16c}
+@media(min-width:700px){
+ .grid{grid-template-columns:repeat(4,1fr)}
+ .container{padding:20px}
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN PAGE -->
-<section id="loginPage" class="login">
-<div class="login-box">
- <div class="login-logo">DS</div>
- <h1>D SATHI</h1>
- <p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
- <p>आफ्नो खाताबाट प्रवेश गर्नुहोस्</p>
-
- <button class="login-btn fb" onclick="socialLogin('facebook')">
-  f &nbsp; Continue with Facebook
- </button>
-
- <button class="login-btn tk" onclick="socialLogin('tiktok')">
-  ♪ &nbsp; Continue with TikTok
- </button>
-
- <button class="login-btn guest" onclick="guestLogin()">
-  Guest Mode / पाहुनाको रूपमा प्रवेश
- </button>
-
- <p class="small">Login गर्दा सम्बन्धित सेवाको आधिकारिक अनुमति आवश्यक हुन्छ।</p>
-</div>
-</section>
-
-<!-- APP -->
-<div id="app" class="hidden">
-
 <header>
- <div class="top">
-  <div class="logo">DS</div>
+ <div class="logo">
+  <div class="logo-icon">DS</div>
   <div>
-   <div class="brand">D SATHI</div>
-   <div class="small">Digital Nepal 🇳🇵</div>
+   <h1>D SATHI</h1>
+   <small>नेपालको आफ्नै डिजिटल साथी 🇳🇵</small>
   </div>
  </div>
+ <div class="header-right">🇳🇵</div>
 </header>
 
-<main>
+<nav>
+ <a href="#home">🏠 Home</a>
+ <a href="#news">📰 News</a>
+ <a href="#social">👥 Social</a>
+ <a href="#cricket">🏏 Live Score</a>
+ <a href="#nepse">📈 NEPSE</a>
+ <a href="#festival">🎉 शुभकामना</a>
+ <a href="#feedback">⭐ Feedback</a>
+</nav>
 
-<section class="page active" id="home">
- <div class="banner">
-  <h2>नमस्कार, D SATHI मा स्वागत छ!</h2>
-  <p>सबै डिजिटल सेवा एउटै ठाउँमा।</p>
- </div>
+<main class="container" id="home">
 
- <div class="page-title">हाम्रा सेवाहरू</div>
- <div class="grid">
-  <div class="tile" onclick="show('news')"><span>📰</span>समाचार</div>
-  <div class="tile" onclick="show('social')"><span>📘</span>Social</div>
-  <div class="tile" onclick="show('videos')"><span>🎬</span>Videos</div>
-  <div class="tile" onclick="show('youtube')"><span>▶️</span>YouTube</div>
-  <div class="tile" onclick="show('cricket')"><span>🏏</span>Cricket</div>
-  <div class="tile" onclick="show('nepse')"><span>📈</span>NEPSE</div>
-  <div class="tile" onclick="show('weather')"><span>🌦️</span>मौसम</div>
-  <div class="tile" onclick="show('calendar')"><span>📅</span>पात्रो</div>
-  <div class="tile" onclick="show('festival')"><span>🎉</span>चाडपर्व</div>
-  <div class="tile" onclick="show('chat')"><span>💬</span>Chat</div>
-  <div class="tile" onclick="show('feedback')"><span>⭐</span>Feedback</div>
-  <div class="tile" onclick="show('developer')"><span>👨‍💻</span>Developer</div>
+<!-- Advertisement -->
+<div class="ad">
+ <small>📢 विशेष विज्ञापन</small>
+ <h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
+ <p>मोदी–२, पातिचौर</p>
+ <b>🎊 सम्पूर्ण पूजा तथा फेन्सी सामग्री उपलब्ध</b>
+</div>
+
+<!-- Greetings -->
+<div class="greeting">
+ <div style="font-size:35px">🪔✨</div>
+ <h3>शुभ दीपावली तथा तिहारको हार्दिक मंगलमय शुभकामना!</h3>
+ <p>तपाईं र तपाईंको परिवारमा सुख, शान्ति, समृद्धि र खुशियाली छाओस्।</p>
+</div>
+
+<div class="greeting chhath">
+ <div style="font-size:35px">🌅🙏</div>
+ <h3>छठ पर्वको हार्दिक शुभकामना!</h3>
+ <p>सूर्यदेव र छठी माताको कृपाले सबैको जीवन सुखमय बनोस्।</p>
+</div>
+
+<!-- Services -->
+<h2 class="section-title">हाम्रा सेवाहरू</h2>
+<div class="grid">
+ <a class="service" href="#news"><span>📰</span><b>नेपाली समाचार</b></a>
+ <a class="service" href="#social"><span>👥</span><b>Social</b></a>
+ <a class="service" href="#videos"><span>🎬</span><b>Videos</b></a>
+ <a class="service" href="#youtube"><span>▶️</span><b>YouTube</b></a>
+ <a class="service" href="#cricket"><span>🏏</span><b>Live Score</b></a>
+ <a class="service" href="#nepse"><span>📈</span><b>NEPSE</b></a>
+ <a class="service" href="#weather"><span>🌤️</span><b>मौसम</b></a>
+ <a class="service" href="#calendar"><span>📅</span><b>क्यालेन्डर</b></a>
+ <a class="service" href="#festival"><span>🎉</span><b>चाडपर्व</b></a>
+ <a class="service" href="#chat"><span>💬</span><b>Chat</b></a>
+ <a class="service" href="#developer"><span>👨‍💻</span><b>Developer</b></a>
+ <a class="service" href="#feedback"><span>⭐</span><b>Feedback</b></a>
+</div>
+
+<!-- News -->
+<section id="news">
+ <h2 class="section-title">📰 नेपाली समाचार</h2>
+ <div class="card">
+  <div class="news-item">
+   <b>नेपालका ताजा समाचार</b>
+   <p class="muted">समाचार सेवा/API जोडिएपछि यहाँ ताजा समाचार देखिनेछ।</p>
+  </div>
+  <div class="news-item">
+   <b>राष्ट्रिय तथा अन्तर्राष्ट्रिय अपडेट</b>
+   <p class="muted">विश्वसनीय समाचार स्रोत जोड्ने व्यवस्था।</p>
+  </div>
  </div>
 </section>
 
-<!-- NEWS -->
-<section class="page" id="news">
- <div class="page-title">📰 ताजा समाचार</div>
+<!-- Social -->
+<section id="social">
+ <h2 class="section-title">👥 D SATHI Social</h2>
  <div class="card">
-  <h3>नेपाल समाचार</h3>
-  <p>यहाँ वास्तविक समाचार API जोडेर समाचार देखाउन सकिन्छ।</p>
- </div>
-</section>
-
-<!-- SOCIAL -->
-<section class="page" id="social">
- <div class="page-title">📘 D SATHI Social</div>
-
- <div class="story">
-  <div><i>➕</i>My Story</div>
-  <div><i>🇳🇵</i>Nepal</div>
-  <div><i>👨</i>Friends</div>
- </div>
-
- <div class="card">
-  <b>के सोच्दै हुनुहुन्छ?</b>
-  <textarea id="postText" placeholder="आफ्नो पोस्ट लेख्नुहोस्..."></textarea>
-  <input type="file" id="postFile" accept="image/*">
+  <h3>आफ्नो विचार लेख्नुहोस्</h3>
+  <textarea id="socialPost" placeholder="तपाईंको पोस्ट लेख्नुहोस्..."></textarea>
   <button onclick="addPost()">पोस्ट गर्नुहोस्</button>
- </div>
- <div id="posts"></div>
-</section>
-
-<!-- VIDEOS -->
-<section class="page" id="videos">
- <div class="page-title">🎬 D SATHI Videos</div>
- <div class="card">
-  <h3>आफ्नो भिडियो राख्नुहोस्</h3>
-  <input type="file" id="videoFile" accept="video/*">
-  <button onclick="addVideo()">Upload / Preview</button>
- </div>
- <div id="videoList"></div>
-</section>
-
-<!-- YOUTUBE -->
-<section class="page" id="youtube">
- <div class="page-title">▶️ YouTube</div>
- <div class="card">
-  <input id="ytid" placeholder="YouTube Video ID">
-  <button onclick="playYoutube()">भिडियो हेर्नुहोस्</button>
-  <div id="ytplayer"></div>
+  <div id="postList"></div>
  </div>
 </section>
 
-<!-- CRICKET -->
-<section class="page" id="cricket">
- <div class="page-title">🏏 Nepal Cricket Live</div>
+<!-- Videos -->
+<section id="videos">
+ <h2 class="section-title">🎬 Videos</h2>
  <div class="card">
-  <h3>नेपाल क्रिकेट</h3>
-  <p>Live Score का लागि क्रिकेट API जोड्न बाँकी छ।</p>
+  <input type="file" accept="video/*" id="videoFile">
+  <video id="videoPreview" controls style="width:100%;display:none;border-radius:10px"></video>
+ </div>
+</section>
+
+<!-- YouTube -->
+<section id="youtube">
+ <h2 class="section-title">▶️ YouTube</h2>
+ <div class="card">
+  <p>आफ्नो मनपर्ने YouTube भिडियो हेर्नुहोस्।</p>
+  <input id="youtubeId" placeholder="YouTube Video ID राख्नुहोस्">
+  <button onclick="loadYoutube()">भिडियो हेर्नुहोस्</button>
+  <div id="youtubeFrame"></div>
+ </div>
+</section>
+
+<!-- Cricket -->
+<section id="cricket">
+ <h2 class="section-title">🏏 Nepal Cricket Live Score</h2>
+ <div class="score-card">
+  <h3><span class="live-dot"></span> LIVE CRICKET SCORE</h3>
+  <div id="liveScore">
+   <p>Live Score हेर्न API Key जोड्नुहोस्।</p>
+  </div>
+  <p class="muted" style="color:#dce8f7">
+   वास्तविक स्कोरका लागि Cricket API आवश्यक हुन्छ।
+  </p>
+ </div>
+ <div class="card">
+  <h3>स्कोर अपडेट</h3>
+  <p class="muted">API जोडिएपछि खेलको स्कोर यहाँ स्वतः अपडेट हुनेछ।</p>
+  <button onclick="getLiveScore()">स्कोर Refresh गर्नुहोस्</button>
  </div>
 </section>
 
 <!-- NEPSE -->
-<section class="page" id="nepse">
- <div class="page-title">📈 NEPSE</div>
+<section id="nepse">
+ <h2 class="section-title">📈 NEPSE Share Market</h2>
  <div class="card">
-  <p>नेपाल स्टक एक्सचेन्ज</p>
-  <button onclick="window.open('https://www.nepalstock.com/','_blank')">NEPSE खोल्नुहोस्</button>
+  <p>नेपाल स्टक एक्सचेन्जको आधिकारिक वेबसाइटबाट बजार विवरण हेर्नुहोस्।</p>
+  <button onclick="window.open('https://www.nepalstock.com/','_blank')">
+   NEPSE खोल्नुहोस्
+  </button>
  </div>
 </section>
 
-<!-- WEATHER -->
-<section class="page" id="weather">
- <div class="page-title">🌦️ मौसम</div>
+<!-- Weather -->
+<section id="weather">
+ <h2 class="section-title">🌤️ मौसम जानकारी</h2>
  <div class="card">
-  <p>मौसम API जोडेर वास्तविक जानकारी देखाइनेछ।</p>
+  <p>मौसम विवरण हेर्नुहोस्।</p>
+  <button onclick="window.open('https://www.mfd.gov.np/','_blank')">
+   मौसम पूर्वानुमान खोल्नुहोस्
+  </button>
  </div>
 </section>
 
-<!-- CALENDAR -->
-<section class="page" id="calendar">
- <div class="page-title">📅 पात्रो</div>
+<!-- Calendar -->
+<section id="calendar">
+ <h2 class="section-title">📅 क्यालेन्डर</h2>
  <div class="card">
-  <p id="date"></p>
-  <p>नेपाली पात्रोको API जोड्न बाँकी छ।</p>
+  <p id="todayDate"></p>
+  <p class="muted">नेपाली पात्रो सेवा जोडिएपछि नेपाली मिति पनि देखाउन सकिन्छ।</p>
  </div>
 </section>
 
-<!-- FESTIVAL -->
-<section class="page" id="festival">
- <div class="page-title">🎉 चाडपर्व शुभकामना</div>
+<!-- Festival -->
+<section id="festival">
+ <h2 class="section-title">🎉 चाडपर्व तथा शुभकामना</h2>
  <div class="card">
-  <h2>🪔 शुभ दीपावली</h2>
-  <p>तिहारको हार्दिक मंगलमय शुभकामना!</p>
- </div>
- <div class="card">
-  <h2>🌞 शुभ छठ</h2>
-  <p>छठ पर्वको हार्दिक शुभकामना!</p>
- </div>
-</section>
-
-<!-- CHAT -->
-<section class="page" id="chat">
- <div class="page-title">💬 D SATHI Chat</div>
- <div class="card">
-  <p>वास्तविक Chat का लागि Database र Server चाहिन्छ।</p>
+  <h3>🪔 तिहार</h3>
+  <p>तिहारको पावन अवसरमा सबैमा हार्दिक मंगलमय शुभकामना।</p>
+  <hr>
+  <h3>🌅 छठ पर्व</h3>
+  <p>छठ पर्वको हार्दिक शुभकामना। सबैको मनोकामना पूरा होस्।</p>
  </div>
 </section>
 
-<!-- FEEDBACK -->
-<section class="page" id="feedback">
- <div class="page-title">⭐ Feedback</div>
+<!-- Chat -->
+<section id="chat">
+ <h2 class="section-title">💬 D SATHI Chat</h2>
  <div class="card">
+  <p>छिट्टै नयाँ Chat सेवा उपलब्ध हुनेछ।</p>
+ </div>
+</section>
+
+<!-- Feedback -->
+<section id="feedback">
+ <h2 class="section-title">⭐ तपाईंको सुझाव / Feedback</h2>
+ <div class="card">
+  <p>D SATHI एप कस्तो लाग्यो? आफ्नो प्रतिक्रिया दिनुहोस्।</p>
+  <label>Rating दिनुहोस्</label>
   <select id="rating">
-   <option value="5">⭐⭐⭐⭐⭐ उत्कृष्ट</option>
-   <option value="4">⭐⭐⭐⭐ राम्रो</option>
-   <option value="3">⭐⭐⭐ ठीकै</option>
-   <option value="2">⭐⭐ नराम्रो</option>
+   <option value="5">⭐⭐⭐⭐⭐ - उत्कृष्ट</option>
+   <option value="4">⭐⭐⭐⭐ - राम्रो</option>
+   <option value="3">⭐⭐⭐ - ठीकै</option>
+   <option value="2">⭐⭐ - सुधार गर्नुपर्छ</option>
+   <option value="1">⭐ - राम्रो भएन</option>
   </select>
-  <textarea id="feedbackText" placeholder="तपाईंको सुझाव..."></textarea>
-  <button onclick="sendFeedback()">Submit</button>
+  <label>तपाईंको नाम</label>
+  <input id="feedbackName" placeholder="नाम लेख्नुहोस्">
+  <label>सुझाव वा प्रतिक्रिया</label>
+  <textarea id="feedbackText" placeholder="आफ्नो सुझाव लेख्नुहोस्..."></textarea>
+  <button onclick="sendFeedback()">Feedback पठाउनुहोस्</button>
+  <p id="feedbackStatus" class="muted"></p>
  </div>
 </section>
 
-<!-- DEVELOPER -->
-<section class="page" id="developer">
- <div class="page-title">👨‍💻 Developer</div>
+<!-- Developer -->
+<section id="developer">
+ <h2 class="section-title">👨‍💻 Developer</h2>
  <div class="card">
-  <h2>D SATHI</h2>
-  <p>Developed by Dilip Rimal</p>
-  <p>dlprml@gmail.com</p>
-  <button onclick="logout()">Logout</button>
+  <h3>Dilip Rimal</h3>
+  <p>Developer - D SATHI</p>
+  <p>📧 dlprml@gmail.com</p>
+  <a href="mailto:dlprml@gmail.com">Developer लाई Email गर्नुहोस्</a>
  </div>
 </section>
-
-<footer>D SATHI © 2026 | Made in Nepal 🇳🇵</footer>
 
 </main>
 
-<nav>
- <button class="selected" onclick="show('home',this)"><span>🏠</span>Home</button>
- <button onclick="show('news',this)"><span>📰</span>News</button>
- <button onclick="show('social',this)"><span>📘</span>Social</button>
- <button onclick="show('videos',this)"><span>🎬</span>Videos</button>
- <button onclick="show('developer',this)"><span>👤</span>More</button>
-</nav>
-</div>
+<footer>
+ <h3>D SATHI 🇳🇵</h3>
+ नेपालको आफ्नै डिजिटल साथी<br><br>
+ © 2026 D SATHI. All Rights Reserved.
+</footer>
 
 <script>
+// Social post - स्थानीय preview मात्र
+function addPost(){
+ const value=document.getElementById("socialPost").value.trim();
+ if(!value){alert("पहिले पोस्ट लेख्नुहोस्");return}
+ const item=document.createElement("div");
+ item.className="news-item";
+ const p=document.createElement("p");
+ p.textContent=value;
+ item.appendChild(p);
+ document.getElementById("postList").prepend(item);
+ document.getElementById("socialPost").value="";
+}
 
-// OAUTH CONFIGURATION
-// वास्तविक Login का लागि आधिकारिक OAuth र Backend सेटअप गर्नुहोस्।
-const AUTH = {
- facebook: {
-  enabled:false,
-  url:""
- },
- tiktok: {
-  enabled:false,
-  url:""
- }
-};
+// Video preview
+document.getElementById("videoFile").addEventListener("change",function(){
+ const file=this.files[0];
+ if(!file)return;
+ const video=document.getElementById("videoPreview");
+ video.src=URL.createObjectURL(file);
+ video.style.display="block";
+});
 
-function socialLogin(provider){
- const config=AUTH[provider];
-
- if(!config || !config.enabled || !config.url){
-  alert(provider.toUpperCase()+
-  " Login अझै सेटअप भएको छैन। Developer OAuth Client र Backend जोड्नुपर्छ।");
+// YouTube
+function loadYoutube(){
+ const id=document.getElementById("youtubeId").value.trim();
+ if(!/^[a-zA-Z0-9_-]{11}$/.test(id)){
+  alert("सही YouTube Video ID राख्नुहोस्");
   return;
  }
-
- window.location.href=config.url;
+ document.getElementById("youtubeFrame").innerHTML=
+ '<iframe width="100%" height="230" src="https://www.youtube.com/embed/'+id+
+ '" title="YouTube video" frameborder="0" allowfullscreen></iframe>';
 }
 
-function guestLogin(){
- document.getElementById('loginPage').classList.add('hidden');
- document.getElementById('app').classList.remove('hidden');
-}
+// Date
+document.getElementById("todayDate").textContent=
+ "आजको मिति: "+new Date().toLocaleDateString("ne-NP",{
+  weekday:"long",year:"numeric",month:"long",day:"numeric"
+});
 
-function logout(){
- document.getElementById('app').classList.add('hidden');
- document.getElementById('loginPage').classList.remove('hidden');
-}
-
-function show(id,btn){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('nav button').forEach(b=>b.classList.remove('selected'));
- if(btn)btn.classList.add('selected');
- window.scrollTo(0,0);
-}
-
-function addPost(){
- const text=document.getElementById('postText').value.trim();
- const file=document.getElementById('postFile').files[0];
- if(!text&&!file)return alert('पोस्ट लेख्नुहोस्');
-
- const box=document.createElement('div');
- box.className='card';
- const title=document.createElement('b');
- title.textContent='👤 D SATHI User';
- box.appendChild(title);
-
- if(text){
-  const p=document.createElement('p');
-  p.textContent=text;
-  box.appendChild(p);
- }
- if(file){
-  const img=document.createElement('img');
-  img.src=URL.createObjectURL(file);
-  img.className='post-image';
-  box.appendChild(img);
- }
- const actions=document.createElement('div');
- actions.className='actions';
- actions.innerHTML='<button onclick="this.textContent=this.textContent.includes(\'Liked\')?\'👍 Like\':\'❤️ Liked\'">👍 Like</button><button onclick="alert(\'Comment सुविधा अर्को अपडेटमा\')">💬 Comment</button><button onclick="navigator.share?navigator.share({title:\'D SATHI\'}):alert(\'Share unavailable\')">↗ Share</button>';
- box.appendChild(actions);
- document.getElementById('posts').prepend(box);
- document.getElementById('postText').value='';
- document.getElementById('postFile').value='';
-}
-
-function addVideo(){
- const file=document.getElementById('videoFile').files[0];
- if(!file)return alert('भिडियो छान्नुहोस्');
- if(!file.type.startsWith('video/'))return alert('भिडियो फाइल छान्नुहोस्');
- const url=URL.createObjectURL(file);
- const box=document.createElement('div');
- box.className='card';
- const video=document.createElement('video');
- video.src=url;
- video.controls=true;
- video.playsInline=true;
- video.className='video';
- box.appendChild(video);
- document.getElementById('videoList').prepend(box);
-}
-
-function playYoutube(){
- const id=document.getElementById('ytid').value.trim();
- if(!/^[\w-]{11}$/.test(id))return alert('सही Video ID राख्नुहोस्');
- document.getElementById('ytplayer').innerHTML=
- '<iframe width="100%" height="230" src="https://www.youtube-nocookie.com/embed/'+id+'" allowfullscreen></iframe>';
-}
-
+// Feedback - mail app खुल्छ
 function sendFeedback(){
- const msg=document.getElementById('feedbackText').value.trim();
- if(!msg)return alert('सुझाव लेख्नुहोस्');
- alert('धन्यवाद! तपाईंको सुझाव तयार भयो। वास्तविक रूपमा सुरक्षित गर्न Database चाहिन्छ।');
+ const rating=document.getElementById("rating").value;
+ const name=document.getElementById("feedbackName").value.trim();
+ const message=document.getElementById("feedbackText").value.trim();
+ if(!message){alert("कृपया आफ्नो सुझाव लेख्नुहोस्");return}
+ const subject=encodeURIComponent("D SATHI Feedback");
+ const body=encodeURIComponent(
+  "नाम: "+(name||"उल्लेख छैन")+
+  "\nRating: "+rating+"/5"+
+  "\nसुझाव: "+message
+ );
+ document.getElementById("feedbackStatus").textContent=
+ "तपाईंको Email App खोलिँदैछ...";
+ window.location.href="mailto:dlprml@gmail.com?subject="+subject+"&body="+body;
 }
 
-document.getElementById('date').textContent=
-new Date().toLocaleDateString('ne-NP',{dateStyle:'full'});
-
-if('serviceWorker' in navigator){
- navigator.serviceWorker.register('./sw.js').catch(()=>{});
+// Live Cricket API configuration
+// CricketData API बाट API Key लिएर यहाँ राख्नुहोस्।
+const CRICKET_API_KEY="YOUR_API_KEY";
+async function getLiveScore(){
+ const area=document.getElementById("liveScore");
+ if(CRICKET_API_KEY==="YOUR_API_KEY"){
+  area.innerHTML="<p>API Key राखेपछि वास्तविक Live Score देखिनेछ।</p>";
+  return;
+ }
+ area.innerHTML="<p>स्कोर लोड हुँदैछ...</p>";
+ try{
+  const response=await fetch(
+   "https://api.cricapi.com/v1/currentMatches?apikey="+
+   encodeURIComponent(CRICKET_API_KEY)+"&offset=0"
+  );
+  if(!response.ok)throw new Error("API request failed");
+  const result=await response.json();
+  if(result.status!=="success")throw new Error("API data unavailable");
+  const matches=result.data||[];
+  if(!matches.length){
+   area.innerHTML="<p>अहिले कुनै खेलको विवरण उपलब्ध छैन।</p>";
+   return;
+  }
+  area.innerHTML="";
+  matches.slice(0,8).forEach(match=>{
+   const card=document.createElement("div");
+   card.className="score-line";
+   const info=document.createElement("div");
+   const title=document.createElement("b");
+   title.textContent=match.name||"Cricket Match";
+   const status=document.createElement("div");
+   status.textContent=match.status||"स्कोर उपलब्ध हुँदैछ";
+   status.style.fontSize="12px";
+   status.style.marginTop="5px";
+   info.append(title,status);
+   const scores=document.createElement("div");
+   scores.style.textAlign="right";
+   (match.score||[]).forEach(s=>{
+    const line=document.createElement("div");
+    line.textContent=(s.inning||"")+" : "+s.r+"/"+s.w+" ("+s.o+" ov)";
+    scores.appendChild(line);
+   });
+   card.append(info,scores);
+   area.appendChild(card);
+  });
+ }catch(error){
+  area.textContent="स्कोर लोड हुन सकेन। API Key वा इन्टरनेट जाँच गर्नुहोस्।";
+ }
 }
 </script>
+
 </body>
 </html>
