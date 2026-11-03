@@ -3,467 +3,375 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#e60000">
-<meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी">
+<meta name="description" content="D SATHI Nepal Digital Platform">
 <link rel="manifest" href="./manifest.json">
-<title>D SATHI | नेपालको डिजिटल साथी</title>
+<title>D SATHI - Digital Nepal</title>
 
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- margin:0;
- font-family:Arial,"Noto Sans Devanagari",sans-serif;
- background:#f1f4fa;
- color:#17233b;
-}
-button,a{font-family:inherit}
-
-/* FESTIVAL CARD */
-.greeting-overlay{
- position:fixed;inset:0;z-index:9999;
- background:linear-gradient(145deg,#650000,#b90016,#f3a51b);
- display:flex;align-items:center;justify-content:center;
- padding:18px;
-}
-.greeting-card{
- width:100%;max-width:500px;text-align:center;
- background:linear-gradient(160deg,#fff9e9,#fff0ce);
- border:4px solid #ffcf57;border-radius:25px;
- padding:25px 18px;box-shadow:0 12px 40px #0008;
-}
-.festival-icons{font-size:35px;margin:8px}
-.greeting-card h1{color:#a00000;font-size:25px;line-height:1.5}
-.greeting-card h2{color:#b36a00}
-.greeting-card p{line-height:1.8;color:#4b2c16}
-.signature{color:#a00000;font-weight:bold}
-.greeting-buttons{display:grid;gap:10px;margin-top:20px}
-.greeting-buttons button{
- border:0;padding:14px;border-radius:30px;
- font-size:16px;font-weight:bold;cursor:pointer
-}
-.continue-btn{background:#bd0000;color:white}
-.close-btn{background:#f0d9b0;color:#652000}
-
-/* ADVERTISEMENT */
-.ad-banner{
- padding:20px 15px;text-align:center;
- background:linear-gradient(135deg,#fff1c9,#ffe0a3);
- border-bottom:4px solid #d99a16;
-}
-.ad-label{
- display:inline-block;background:#b40000;color:white;
- padding:5px 14px;border-radius:20px;font-size:12px;
-}
-.ad-banner h2{color:#a00000;font-size:22px}
-.ad-banner p{line-height:1.7}
-.ad-icon{font-size:35px}
-.ad-button{
- display:inline-block;background:#c90000;color:white;
- text-decoration:none;padding:11px 25px;
- border-radius:25px;font-weight:bold
-}
-
-/* NPL LIVE SCORE */
-.npl-section{
- margin:0;padding:15px 12px;
- background:#07152d;
- color:white;
-}
-.npl-heading{
- display:flex;align-items:center;justify-content:space-between;
- gap:10px;margin-bottom:12px;
-}
-.npl-heading h2{color:white;margin:0;font-size:19px}
-.live-label{
- background:#e60000;color:white;padding:6px 12px;
- border-radius:20px;font-size:12px;font-weight:bold;
- animation:liveblink 1.3s infinite;
-}
-@keyframes liveblink{
- 50%{opacity:.45}
-}
-.npl-widget{
- background:#fff;border-radius:13px;
- padding:10px;min-height:90px;
- color:#17233b;overflow:hidden;
-}
-.npl-note{
- color:#b8c9e7;font-size:11px;
- text-align:center;margin:9px 0 0;
-}
-.score-ticker{
- background:#c90000;color:white;
- padding:10px;overflow:hidden;white-space:nowrap;
- font-weight:bold;font-size:13px;
-}
-.score-ticker span{
- display:inline-block;
- animation:ticker 18s linear infinite;
-}
-@keyframes ticker{
- from{transform:translateX(100%)}
- to{transform:translateX(-100%)}
-}
-
-/* HEADER */
-header{
- padding:45px 15px;text-align:center;color:white;
- background:linear-gradient(#071b3bcc,#071b3be8),
- url('https://images.unsplash.com/photo-1568641276587-4b5a0ac73cf6?auto=format&fit=crop&w=1600&q=85') center/cover;
- border-radius:0 0 25px 25px;
-}
-header h1{font-size:38px;margin:10px}
-header p{font-size:16px}
-
-/* NAVIGATION */
-nav{
- background:#10234b;padding:13px;
- display:flex;gap:20px;overflow-x:auto;
- position:sticky;top:0;z-index:100;
-}
-nav a{
- color:white;text-decoration:none;
- white-space:nowrap;font-size:14px;
-}
-
-/* MAIN CONTENT */
-main{max-width:1000px;margin:auto;padding:18px}
-.welcome,.box{
- background:white;padding:18px;
- border-radius:15px;margin-bottom:18px;
-}
-h2{color:#173c78}
-section{scroll-margin-top:65px}
-.grid{
- display:grid;grid-template-columns:repeat(2,1fr);
- gap:13px;
-}
-.card{
- background:white;text-decoration:none;color:#17233b;
- text-align:center;padding:22px 8px;
- border-radius:15px;box-shadow:0 3px 12px #00000010;
- transition:transform .2s;
-}
-.card:active{transform:scale(.97)}
-.card span{display:block;font-size:34px;margin-bottom:8px}
-.card b{font-size:15px}
-.links{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
- gap:10px;
-}
-.links a{
- background:white;padding:13px;border-radius:10px;
- text-decoration:none;color:#164b91;
-}
-
-/* FEEDBACK */
-#feedback{
- background:white;padding:20px;border-radius:16px;
- margin-top:20px;box-shadow:0 3px 12px #00000010;
-}
-.feedback-intro{color:#66738a;line-height:1.7}
-.rating{
- display:flex;flex-direction:row-reverse;
- justify-content:flex-end;gap:7px;margin:15px 0;
-}
-.rating input{display:none}
-.rating label{font-size:35px;color:#ccc;cursor:pointer}
-.rating input:checked~label,
-.rating label:hover,
-.rating label:hover~label{color:#ffad00}
-#feedback textarea,#feedback select{
- width:100%;padding:13px;border:1px solid #ccd3df;
- border-radius:10px;font-size:15px;margin:8px 0 15px;
- font-family:inherit;
-}
-#feedback textarea{min-height:120px;resize:vertical}
-.feedback-submit{
- width:100%;background:#c90000;color:white;
- border:0;padding:14px;border-radius:25px;
- font-size:16px;font-weight:bold;cursor:pointer;
-}
-#feedback-message{
- margin-top:12px;color:#087b35;
- font-weight:bold;line-height:1.6;
-}
-footer{text-align:center;padding:25px;color:#66738a}
-
-@media(min-width:650px){
- .grid{grid-template-columns:repeat(3,1fr)}
- header h1{font-size:48px}
-}
+body{margin:0;background:#f2f4f8;color:#222;font-family:Arial,sans-serif;padding-bottom:75px}
+header{background:linear-gradient(120deg,#d60000,#ff4545);color:white;padding:14px;position:sticky;top:0;z-index:10}
+.top{display:flex;align-items:center;gap:12px}
+.logo{width:45px;height:45px;border-radius:13px;background:white;color:#e60000;display:grid;place-items:center;font-size:22px;font-weight:bold}
+.brand{font-size:23px;font-weight:bold}
+.small{font-size:11px}
+main{max-width:650px;margin:auto;padding:12px}
+.page{display:none}
+.page.active{display:block}
+.card{background:white;border-radius:15px;padding:15px;margin-bottom:13px;box-shadow:0 2px 8px #0000000d}
+h2{font-size:20px}
+h3{font-size:17px}
+button{border:0;border-radius:10px;padding:12px;background:#e60000;color:white;font-weight:bold;cursor:pointer}
+input,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:7px 0;font:inherit}
+textarea{min-height:85px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{background:white;border-radius:14px;padding:15px 5px;text-align:center;font-size:13px;cursor:pointer}
+.tile span{font-size:27px;display:block;margin-bottom:8px}
+.banner{background:linear-gradient(120deg,#171717,#555);color:white;padding:23px;border-radius:16px;margin-bottom:15px}
+.login{min-height:90vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(145deg,#fff,#ffe8e8)}
+.login-box{width:100%;max-width:390px;background:white;padding:25px;border-radius:22px;text-align:center;box-shadow:0 8px 30px #0002}
+.login-logo{width:75px;height:75px;background:#e60000;color:white;border-radius:22px;margin:auto;display:grid;place-items:center;font-size:32px;font-weight:bold}
+.login-btn{width:100%;margin:9px 0;font-size:15px}
+.fb{background:#1877f2}
+.tk{background:#111}
+.guest{background:#eee;color:#333}
+.page-title{font-weight:bold;font-size:20px;margin:14px 0}
+.post-image,.video{width:100%;border-radius:12px;max-height:450px;object-fit:cover}
+.actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.actions button{background:#eee;color:#333}
+nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:8px 2px;box-shadow:0 -2px 12px #0002;z-index:20}
+nav button{background:none;color:#555;padding:5px 2px;font-size:11px}
+nav span{display:block;font-size:20px}
+nav button.selected{color:#e60000}
+.story{display:flex;gap:14px;overflow:auto;margin-bottom:15px}
+.story div{min-width:65px;text-align:center;font-size:12px}
+.story i{display:grid;place-items:center;width:55px;height:55px;border:2px solid #e60000;border-radius:50%;font-size:25px;margin:auto auto 5px}
+footer{text-align:center;color:#888;font-size:12px;padding:20px}
+.hidden{display:none!important}
 </style>
 </head>
 
 <body>
 
-<!-- FESTIVAL OPENING CARD -->
-<div class="greeting-overlay" id="greeting">
- <div class="greeting-card">
-  <div class="festival-icons">🪔 🌼 🌅 🪷</div>
-  <h1>शुभ दीपावली तथा छठ पर्वको हार्दिक मंगलमय शुभकामना!</h1>
-  <h2>✨ D SATHI परिवार ✨</h2>
-  <p>
-   दियोको उज्यालोले जीवनमा सुख, शान्ति र समृद्धि ल्याओस्।
-   छठी मैयाको कृपाले सबैको जीवनमा स्वास्थ्य, खुसी र सफलता छाओस्।
-  </p>
-  <p>सम्पूर्ण नेपाली दाजुभाइ तथा दिदीबहिनीहरूमा हार्दिक शुभकामना।</p>
-  <div class="festival-icons">🌺 🪔 🌸 🙏 🌅</div>
-  <p class="signature">D SATHI परिवार<br>Developer: Dilip Rimal</p>
-  <div class="greeting-buttons">
-   <button class="continue-btn" onclick="closeGreeting()">Continue to D SATHI →</button>
-   <button class="close-btn" onclick="closeGreeting()">✕ Close</button>
+<!-- LOGIN PAGE -->
+<section id="loginPage" class="login">
+<div class="login-box">
+ <div class="login-logo">DS</div>
+ <h1>D SATHI</h1>
+ <p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
+ <p>आफ्नो खाताबाट प्रवेश गर्नुहोस्</p>
+
+ <button class="login-btn fb" onclick="socialLogin('facebook')">
+  f &nbsp; Continue with Facebook
+ </button>
+
+ <button class="login-btn tk" onclick="socialLogin('tiktok')">
+  ♪ &nbsp; Continue with TikTok
+ </button>
+
+ <button class="login-btn guest" onclick="guestLogin()">
+  Guest Mode / पाहुनाको रूपमा प्रवेश
+ </button>
+
+ <p class="small">Login गर्दा सम्बन्धित सेवाको आधिकारिक अनुमति आवश्यक हुन्छ।</p>
+</div>
+</section>
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+<header>
+ <div class="top">
+  <div class="logo">DS</div>
+  <div>
+   <div class="brand">D SATHI</div>
+   <div class="small">Digital Nepal 🇳🇵</div>
   </div>
  </div>
-</div>
-
-<!-- SERVICE WORKER -->
-<script>
-if("serviceWorker" in navigator){
- window.addEventListener("load",()=>{
-  navigator.serviceWorker.register("./sw.js")
-  .catch(err=>console.log("Service Worker:",err));
- });
-}
-function closeGreeting(){
- document.getElementById("greeting").style.display="none";
-}
-</script>
-
-<!-- BUSINESS ADVERTISEMENT -->
-<section class="ad-banner">
- <div class="ad-label">📢 विशेष विज्ञापन</div>
- <div class="ad-icon">🌺 🪔 🌸</div>
- <h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
- <p>
-  🙏 पूजापाठका सम्पूर्ण सामग्री<br>
-  🎁 आकर्षक उपहार तथा फेन्सी सामान<br>
-  🌸 विभिन्न पूजाका आवश्यक सामग्री
- </p>
- <p><b>📍 मोदी–२, पातिचौर</b></p>
- <a class="ad-button"
- href="https://www.google.com/maps/search/?api=1&query=Modi+2+Patischour+Parbat+Nepal"
- target="_blank" rel="noopener">📍 स्थान हेर्नुहोस्</a>
- <p><b>तपाईंको विश्वास, हाम्रो सेवा! ❤️</b></p>
-</section>
-
-<!-- NPL LIVE SCORE AT TOP -->
-<section class="npl-section" id="npl">
- <div class="npl-heading">
-  <h2>🏏 NEPAL PREMIER LEAGUE</h2>
-  <span class="live-label">● NPL LIVE</span>
- </div>
-
- <div class="npl-widget">
-  <div data-npl-widget="live-score"></div>
-  <script async src="https://kantipurmax.com/embed.js"></script>
- </div>
-
- <div class="score-ticker">
-  <span>🏏 D SATHI NPL LIVE SCORE • नेपाल प्रिमियर लिग • सबै खेलको अपडेट यहाँ हेर्नुहोस् •</span>
- </div>
- <p class="npl-note">
-  स्कोर र अपडेट Kantipur Max को Widget बाट उपलब्ध हुँदा देखिनेछन्।
- </p>
-</section>
-
-<!-- HEADER -->
-<header id="home">
- <div style="font-size:35px">🇳🇵</div>
- <h1>D SATHI</h1>
- <p>नेपालको आफ्नै डिजिटल साथी</p>
- <p>Connect Nepal. Discover More.</p>
 </header>
-
-<!-- NAVIGATION -->
-<nav>
- <a href="#home">गृहपृष्ठ</a>
- <a href="#npl">🏏 NPL LIVE</a>
- <a href="#services">सेवाहरू</a>
- <a href="#news">समाचार</a>
- <a href="#market">शेयर बजार</a>
- <a href="#about">हाम्रोबारे</a>
- <a href="#feedback">Feedback</a>
-</nav>
 
 <main>
 
-<div class="welcome">
- <h2>🙏 नमस्कार!</h2>
- <p>
-  नेपालका समाचार, पात्रो, मौसम, स्वास्थ्य,
-  शेयर बजार र मनोरञ्जनका सेवाहरू एउटै ठाउँमा।
- </p>
-</div>
+<section class="page active" id="home">
+ <div class="banner">
+  <h2>नमस्कार, D SATHI मा स्वागत छ!</h2>
+  <p>सबै डिजिटल सेवा एउटै ठाउँमा।</p>
+ </div>
 
-<!-- SERVICES -->
-<section id="services">
- <h2>🇳🇵 हाम्रा सेवाहरू</h2>
+ <div class="page-title">हाम्रा सेवाहरू</div>
  <div class="grid">
-
-  <a class="card" href="#news"><span>📰</span><b>नेपाली समाचार</b></a>
-
-  <a class="card" href="https://nepalipatro.com.np/" target="_blank" rel="noopener">
-   <span>📅</span><b>नेपाली पात्रो</b>
-  </a>
-
-  <a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank" rel="noopener">
-   <span>🌤️</span><b>मौसम</b>
-  </a>
-
-  <a class="card" href="https://www.mohp.gov.np/" target="_blank" rel="noopener">
-   <span>🏥</span><b>स्वास्थ्य</b>
-  </a>
-
-  <a class="card" href="#market"><span>📈</span><b>NEPSE / IPO</b></a>
-
-  <a class="card" href="https://www.youtube.com/" target="_blank" rel="noopener">
-   <span>▶️</span><b>YouTube</b>
-  </a>
-
-  <a class="card" href="https://www.youtube.com/shorts/" target="_blank" rel="noopener">
-   <span>🎬</span><b>Nepal Shorts</b>
-  </a>
-
-  <a class="card" href="https://www.crazygames.com/" target="_blank" rel="noopener">
-   <span>🎮</span><b>Games</b>
-  </a>
-
-  <a class="card" href="https://www.nepal.gov.np/" target="_blank" rel="noopener">
-   <span>🏛️</span><b>नेपाल सरकार</b>
-  </a>
-
-  <a class="card" href="https://www.ntc.net.np/" target="_blank" rel="noopener">
-   <span>📱</span><b>नेपाल टेलिकम</b>
-  </a>
-
+  <div class="tile" onclick="show('news')"><span>📰</span>समाचार</div>
+  <div class="tile" onclick="show('social')"><span>📘</span>Social</div>
+  <div class="tile" onclick="show('videos')"><span>🎬</span>Videos</div>
+  <div class="tile" onclick="show('youtube')"><span>▶️</span>YouTube</div>
+  <div class="tile" onclick="show('cricket')"><span>🏏</span>Cricket</div>
+  <div class="tile" onclick="show('nepse')"><span>📈</span>NEPSE</div>
+  <div class="tile" onclick="show('weather')"><span>🌦️</span>मौसम</div>
+  <div class="tile" onclick="show('calendar')"><span>📅</span>पात्रो</div>
+  <div class="tile" onclick="show('festival')"><span>🎉</span>चाडपर्व</div>
+  <div class="tile" onclick="show('chat')"><span>💬</span>Chat</div>
+  <div class="tile" onclick="show('feedback')"><span>⭐</span>Feedback</div>
+  <div class="tile" onclick="show('developer')"><span>👨‍💻</span>Developer</div>
  </div>
 </section>
 
 <!-- NEWS -->
-<section id="news">
- <h2>📰 नेपाली समाचार</h2>
- <div class="links">
-  <a href="https://www.onlinekhabar.com/" target="_blank" rel="noopener">अनलाइनखबर ↗</a>
-  <a href="https://ekantipur.com/" target="_blank" rel="noopener">कान्तिपुर ↗</a>
-  <a href="https://www.setopati.com/" target="_blank" rel="noopener">सेतोपाटी ↗</a>
-  <a href="https://www.ratopati.com/" target="_blank" rel="noopener">रातोपाटी ↗</a>
-  <a href="https://gorkhapatraonline.com/" target="_blank" rel="noopener">गोरखापत्र ↗</a>
-  <a href="https://www.nepalnews.com/" target="_blank" rel="noopener">नेपाल न्यूज ↗</a>
+<section class="page" id="news">
+ <div class="page-title">📰 ताजा समाचार</div>
+ <div class="card">
+  <h3>नेपाल समाचार</h3>
+  <p>यहाँ वास्तविक समाचार API जोडेर समाचार देखाउन सकिन्छ।</p>
  </div>
 </section>
 
-<!-- SHARE MARKET -->
-<section id="market">
- <h2>📊 शेयर बजार तथा IPO</h2>
- <div class="links">
-  <a href="https://www.nepalstock.com/" target="_blank" rel="noopener">NEPSE ↗</a>
-  <a href="https://meroshare.cdsc.com.np/" target="_blank" rel="noopener">MeroShare ↗</a>
-  <a href="https://www.sebon.gov.np/" target="_blank" rel="noopener">SEBON ↗</a>
-  <a href="https://www.sharesansar.com/" target="_blank" rel="noopener">ShareSansar ↗</a>
+<!-- SOCIAL -->
+<section class="page" id="social">
+ <div class="page-title">📘 D SATHI Social</div>
+
+ <div class="story">
+  <div><i>➕</i>My Story</div>
+  <div><i>🇳🇵</i>Nepal</div>
+  <div><i>👨</i>Friends</div>
+ </div>
+
+ <div class="card">
+  <b>के सोच्दै हुनुहुन्छ?</b>
+  <textarea id="postText" placeholder="आफ्नो पोस्ट लेख्नुहोस्..."></textarea>
+  <input type="file" id="postFile" accept="image/*">
+  <button onclick="addPost()">पोस्ट गर्नुहोस्</button>
+ </div>
+ <div id="posts"></div>
+</section>
+
+<!-- VIDEOS -->
+<section class="page" id="videos">
+ <div class="page-title">🎬 D SATHI Videos</div>
+ <div class="card">
+  <h3>आफ्नो भिडियो राख्नुहोस्</h3>
+  <input type="file" id="videoFile" accept="video/*">
+  <button onclick="addVideo()">Upload / Preview</button>
+ </div>
+ <div id="videoList"></div>
+</section>
+
+<!-- YOUTUBE -->
+<section class="page" id="youtube">
+ <div class="page-title">▶️ YouTube</div>
+ <div class="card">
+  <input id="ytid" placeholder="YouTube Video ID">
+  <button onclick="playYoutube()">भिडियो हेर्नुहोस्</button>
+  <div id="ytplayer"></div>
  </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="box">
- <h2>D SATHI बारेमा</h2>
- <p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
- <p>Developer: Dilip Rimal</p>
- <p>Email: <a href="mailto:dlprml@gmail.com">dlprml@gmail.com</a></p>
+<!-- CRICKET -->
+<section class="page" id="cricket">
+ <div class="page-title">🏏 Nepal Cricket Live</div>
+ <div class="card">
+  <h3>नेपाल क्रिकेट</h3>
+  <p>Live Score का लागि क्रिकेट API जोड्न बाँकी छ।</p>
+ </div>
+</section>
+
+<!-- NEPSE -->
+<section class="page" id="nepse">
+ <div class="page-title">📈 NEPSE</div>
+ <div class="card">
+  <p>नेपाल स्टक एक्सचेन्ज</p>
+  <button onclick="window.open('https://www.nepalstock.com/','_blank')">NEPSE खोल्नुहोस्</button>
+ </div>
+</section>
+
+<!-- WEATHER -->
+<section class="page" id="weather">
+ <div class="page-title">🌦️ मौसम</div>
+ <div class="card">
+  <p>मौसम API जोडेर वास्तविक जानकारी देखाइनेछ।</p>
+ </div>
+</section>
+
+<!-- CALENDAR -->
+<section class="page" id="calendar">
+ <div class="page-title">📅 पात्रो</div>
+ <div class="card">
+  <p id="date"></p>
+  <p>नेपाली पात्रोको API जोड्न बाँकी छ।</p>
+ </div>
+</section>
+
+<!-- FESTIVAL -->
+<section class="page" id="festival">
+ <div class="page-title">🎉 चाडपर्व शुभकामना</div>
+ <div class="card">
+  <h2>🪔 शुभ दीपावली</h2>
+  <p>तिहारको हार्दिक मंगलमय शुभकामना!</p>
+ </div>
+ <div class="card">
+  <h2>🌞 शुभ छठ</h2>
+  <p>छठ पर्वको हार्दिक शुभकामना!</p>
+ </div>
+</section>
+
+<!-- CHAT -->
+<section class="page" id="chat">
+ <div class="page-title">💬 D SATHI Chat</div>
+ <div class="card">
+  <p>वास्तविक Chat का लागि Database र Server चाहिन्छ।</p>
+ </div>
 </section>
 
 <!-- FEEDBACK -->
-<section id="feedback">
- <h2>⭐ तपाईंको Feedback</h2>
- <p class="feedback-intro">
-  D SATHI एप कस्तो लाग्यो? आफ्नो मूल्याङ्कन,
-  सुझाव वा समस्या हामीलाई लेख्नुहोस्।
- </p>
-
- <form id="feedbackForm">
-  <label><b>एपलाई कति स्टार दिनुहुन्छ?</b></label>
-  <div class="rating">
-   <input type="radio" id="star5" name="rating" value="5" required>
-   <label for="star5">★</label>
-   <input type="radio" id="star4" name="rating" value="4">
-   <label for="star4">★</label>
-   <input type="radio" id="star3" name="rating" value="3">
-   <label for="star3">★</label>
-   <input type="radio" id="star2" name="rating" value="2">
-   <label for="star2">★</label>
-   <input type="radio" id="star1" name="rating" value="1">
-   <label for="star1">★</label>
-  </div>
-
-  <label for="feedbackType"><b>Feedback को प्रकार</b></label>
-  <select id="feedbackType" required>
-   <option value="">छान्नुहोस्</option>
-   <option value="सुझाव">सुझाव</option>
-   <option value="समस्या">समस्या रिपोर्ट</option>
-   <option value="प्रशंसा">प्रशंसा</option>
-   <option value="अन्य">अन्य</option>
+<section class="page" id="feedback">
+ <div class="page-title">⭐ Feedback</div>
+ <div class="card">
+  <select id="rating">
+   <option value="5">⭐⭐⭐⭐⭐ उत्कृष्ट</option>
+   <option value="4">⭐⭐⭐⭐ राम्रो</option>
+   <option value="3">⭐⭐⭐ ठीकै</option>
+   <option value="2">⭐⭐ नराम्रो</option>
   </select>
-
-  <label for="feedbackText"><b>तपाईंको सुझाव वा टिप्पणी</b></label>
-  <textarea id="feedbackText" placeholder="यहाँ आफ्नो सुझाव लेख्नुहोस्..." required></textarea>
-
-  <button type="submit" class="feedback-submit">📩 Submit Feedback</button>
-  <div id="feedback-message" role="status"></div>
- </form>
-
- <p style="font-size:12px;color:#777;margin-top:15px">
-  हाल प्रतिक्रिया यही डिभाइसमा मात्र सुरक्षित हुन्छ।
- </p>
+  <textarea id="feedbackText" placeholder="तपाईंको सुझाव..."></textarea>
+  <button onclick="sendFeedback()">Submit</button>
+ </div>
 </section>
+
+<!-- DEVELOPER -->
+<section class="page" id="developer">
+ <div class="page-title">👨‍💻 Developer</div>
+ <div class="card">
+  <h2>D SATHI</h2>
+  <p>Developed by Dilip Rimal</p>
+  <p>dlprml@gmail.com</p>
+  <button onclick="logout()">Logout</button>
+ </div>
+</section>
+
+<footer>D SATHI © 2026 | Made in Nepal 🇳🇵</footer>
 
 </main>
 
-<footer>
- 🇳🇵 D SATHI © 2026<br>
- Developer: Dilip Rimal<br>
- <a href="mailto:dlprml@gmail.com">dlprml@gmail.com</a>
-</footer>
+<nav>
+ <button class="selected" onclick="show('home',this)"><span>🏠</span>Home</button>
+ <button onclick="show('news',this)"><span>📰</span>News</button>
+ <button onclick="show('social',this)"><span>📘</span>Social</button>
+ <button onclick="show('videos',this)"><span>🎬</span>Videos</button>
+ <button onclick="show('developer',this)"><span>👤</span>More</button>
+</nav>
+</div>
 
-<!-- FEEDBACK SAVE -->
 <script>
-document.getElementById("feedbackForm").addEventListener("submit",function(e){
- e.preventDefault();
 
- const rating=document.querySelector('input[name="rating"]:checked');
+// OAUTH CONFIGURATION
+// वास्तविक Login का लागि आधिकारिक OAuth र Backend सेटअप गर्नुहोस्।
+const AUTH = {
+ facebook: {
+  enabled:false,
+  url:""
+ },
+ tiktok: {
+  enabled:false,
+  url:""
+ }
+};
 
- if(!rating){
-  alert("कृपया स्टार Rating छान्नुहोस्।");
+function socialLogin(provider){
+ const config=AUTH[provider];
+
+ if(!config || !config.enabled || !config.url){
+  alert(provider.toUpperCase()+
+  " Login अझै सेटअप भएको छैन। Developer OAuth Client र Backend जोड्नुपर्छ।");
   return;
  }
 
- const feedback={
-  rating:rating.value,
-  type:document.getElementById("feedbackType").value,
-  message:document.getElementById("feedbackText").value,
-  date:new Date().toISOString()
- };
+ window.location.href=config.url;
+}
 
- try{
-  const oldFeedback=JSON.parse(
-   localStorage.getItem("dsathi_feedback") || "[]"
-  );
+function guestLogin(){
+ document.getElementById('loginPage').classList.add('hidden');
+ document.getElementById('app').classList.remove('hidden');
+}
 
-  oldFeedback.push(feedback);
-  localStorage.setItem("dsathi_feedback",JSON.stringify(oldFeedback));
+function logout(){
+ document.getElementById('app').classList.add('hidden');
+ document.getElementById('loginPage').classList.remove('hidden');
+}
 
-  document.getElementById("feedback-message").textContent=
-   "धन्यवाद! तपाईंको Feedback यो डिभाइसमा सुरक्षित भयो। ❤️";
+function show(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('selected'));
+ if(btn)btn.classList.add('selected');
+ window.scrollTo(0,0);
+}
 
-  this.reset();
- }catch(error){
-  document.getElementById("feedback-message").textContent=
-   "Feedback सुरक्षित हुन सकेन। कृपया फेरि प्रयास गर्नुहोस्।";
+function addPost(){
+ const text=document.getElementById('postText').value.trim();
+ const file=document.getElementById('postFile').files[0];
+ if(!text&&!file)return alert('पोस्ट लेख्नुहोस्');
+
+ const box=document.createElement('div');
+ box.className='card';
+ const title=document.createElement('b');
+ title.textContent='👤 D SATHI User';
+ box.appendChild(title);
+
+ if(text){
+  const p=document.createElement('p');
+  p.textContent=text;
+  box.appendChild(p);
  }
-});
-</script>
+ if(file){
+  const img=document.createElement('img');
+  img.src=URL.createObjectURL(file);
+  img.className='post-image';
+  box.appendChild(img);
+ }
+ const actions=document.createElement('div');
+ actions.className='actions';
+ actions.innerHTML='<button onclick="this.textContent=this.textContent.includes(\'Liked\')?\'👍 Like\':\'❤️ Liked\'">👍 Like</button><button onclick="alert(\'Comment सुविधा अर्को अपडेटमा\')">💬 Comment</button><button onclick="navigator.share?navigator.share({title:\'D SATHI\'}):alert(\'Share unavailable\')">↗ Share</button>';
+ box.appendChild(actions);
+ document.getElementById('posts').prepend(box);
+ document.getElementById('postText').value='';
+ document.getElementById('postFile').value='';
+}
 
+function addVideo(){
+ const file=document.getElementById('videoFile').files[0];
+ if(!file)return alert('भिडियो छान्नुहोस्');
+ if(!file.type.startsWith('video/'))return alert('भिडियो फाइल छान्नुहोस्');
+ const url=URL.createObjectURL(file);
+ const box=document.createElement('div');
+ box.className='card';
+ const video=document.createElement('video');
+ video.src=url;
+ video.controls=true;
+ video.playsInline=true;
+ video.className='video';
+ box.appendChild(video);
+ document.getElementById('videoList').prepend(box);
+}
+
+function playYoutube(){
+ const id=document.getElementById('ytid').value.trim();
+ if(!/^[\w-]{11}$/.test(id))return alert('सही Video ID राख्नुहोस्');
+ document.getElementById('ytplayer').innerHTML=
+ '<iframe width="100%" height="230" src="https://www.youtube-nocookie.com/embed/'+id+'" allowfullscreen></iframe>';
+}
+
+function sendFeedback(){
+ const msg=document.getElementById('feedbackText').value.trim();
+ if(!msg)return alert('सुझाव लेख्नुहोस्');
+ alert('धन्यवाद! तपाईंको सुझाव तयार भयो। वास्तविक रूपमा सुरक्षित गर्न Database चाहिन्छ।');
+}
+
+document.getElementById('date').textContent=
+new Date().toLocaleDateString('ne-NP',{dateStyle:'full'});
+
+if('serviceWorker' in navigator){
+ navigator.serviceWorker.register('./sw.js').catch(()=>{});
+}
+</script>
 </body>
 </html>
