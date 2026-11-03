@@ -4,345 +4,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D SATHI</title>
-<link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#e60000">
+<meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी">
+<link rel="manifest" href="./manifest.json">
+<title>D SATHI | नेपालको डिजिटल साथी</title>
 
 <style>
 *{box-sizing:border-box}
-
+html{scroll-behavior:smooth}
 body{
  margin:0;
  font-family:Arial,"Noto Sans Devanagari",sans-serif;
  background:#f1f4fa;
  color:#17233b;
 }
+button,a{font-family:inherit}
 
-/* FESTIVAL OPENING CARD */
+/* FESTIVAL CARD */
 .greeting-overlay{
- position:fixed;
- inset:0;
- z-index:9999;
+ position:fixed;inset:0;z-index:9999;
  background:linear-gradient(145deg,#650000,#b90016,#f3a51b);
- display:flex;
- align-items:center;
- justify-content:center;
+ display:flex;align-items:center;justify-content:center;
  padding:18px;
 }
-
 .greeting-card{
- width:100%;
- max-width:500px;
- text-align:center;
+ width:100%;max-width:500px;text-align:center;
  background:linear-gradient(160deg,#fff9e9,#fff0ce);
- border:4px solid #ffcf57;
- border-radius:25px;
- padding:25px 18px;
- box-shadow:0 12px 40px #0008;
- position:relative;
+ border:4px solid #ffcf57;border-radius:25px;
+ padding:25px 18px;box-shadow:0 12px 40px #0008;
 }
-
-.greeting-card .festival-icons{
- font-size:38px;
- margin:8px 0 15px;
-}
-
-.greeting-card h1{
- color:#a00000;
- font-size:27px;
- line-height:1.5;
- margin:10px 0;
-}
-
-.greeting-card h2{
- color:#b36a00;
- font-size:21px;
-}
-
-.greeting-card p{
- line-height:1.9;
- font-size:15px;
- color:#4b2c16;
-}
-
-.greeting-card .signature{
- color:#a00000;
- font-weight:bold;
- margin-top:18px;
-}
-
-.greeting-buttons{
- display:flex;
- flex-direction:column;
- gap:10px;
- margin-top:20px;
-}
-
+.festival-icons{font-size:35px;margin:8px}
+.greeting-card h1{color:#a00000;font-size:25px;line-height:1.5}
+.greeting-card h2{color:#b36a00}
+.greeting-card p{line-height:1.8;color:#4b2c16}
+.signature{color:#a00000;font-weight:bold}
+.greeting-buttons{display:grid;gap:10px;margin-top:20px}
 .greeting-buttons button{
- border:0;
- padding:14px;
- border-radius:30px;
- font-size:16px;
- font-weight:bold;
- cursor:pointer;
+ border:0;padding:14px;border-radius:30px;
+ font-size:16px;font-weight:bold;cursor:pointer
 }
+.continue-btn{background:#bd0000;color:white}
+.close-btn{background:#f0d9b0;color:#652000}
 
-.continue-btn{
- background:#bd0000;
- color:white;
-}
-
-.close-btn{
- background:#f0d9b0;
- color:#652000;
-}
-
-/* TOP ADVERTISEMENT */
+/* ADVERTISEMENT */
 .ad-banner{
- margin:0;
- padding:22px 15px;
- text-align:center;
+ padding:20px 15px;text-align:center;
  background:linear-gradient(135deg,#fff1c9,#ffe0a3);
  border-bottom:4px solid #d99a16;
 }
-
 .ad-label{
- display:inline-block;
- background:#b40000;
- color:white;
- padding:4px 14px;
- border-radius:20px;
- font-size:12px;
- margin-bottom:10px;
+ display:inline-block;background:#b40000;color:white;
+ padding:5px 14px;border-radius:20px;font-size:12px;
 }
-
-.ad-banner h2{
- color:#a00000;
- font-size:24px;
- margin:8px 0;
-}
-
-.ad-banner p{
- margin:8px 0;
- line-height:1.7;
-}
-
-.ad-icon{font-size:38px}
-
+.ad-banner h2{color:#a00000;font-size:22px}
+.ad-banner p{line-height:1.7}
+.ad-icon{font-size:35px}
 .ad-button{
- display:inline-block;
- background:#c90000;
+ display:inline-block;background:#c90000;color:white;
+ text-decoration:none;padding:11px 25px;
+ border-radius:25px;font-weight:bold
+}
+
+/* NPL LIVE SCORE */
+.npl-section{
+ margin:0;padding:15px 12px;
+ background:#07152d;
  color:white;
- text-decoration:none;
- padding:11px 25px;
- border-radius:25px;
- font-weight:bold;
- margin-top:8px;
+}
+.npl-heading{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:10px;margin-bottom:12px;
+}
+.npl-heading h2{color:white;margin:0;font-size:19px}
+.live-label{
+ background:#e60000;color:white;padding:6px 12px;
+ border-radius:20px;font-size:12px;font-weight:bold;
+ animation:liveblink 1.3s infinite;
+}
+@keyframes liveblink{
+ 50%{opacity:.45}
+}
+.npl-widget{
+ background:#fff;border-radius:13px;
+ padding:10px;min-height:90px;
+ color:#17233b;overflow:hidden;
+}
+.npl-note{
+ color:#b8c9e7;font-size:11px;
+ text-align:center;margin:9px 0 0;
+}
+.score-ticker{
+ background:#c90000;color:white;
+ padding:10px;overflow:hidden;white-space:nowrap;
+ font-weight:bold;font-size:13px;
+}
+.score-ticker span{
+ display:inline-block;
+ animation:ticker 18s linear infinite;
+}
+@keyframes ticker{
+ from{transform:translateX(100%)}
+ to{transform:translateX(-100%)}
 }
 
 /* HEADER */
 header{
- padding:55px 15px;
- text-align:center;
- color:white;
- background:linear-gradient(#071b3b88,#071b3bcc),
+ padding:45px 15px;text-align:center;color:white;
+ background:linear-gradient(#071b3bcc,#071b3be8),
  url('https://images.unsplash.com/photo-1568641276587-4b5a0ac73cf6?auto=format&fit=crop&w=1600&q=85') center/cover;
  border-radius:0 0 25px 25px;
 }
-
 header h1{font-size:38px;margin:10px}
-header p{font-size:17px}
+header p{font-size:16px}
 
+/* NAVIGATION */
 nav{
- background:#10234b;
- padding:13px;
- display:flex;
- gap:20px;
- overflow:auto;
- position:sticky;
- top:0;
- z-index:10;
+ background:#10234b;padding:13px;
+ display:flex;gap:20px;overflow-x:auto;
+ position:sticky;top:0;z-index:100;
 }
-
 nav a{
- color:white;
- text-decoration:none;
- white-space:nowrap;
+ color:white;text-decoration:none;
+ white-space:nowrap;font-size:14px;
 }
 
-main{
- max-width:1000px;
- margin:auto;
- padding:18px;
-}
-
+/* MAIN CONTENT */
+main{max-width:1000px;margin:auto;padding:18px}
 .welcome,.box{
- background:white;
- padding:18px;
- border-radius:15px;
- margin-bottom:18px;
+ background:white;padding:18px;
+ border-radius:15px;margin-bottom:18px;
 }
-
 h2{color:#173c78}
-
+section{scroll-margin-top:65px}
 .grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
+ display:grid;grid-template-columns:repeat(2,1fr);
  gap:13px;
 }
-
 .card{
- background:white;
- text-decoration:none;
- color:#17233b;
- text-align:center;
- padding:22px 8px;
- border-radius:15px;
- box-shadow:0 3px 12px #00000010;
+ background:white;text-decoration:none;color:#17233b;
+ text-align:center;padding:22px 8px;
+ border-radius:15px;box-shadow:0 3px 12px #00000010;
+ transition:transform .2s;
 }
-
-.card span{
- display:block;
- font-size:34px;
- margin-bottom:8px;
-}
-
-.card b{font-size:16px}
-
+.card:active{transform:scale(.97)}
+.card span{display:block;font-size:34px;margin-bottom:8px}
+.card b{font-size:15px}
 .links{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
  gap:10px;
 }
-
 .links a{
- background:white;
- padding:13px;
- border-radius:10px;
- text-decoration:none;
- color:#164b91;
+ background:white;padding:13px;border-radius:10px;
+ text-decoration:none;color:#164b91;
 }
 
 /* FEEDBACK */
 #feedback{
- background:white;
- padding:20px;
- border-radius:16px;
- margin-top:20px;
- box-shadow:0 3px 12px #00000010;
+ background:white;padding:20px;border-radius:16px;
+ margin-top:20px;box-shadow:0 3px 12px #00000010;
 }
-
-.feedback-intro{
- color:#66738a;
- line-height:1.7;
-}
-
+.feedback-intro{color:#66738a;line-height:1.7}
 .rating{
- display:flex;
- flex-direction:row-reverse;
- justify-content:flex-end;
- gap:7px;
- margin:15px 0;
+ display:flex;flex-direction:row-reverse;
+ justify-content:flex-end;gap:7px;margin:15px 0;
 }
-
 .rating input{display:none}
-
-.rating label{
- font-size:35px;
- color:#ccc;
- cursor:pointer;
-}
-
-.rating input:checked ~ label,
+.rating label{font-size:35px;color:#ccc;cursor:pointer}
+.rating input:checked~label,
 .rating label:hover,
-.rating label:hover ~ label{
- color:#ffad00;
-}
-
-#feedback textarea,
-#feedback select{
- width:100%;
- padding:13px;
- border:1px solid #ccd3df;
- border-radius:10px;
- font-size:15px;
- margin:8px 0 15px;
+.rating label:hover~label{color:#ffad00}
+#feedback textarea,#feedback select{
+ width:100%;padding:13px;border:1px solid #ccd3df;
+ border-radius:10px;font-size:15px;margin:8px 0 15px;
  font-family:inherit;
 }
-
-#feedback textarea{
- min-height:120px;
- resize:vertical;
-}
-
+#feedback textarea{min-height:120px;resize:vertical}
 .feedback-submit{
- width:100%;
- background:#c90000;
- color:white;
- border:0;
- padding:14px;
- border-radius:25px;
- font-size:16px;
- font-weight:bold;
- cursor:pointer;
+ width:100%;background:#c90000;color:white;
+ border:0;padding:14px;border-radius:25px;
+ font-size:16px;font-weight:bold;cursor:pointer;
 }
-
 #feedback-message{
- margin-top:12px;
- color:#087b35;
- font-weight:bold;
- line-height:1.6;
+ margin-top:12px;color:#087b35;
+ font-weight:bold;line-height:1.6;
 }
+footer{text-align:center;padding:25px;color:#66738a}
 
-footer{
- text-align:center;
- padding:25px;
- color:#66738a;
+@media(min-width:650px){
+ .grid{grid-template-columns:repeat(3,1fr)}
+ header h1{font-size:48px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- FESTIVAL OPENING SCREEN -->
+<!-- FESTIVAL OPENING CARD -->
 <div class="greeting-overlay" id="greeting">
-
  <div class="greeting-card">
-
   <div class="festival-icons">🪔 🌼 🌅 🪷</div>
-
   <h1>शुभ दीपावली तथा छठ पर्वको हार्दिक मंगलमय शुभकामना!</h1>
-
   <h2>✨ D SATHI परिवार ✨</h2>
-
   <p>
    दियोको उज्यालोले जीवनमा सुख, शान्ति र समृद्धि ल्याओस्।
-   छठी मैयाको कृपाले सबैको जीवनमा स्वास्थ्य,
-   खुसी र सफलता छाओस्।
+   छठी मैयाको कृपाले सबैको जीवनमा स्वास्थ्य, खुसी र सफलता छाओस्।
   </p>
-
-  <p>
-   सम्पूर्ण नेपाली दाजुभाइ तथा दिदीबहिनीहरूमा
-   हार्दिक मंगलमय शुभकामना।
-  </p>
-
+  <p>सम्पूर्ण नेपाली दाजुभाइ तथा दिदीबहिनीहरूमा हार्दिक शुभकामना।</p>
   <div class="festival-icons">🌺 🪔 🌸 🙏 🌅</div>
-
-  <p class="signature">
-   D SATHI परिवार<br>
-   Developer: Dilip Rimal
-  </p>
-
+  <p class="signature">D SATHI परिवार<br>Developer: Dilip Rimal</p>
   <div class="greeting-buttons">
-   <button class="continue-btn" onclick="closeGreeting()">
-    Continue to D SATHI →
-   </button>
-
-   <button class="close-btn" onclick="closeGreeting()">
-    ✕ Close
-   </button>
+   <button class="continue-btn" onclick="closeGreeting()">Continue to D SATHI →</button>
+   <button class="close-btn" onclick="closeGreeting()">✕ Close</button>
   </div>
-
  </div>
 </div>
 
@@ -354,224 +228,208 @@ if("serviceWorker" in navigator){
   .catch(err=>console.log("Service Worker:",err));
  });
 }
-
 function closeGreeting(){
  document.getElementById("greeting").style.display="none";
 }
 </script>
 
-<!-- TOP BUSINESS ADVERTISEMENT -->
+<!-- BUSINESS ADVERTISEMENT -->
 <section class="ad-banner">
+ <div class="ad-label">📢 विशेष विज्ञापन</div>
+ <div class="ad-icon">🌺 🪔 🌸</div>
+ <h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
+ <p>
+  🙏 पूजापाठका सम्पूर्ण सामग्री<br>
+  🎁 आकर्षक उपहार तथा फेन्सी सामान<br>
+  🌸 विभिन्न पूजाका आवश्यक सामग्री
+ </p>
+ <p><b>📍 मोदी–२, पातिचौर</b></p>
+ <a class="ad-button"
+ href="https://www.google.com/maps/search/?api=1&query=Modi+2+Patischour+Parbat+Nepal"
+ target="_blank" rel="noopener">📍 स्थान हेर्नुहोस्</a>
+ <p><b>तपाईंको विश्वास, हाम्रो सेवा! ❤️</b></p>
+</section>
 
-<div class="ad-label">📢 विशेष विज्ञापन</div>
-<div class="ad-icon">🌺 🪔 🌸</div>
+<!-- NPL LIVE SCORE AT TOP -->
+<section class="npl-section" id="npl">
+ <div class="npl-heading">
+  <h2>🏏 NEPAL PREMIER LEAGUE</h2>
+  <span class="live-label">● NPL LIVE</span>
+ </div>
 
-<h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
+ <div class="npl-widget">
+  <div data-npl-widget="live-score"></div>
+  <script async src="https://kantipurmax.com/embed.js"></script>
+ </div>
 
-<p>
-🙏 पूजापाठका सम्पूर्ण सामग्री<br>
-🎁 आकर्षक उपहार तथा फेन्सी सामान<br>
-🌸 विभिन्न पूजाका आवश्यक सामग्री
-</p>
-
-<p><b>📍 मोदी–२, पातिचौर</b></p>
-
-<a class="ad-button"
-href="https://www.google.com/maps/search/?api=1&query=Modi+2+Patischour+Parbat+Nepal"
-target="_blank" rel="noopener">
-📍 स्थान हेर्नुहोस्
-</a>
-
-<p><b>तपाईंको विश्वास, हाम्रो सेवा! ❤️</b></p>
+ <div class="score-ticker">
+  <span>🏏 D SATHI NPL LIVE SCORE • नेपाल प्रिमियर लिग • सबै खेलको अपडेट यहाँ हेर्नुहोस् •</span>
+ </div>
+ <p class="npl-note">
+  स्कोर र अपडेट Kantipur Max को Widget बाट उपलब्ध हुँदा देखिनेछन्।
+ </p>
 </section>
 
 <!-- HEADER -->
 <header id="home">
-<div style="font-size:35px">🇳🇵</div>
-<h1>D SATHI</h1>
-<p>नेपालको आफ्नै डिजिटल साथी</p>
-<p>Connect Nepal. Discover More.</p>
+ <div style="font-size:35px">🇳🇵</div>
+ <h1>D SATHI</h1>
+ <p>नेपालको आफ्नै डिजिटल साथी</p>
+ <p>Connect Nepal. Discover More.</p>
 </header>
 
 <!-- NAVIGATION -->
 <nav>
-<a href="#home">गृहपृष्ठ</a>
-<a href="#services">सेवाहरू</a>
-<a href="#news">समाचार</a>
-<a href="#market">शेयर बजार</a>
-<a href="#about">हाम्रोबारे</a>
-<a href="#feedback">Feedback</a>
+ <a href="#home">गृहपृष्ठ</a>
+ <a href="#npl">🏏 NPL LIVE</a>
+ <a href="#services">सेवाहरू</a>
+ <a href="#news">समाचार</a>
+ <a href="#market">शेयर बजार</a>
+ <a href="#about">हाम्रोबारे</a>
+ <a href="#feedback">Feedback</a>
 </nav>
 
 <main>
 
 <div class="welcome">
-<h2>🙏 नमस्कार!</h2>
-<p>
-नेपालका समाचार, पात्रो, मौसम, स्वास्थ्य,
-शेयर बजार र मनोरञ्जनका सेवाहरू एउटै ठाउँमा।
-</p>
+ <h2>🙏 नमस्कार!</h2>
+ <p>
+  नेपालका समाचार, पात्रो, मौसम, स्वास्थ्य,
+  शेयर बजार र मनोरञ्जनका सेवाहरू एउटै ठाउँमा।
+ </p>
 </div>
 
 <!-- SERVICES -->
 <section id="services">
-<h2>🇳🇵 हाम्रा सेवाहरू</h2>
+ <h2>🇳🇵 हाम्रा सेवाहरू</h2>
+ <div class="grid">
 
-<div class="grid">
+  <a class="card" href="#news"><span>📰</span><b>नेपाली समाचार</b></a>
 
-<a class="card" href="#news">
-<span>📰</span><b>नेपाली समाचार</b>
-</a>
+  <a class="card" href="https://nepalipatro.com.np/" target="_blank" rel="noopener">
+   <span>📅</span><b>नेपाली पात्रो</b>
+  </a>
 
-<a class="card" href="https://nepalipatro.com.np/" target="_blank" rel="noopener">
-<span>📅</span><b>नेपाली पात्रो</b>
-</a>
+  <a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank" rel="noopener">
+   <span>🌤️</span><b>मौसम</b>
+  </a>
 
-<a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank" rel="noopener">
-<span>🌤️</span><b>मौसम</b>
-</a>
+  <a class="card" href="https://www.mohp.gov.np/" target="_blank" rel="noopener">
+   <span>🏥</span><b>स्वास्थ्य</b>
+  </a>
 
-<a class="card" href="https://www.mohp.gov.np/" target="_blank" rel="noopener">
-<span>🏥</span><b>स्वास्थ्य</b>
-</a>
+  <a class="card" href="#market"><span>📈</span><b>NEPSE / IPO</b></a>
 
-<a class="card" href="#market">
-<span>📈</span><b>NEPSE / IPO</b>
-</a>
+  <a class="card" href="https://www.youtube.com/" target="_blank" rel="noopener">
+   <span>▶️</span><b>YouTube</b>
+  </a>
 
-<a class="card" href="https://www.youtube.com/" target="_blank" rel="noopener">
-<span>▶️</span><b>YouTube</b>
-</a>
+  <a class="card" href="https://www.youtube.com/shorts/" target="_blank" rel="noopener">
+   <span>🎬</span><b>Nepal Shorts</b>
+  </a>
 
-<a class="card" href="https://www.youtube.com/shorts/" target="_blank" rel="noopener">
-<span>🎬</span><b>Nepal Shorts</b>
-</a>
+  <a class="card" href="https://www.crazygames.com/" target="_blank" rel="noopener">
+   <span>🎮</span><b>Games</b>
+  </a>
 
-<a class="card" href="https://www.crazygames.com/" target="_blank" rel="noopener">
-<span>🎮</span><b>Games</b>
-</a>
+  <a class="card" href="https://www.nepal.gov.np/" target="_blank" rel="noopener">
+   <span>🏛️</span><b>नेपाल सरकार</b>
+  </a>
 
-<a class="card" href="https://www.nepal.gov.np/" target="_blank" rel="noopener">
-<span>🏛️</span><b>नेपाल सरकार</b>
-</a>
+  <a class="card" href="https://www.ntc.net.np/" target="_blank" rel="noopener">
+   <span>📱</span><b>नेपाल टेलिकम</b>
+  </a>
 
-<a class="card" href="https://www.ntc.net.np/" target="_blank" rel="noopener">
-<span>📱</span><b>नेपाल टेलिकम</b>
-</a>
-
-</div>
+ </div>
 </section>
 
 <!-- NEWS -->
 <section id="news">
-<h2>📰 नेपाली समाचार</h2>
-
-<div class="links">
-<a href="https://www.onlinekhabar.com/" target="_blank">अनलाइनखबर ↗</a>
-<a href="https://ekantipur.com/" target="_blank">कान्तिपुर ↗</a>
-<a href="https://www.setopati.com/" target="_blank">सेतोपाटी ↗</a>
-<a href="https://www.ratopati.com/" target="_blank">रातोपाटी ↗</a>
-<a href="https://gorkhapatraonline.com/" target="_blank">गोरखापत्र ↗</a>
-<a href="https://www.nepalnews.com/" target="_blank">नेपाल न्यूज ↗</a>
-</div>
+ <h2>📰 नेपाली समाचार</h2>
+ <div class="links">
+  <a href="https://www.onlinekhabar.com/" target="_blank" rel="noopener">अनलाइनखबर ↗</a>
+  <a href="https://ekantipur.com/" target="_blank" rel="noopener">कान्तिपुर ↗</a>
+  <a href="https://www.setopati.com/" target="_blank" rel="noopener">सेतोपाटी ↗</a>
+  <a href="https://www.ratopati.com/" target="_blank" rel="noopener">रातोपाटी ↗</a>
+  <a href="https://gorkhapatraonline.com/" target="_blank" rel="noopener">गोरखापत्र ↗</a>
+  <a href="https://www.nepalnews.com/" target="_blank" rel="noopener">नेपाल न्यूज ↗</a>
+ </div>
 </section>
 
 <!-- SHARE MARKET -->
 <section id="market">
-<h2>📊 शेयर बजार तथा IPO</h2>
-
-<div class="links">
-<a href="https://www.nepalstock.com/" target="_blank">NEPSE ↗</a>
-<a href="https://meroshare.cdsc.com.np/" target="_blank">MeroShare ↗</a>
-<a href="https://www.sebon.gov.np/" target="_blank">SEBON ↗</a>
-<a href="https://www.sharesansar.com/" target="_blank">ShareSansar ↗</a>
-</div>
+ <h2>📊 शेयर बजार तथा IPO</h2>
+ <div class="links">
+  <a href="https://www.nepalstock.com/" target="_blank" rel="noopener">NEPSE ↗</a>
+  <a href="https://meroshare.cdsc.com.np/" target="_blank" rel="noopener">MeroShare ↗</a>
+  <a href="https://www.sebon.gov.np/" target="_blank" rel="noopener">SEBON ↗</a>
+  <a href="https://www.sharesansar.com/" target="_blank" rel="noopener">ShareSansar ↗</a>
+ </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="box">
-<h2>D SATHI बारेमा</h2>
-<p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
-<p>Developer: Dilip Rimal</p>
-<p>
-Email:
-<a href="mailto:dlprml@gmail.com">dlprml@gmail.com</a>
-</p>
+ <h2>D SATHI बारेमा</h2>
+ <p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
+ <p>Developer: Dilip Rimal</p>
+ <p>Email: <a href="mailto:dlprml@gmail.com">dlprml@gmail.com</a></p>
 </section>
 
-<!-- FEEDBACK - LAST SECTION -->
+<!-- FEEDBACK -->
 <section id="feedback">
+ <h2>⭐ तपाईंको Feedback</h2>
+ <p class="feedback-intro">
+  D SATHI एप कस्तो लाग्यो? आफ्नो मूल्याङ्कन,
+  सुझाव वा समस्या हामीलाई लेख्नुहोस्।
+ </p>
 
-<h2>⭐ तपाईंको Feedback</h2>
+ <form id="feedbackForm">
+  <label><b>एपलाई कति स्टार दिनुहुन्छ?</b></label>
+  <div class="rating">
+   <input type="radio" id="star5" name="rating" value="5" required>
+   <label for="star5">★</label>
+   <input type="radio" id="star4" name="rating" value="4">
+   <label for="star4">★</label>
+   <input type="radio" id="star3" name="rating" value="3">
+   <label for="star3">★</label>
+   <input type="radio" id="star2" name="rating" value="2">
+   <label for="star2">★</label>
+   <input type="radio" id="star1" name="rating" value="1">
+   <label for="star1">★</label>
+  </div>
 
-<p class="feedback-intro">
-D SATHI एप कस्तो लाग्यो?
-आफ्नो मूल्याङ्कन, सुझाव वा समस्या हामीलाई लेख्नुहोस्।
-तपाईंको सुझावले एपलाई अझ राम्रो बनाउन मद्दत गर्छ।
-</p>
+  <label for="feedbackType"><b>Feedback को प्रकार</b></label>
+  <select id="feedbackType" required>
+   <option value="">छान्नुहोस्</option>
+   <option value="सुझाव">सुझाव</option>
+   <option value="समस्या">समस्या रिपोर्ट</option>
+   <option value="प्रशंसा">प्रशंसा</option>
+   <option value="अन्य">अन्य</option>
+  </select>
 
-<form id="feedbackForm">
+  <label for="feedbackText"><b>तपाईंको सुझाव वा टिप्पणी</b></label>
+  <textarea id="feedbackText" placeholder="यहाँ आफ्नो सुझाव लेख्नुहोस्..." required></textarea>
 
-<label><b>एपलाई कति स्टार दिनुहुन्छ?</b></label>
+  <button type="submit" class="feedback-submit">📩 Submit Feedback</button>
+  <div id="feedback-message" role="status"></div>
+ </form>
 
-<div class="rating">
-<input type="radio" id="star5" name="rating" value="5" required>
-<label for="star5">★</label>
-
-<input type="radio" id="star4" name="rating" value="4">
-<label for="star4">★</label>
-
-<input type="radio" id="star3" name="rating" value="3">
-<label for="star3">★</label>
-
-<input type="radio" id="star2" name="rating" value="2">
-<label for="star2">★</label>
-
-<input type="radio" id="star1" name="rating" value="1">
-<label for="star1">★</label>
-</div>
-
-<label for="feedbackType"><b>Feedback को प्रकार</b></label>
-
-<select id="feedbackType" required>
-<option value="">छान्नुहोस्</option>
-<option value="सुझाव">सुझाव</option>
-<option value="समस्या">समस्या रिपोर्ट</option>
-<option value="प्रशंसा">प्रशंसा</option>
-<option value="अन्य">अन्य</option>
-</select>
-
-<label for="feedbackText"><b>तपाईंको सुझाव वा टिप्पणी</b></label>
-
-<textarea id="feedbackText"
-placeholder="यहाँ आफ्नो सुझाव लेख्नुहोस्..."
-required></textarea>
-
-<button type="submit" class="feedback-submit">
-📩 Submit Feedback
-</button>
-
-<div id="feedback-message" role="status"></div>
-
-</form>
-
-<p style="font-size:12px;color:#777;margin-top:15px">
-हाल प्रतिक्रिया यही डिभाइसमा मात्र सुरक्षित हुन्छ।
-</p>
-
+ <p style="font-size:12px;color:#777;margin-top:15px">
+  हाल प्रतिक्रिया यही डिभाइसमा मात्र सुरक्षित हुन्छ।
+ </p>
 </section>
 
 </main>
 
 <footer>
-🇳🇵 D SATHI © 2026<br>
-Developer: Dilip Rimal
+ 🇳🇵 D SATHI © 2026<br>
+ Developer: Dilip Rimal<br>
+ <a href="mailto:dlprml@gmail.com">dlprml@gmail.com</a>
 </footer>
 
 <!-- FEEDBACK SAVE -->
 <script>
 document.getElementById("feedbackForm").addEventListener("submit",function(e){
-
  e.preventDefault();
 
  const rating=document.querySelector('input[name="rating"]:checked');
@@ -594,22 +452,16 @@ document.getElementById("feedbackForm").addEventListener("submit",function(e){
   );
 
   oldFeedback.push(feedback);
-
-  localStorage.setItem(
-   "dsathi_feedback",
-   JSON.stringify(oldFeedback)
-  );
+  localStorage.setItem("dsathi_feedback",JSON.stringify(oldFeedback));
 
   document.getElementById("feedback-message").textContent=
    "धन्यवाद! तपाईंको Feedback यो डिभाइसमा सुरक्षित भयो। ❤️";
 
   this.reset();
-
  }catch(error){
   document.getElementById("feedback-message").textContent=
    "Feedback सुरक्षित हुन सकेन। कृपया फेरि प्रयास गर्नुहोस्।";
  }
-
 });
 </script>
 
