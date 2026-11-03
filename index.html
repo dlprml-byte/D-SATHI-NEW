@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ne">
 <head>
@@ -15,6 +16,85 @@ body{
  font-family:Arial,"Noto Sans Devanagari",sans-serif;
  background:#f1f4fa;
  color:#17233b;
+}
+
+/* FESTIVAL OPENING CARD */
+.greeting-overlay{
+ position:fixed;
+ inset:0;
+ z-index:9999;
+ background:linear-gradient(145deg,#650000,#b90016,#f3a51b);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:18px;
+}
+
+.greeting-card{
+ width:100%;
+ max-width:500px;
+ text-align:center;
+ background:linear-gradient(160deg,#fff9e9,#fff0ce);
+ border:4px solid #ffcf57;
+ border-radius:25px;
+ padding:25px 18px;
+ box-shadow:0 12px 40px #0008;
+ position:relative;
+}
+
+.greeting-card .festival-icons{
+ font-size:38px;
+ margin:8px 0 15px;
+}
+
+.greeting-card h1{
+ color:#a00000;
+ font-size:27px;
+ line-height:1.5;
+ margin:10px 0;
+}
+
+.greeting-card h2{
+ color:#b36a00;
+ font-size:21px;
+}
+
+.greeting-card p{
+ line-height:1.9;
+ font-size:15px;
+ color:#4b2c16;
+}
+
+.greeting-card .signature{
+ color:#a00000;
+ font-weight:bold;
+ margin-top:18px;
+}
+
+.greeting-buttons{
+ display:flex;
+ flex-direction:column;
+ gap:10px;
+ margin-top:20px;
+}
+
+.greeting-buttons button{
+ border:0;
+ padding:14px;
+ border-radius:30px;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.continue-btn{
+ background:#bd0000;
+ color:white;
+}
+
+.close-btn{
+ background:#f0d9b0;
+ color:#652000;
 }
 
 /* TOP ADVERTISEMENT */
@@ -47,9 +127,7 @@ body{
  line-height:1.7;
 }
 
-.ad-icon{
- font-size:38px;
-}
+.ad-icon{font-size:38px}
 
 .ad-button{
  display:inline-block;
@@ -72,14 +150,8 @@ header{
  border-radius:0 0 25px 25px;
 }
 
-header h1{
- font-size:38px;
- margin:10px;
-}
-
-header p{
- font-size:17px;
-}
+header h1{font-size:38px;margin:10px}
+header p{font-size:17px}
 
 nav{
  background:#10234b;
@@ -151,6 +223,77 @@ h2{color:#173c78}
  color:#164b91;
 }
 
+/* FEEDBACK */
+#feedback{
+ background:white;
+ padding:20px;
+ border-radius:16px;
+ margin-top:20px;
+ box-shadow:0 3px 12px #00000010;
+}
+
+.feedback-intro{
+ color:#66738a;
+ line-height:1.7;
+}
+
+.rating{
+ display:flex;
+ flex-direction:row-reverse;
+ justify-content:flex-end;
+ gap:7px;
+ margin:15px 0;
+}
+
+.rating input{display:none}
+
+.rating label{
+ font-size:35px;
+ color:#ccc;
+ cursor:pointer;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label{
+ color:#ffad00;
+}
+
+#feedback textarea,
+#feedback select{
+ width:100%;
+ padding:13px;
+ border:1px solid #ccd3df;
+ border-radius:10px;
+ font-size:15px;
+ margin:8px 0 15px;
+ font-family:inherit;
+}
+
+#feedback textarea{
+ min-height:120px;
+ resize:vertical;
+}
+
+.feedback-submit{
+ width:100%;
+ background:#c90000;
+ color:white;
+ border:0;
+ padding:14px;
+ border-radius:25px;
+ font-size:16px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+#feedback-message{
+ margin-top:12px;
+ color:#087b35;
+ font-weight:bold;
+ line-height:1.6;
+}
+
 footer{
  text-align:center;
  padding:25px;
@@ -161,12 +304,59 @@ footer{
 
 <body>
 
+<!-- FESTIVAL OPENING SCREEN -->
+<div class="greeting-overlay" id="greeting">
+
+ <div class="greeting-card">
+
+  <div class="festival-icons">🪔 🌼 🌅 🪷</div>
+
+  <h1>शुभ दीपावली तथा छठ पर्वको हार्दिक मंगलमय शुभकामना!</h1>
+
+  <h2>✨ D SATHI परिवार ✨</h2>
+
+  <p>
+   दियोको उज्यालोले जीवनमा सुख, शान्ति र समृद्धि ल्याओस्।
+   छठी मैयाको कृपाले सबैको जीवनमा स्वास्थ्य,
+   खुसी र सफलता छाओस्।
+  </p>
+
+  <p>
+   सम्पूर्ण नेपाली दाजुभाइ तथा दिदीबहिनीहरूमा
+   हार्दिक मंगलमय शुभकामना।
+  </p>
+
+  <div class="festival-icons">🌺 🪔 🌸 🙏 🌅</div>
+
+  <p class="signature">
+   D SATHI परिवार<br>
+   Developer: Dilip Rimal
+  </p>
+
+  <div class="greeting-buttons">
+   <button class="continue-btn" onclick="closeGreeting()">
+    Continue to D SATHI →
+   </button>
+
+   <button class="close-btn" onclick="closeGreeting()">
+    ✕ Close
+   </button>
+  </div>
+
+ </div>
+</div>
+
 <!-- SERVICE WORKER -->
 <script>
 if("serviceWorker" in navigator){
  window.addEventListener("load",()=>{
- navigator.serviceWorker.register("sw.js");
+  navigator.serviceWorker.register("./sw.js")
+  .catch(err=>console.log("Service Worker:",err));
  });
+}
+
+function closeGreeting(){
+ document.getElementById("greeting").style.display="none";
 }
 </script>
 
@@ -174,7 +364,6 @@ if("serviceWorker" in navigator){
 <section class="ad-banner">
 
 <div class="ad-label">📢 विशेष विज्ञापन</div>
-
 <div class="ad-icon">🌺 🪔 🌸</div>
 
 <h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
@@ -185,39 +374,33 @@ if("serviceWorker" in navigator){
 🌸 विभिन्न पूजाका आवश्यक सामग्री
 </p>
 
-<p>
-📍 <b>मोदी–२, पातिचौर</b>
-</p>
+<p><b>📍 मोदी–२, पातिचौर</b></p>
 
 <a class="ad-button"
 href="https://www.google.com/maps/search/?api=1&query=Modi+2+Patischour+Parbat+Nepal"
-target="_blank">
+target="_blank" rel="noopener">
 📍 स्थान हेर्नुहोस्
 </a>
 
 <p><b>तपाईंको विश्वास, हाम्रो सेवा! ❤️</b></p>
-
 </section>
 
 <!-- HEADER -->
 <header id="home">
-
 <div style="font-size:35px">🇳🇵</div>
-
 <h1>D SATHI</h1>
-
 <p>नेपालको आफ्नै डिजिटल साथी</p>
-
 <p>Connect Nepal. Discover More.</p>
-
 </header>
 
+<!-- NAVIGATION -->
 <nav>
 <a href="#home">गृहपृष्ठ</a>
 <a href="#services">सेवाहरू</a>
 <a href="#news">समाचार</a>
 <a href="#market">शेयर बजार</a>
 <a href="#about">हाम्रोबारे</a>
+<a href="#feedback">Feedback</a>
 </nav>
 
 <main>
@@ -230,8 +413,8 @@ target="_blank">
 </p>
 </div>
 
+<!-- SERVICES -->
 <section id="services">
-
 <h2>🇳🇵 हाम्रा सेवाहरू</h2>
 
 <div class="grid">
@@ -240,15 +423,15 @@ target="_blank">
 <span>📰</span><b>नेपाली समाचार</b>
 </a>
 
-<a class="card" href="https://nepalipatro.com.np/" target="_blank">
+<a class="card" href="https://nepalipatro.com.np/" target="_blank" rel="noopener">
 <span>📅</span><b>नेपाली पात्रो</b>
 </a>
 
-<a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank">
+<a class="card" href="https://www.google.com/search?q=weather+in+Nepal" target="_blank" rel="noopener">
 <span>🌤️</span><b>मौसम</b>
 </a>
 
-<a class="card" href="https://www.mohp.gov.np/" target="_blank">
+<a class="card" href="https://www.mohp.gov.np/" target="_blank" rel="noopener">
 <span>🏥</span><b>स्वास्थ्य</b>
 </a>
 
@@ -256,31 +439,31 @@ target="_blank">
 <span>📈</span><b>NEPSE / IPO</b>
 </a>
 
-<a class="card" href="https://www.youtube.com/" target="_blank">
+<a class="card" href="https://www.youtube.com/" target="_blank" rel="noopener">
 <span>▶️</span><b>YouTube</b>
 </a>
 
-<a class="card" href="https://www.youtube.com/shorts/" target="_blank">
+<a class="card" href="https://www.youtube.com/shorts/" target="_blank" rel="noopener">
 <span>🎬</span><b>Nepal Shorts</b>
 </a>
 
-<a class="card" href="https://www.crazygames.com/" target="_blank">
+<a class="card" href="https://www.crazygames.com/" target="_blank" rel="noopener">
 <span>🎮</span><b>Games</b>
 </a>
 
-<a class="card" href="https://www.nepal.gov.np/" target="_blank">
+<a class="card" href="https://www.nepal.gov.np/" target="_blank" rel="noopener">
 <span>🏛️</span><b>नेपाल सरकार</b>
 </a>
 
-<a class="card" href="https://www.ntc.net.np/" target="_blank">
+<a class="card" href="https://www.ntc.net.np/" target="_blank" rel="noopener">
 <span>📱</span><b>नेपाल टेलिकम</b>
 </a>
 
 </div>
 </section>
 
+<!-- NEWS -->
 <section id="news">
-
 <h2>📰 नेपाली समाचार</h2>
 
 <div class="links">
@@ -291,11 +474,10 @@ target="_blank">
 <a href="https://gorkhapatraonline.com/" target="_blank">गोरखापत्र ↗</a>
 <a href="https://www.nepalnews.com/" target="_blank">नेपाल न्यूज ↗</a>
 </div>
-
 </section>
 
+<!-- SHARE MARKET -->
 <section id="market">
-
 <h2>📊 शेयर बजार तथा IPO</h2>
 
 <div class="links">
@@ -304,26 +486,132 @@ target="_blank">
 <a href="https://www.sebon.gov.np/" target="_blank">SEBON ↗</a>
 <a href="https://www.sharesansar.com/" target="_blank">ShareSansar ↗</a>
 </div>
-
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="box">
-
 <h2>D SATHI बारेमा</h2>
-
 <p>नेपालको आफ्नै डिजिटल साथी 🇳🇵</p>
-
 <p>Developer: Dilip Rimal</p>
-<p>Email:
+<p>
+Email:
 <a href="mailto:dlprml@gmail.com">dlprml@gmail.com</a>
 </p>
+</section>
+
+<!-- FEEDBACK - LAST SECTION -->
+<section id="feedback">
+
+<h2>⭐ तपाईंको Feedback</h2>
+
+<p class="feedback-intro">
+D SATHI एप कस्तो लाग्यो?
+आफ्नो मूल्याङ्कन, सुझाव वा समस्या हामीलाई लेख्नुहोस्।
+तपाईंको सुझावले एपलाई अझ राम्रो बनाउन मद्दत गर्छ।
+</p>
+
+<form id="feedbackForm">
+
+<label><b>एपलाई कति स्टार दिनुहुन्छ?</b></label>
+
+<div class="rating">
+<input type="radio" id="star5" name="rating" value="5" required>
+<label for="star5">★</label>
+
+<input type="radio" id="star4" name="rating" value="4">
+<label for="star4">★</label>
+
+<input type="radio" id="star3" name="rating" value="3">
+<label for="star3">★</label>
+
+<input type="radio" id="star2" name="rating" value="2">
+<label for="star2">★</label>
+
+<input type="radio" id="star1" name="rating" value="1">
+<label for="star1">★</label>
+</div>
+
+<label for="feedbackType"><b>Feedback को प्रकार</b></label>
+
+<select id="feedbackType" required>
+<option value="">छान्नुहोस्</option>
+<option value="सुझाव">सुझाव</option>
+<option value="समस्या">समस्या रिपोर्ट</option>
+<option value="प्रशंसा">प्रशंसा</option>
+<option value="अन्य">अन्य</option>
+</select>
+
+<label for="feedbackText"><b>तपाईंको सुझाव वा टिप्पणी</b></label>
+
+<textarea id="feedbackText"
+placeholder="यहाँ आफ्नो सुझाव लेख्नुहोस्..."
+required></textarea>
+
+<button type="submit" class="feedback-submit">
+📩 Submit Feedback
+</button>
+
+<div id="feedback-message" role="status"></div>
+
+</form>
+
+<p style="font-size:12px;color:#777;margin-top:15px">
+हाल प्रतिक्रिया यही डिभाइसमा मात्र सुरक्षित हुन्छ।
+</p>
+
 </section>
 
 </main>
 
 <footer>
-🇳🇵 D SATHI © 2026
+🇳🇵 D SATHI © 2026<br>
+Developer: Dilip Rimal
 </footer>
+
+<!-- FEEDBACK SAVE -->
+<script>
+document.getElementById("feedbackForm").addEventListener("submit",function(e){
+
+ e.preventDefault();
+
+ const rating=document.querySelector('input[name="rating"]:checked');
+
+ if(!rating){
+  alert("कृपया स्टार Rating छान्नुहोस्।");
+  return;
+ }
+
+ const feedback={
+  rating:rating.value,
+  type:document.getElementById("feedbackType").value,
+  message:document.getElementById("feedbackText").value,
+  date:new Date().toISOString()
+ };
+
+ try{
+  const oldFeedback=JSON.parse(
+   localStorage.getItem("dsathi_feedback") || "[]"
+  );
+
+  oldFeedback.push(feedback);
+
+  localStorage.setItem(
+   "dsathi_feedback",
+   JSON.stringify(oldFeedback)
+  );
+
+  document.getElementById("feedback-message").textContent=
+   "धन्यवाद! तपाईंको Feedback यो डिभाइसमा सुरक्षित भयो। ❤️";
+
+  this.reset();
+
+ }catch(error){
+  document.getElementById("feedback-message").textContent=
+   "Feedback सुरक्षित हुन सकेन। कृपया फेरि प्रयास गर्नुहोस्।";
+ }
+
+});
+</script>
 
 </body>
 </html>
