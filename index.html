@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#071a38">
 <meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी">
 <link rel="manifest" href="./manifest.json">
+
 <title>D SATHI | नेपालको आफ्नै डिजिटल साथी</title>
 
 <style>
@@ -21,6 +22,26 @@ body{
 
 a{text-decoration:none;color:inherit}
 button{cursor:pointer}
+
+/* DEVELOPER TV ADVERTISEMENT */
+.dev-tv-ad{
+ background:linear-gradient(90deg,#07152e,#a90000,#e60000,#07152e);
+ color:white;
+ padding:13px 0;
+ overflow:hidden;
+ border-top:2px solid #ffd45c;
+ border-bottom:2px solid #ffd45c;
+ white-space:nowrap;
+ box-shadow:0 3px 12px #0008;
+}
+
+.dev-tv-ad marquee{
+ font-size:18px;
+ font-weight:900;
+ text-shadow:2px 2px 4px #000;
+}
+
+.dev-tv-ad .highlight{color:#ffd45c}
 
 /* HERO */
 .hero{
@@ -238,8 +259,7 @@ textarea{min-height:100px}
 /* DEVELOPER PROFILE */
 .developer{
  text-align:center;
- background:
- linear-gradient(145deg,#142f57,#07152e);
+ background:linear-gradient(145deg,#142f57,#07152e);
  border:1px solid #d9ae48;
  border-radius:20px;
  padding:28px 15px;
@@ -307,14 +327,30 @@ footer strong{color:#ffd45c}
  .logo{font-size:34px}
  .greeting h2{font-size:22px}
  .dev-photo{width:125px;height:125px}
+ .dev-tv-ad marquee{font-size:16px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- TV STYLE DEVELOPER ADVERTISEMENT -->
+<div class="dev-tv-ad">
+<marquee direction="left" scrollamount="5">
+🚀 <span class="highlight">MOBILE APP DEVELOPMENT</span>
+&nbsp; | &nbsp; 📰 आफ्नै NEWS PORTAL बनाउन चाहनुहुन्छ?
+&nbsp; | &nbsp; 💻 WEBSITE DESIGN & DEVELOPMENT
+&nbsp; | &nbsp; 📱 MOBILE APPLICATION
+&nbsp; | &nbsp; 🖥️ SOFTWARE DEVELOPMENT
+&nbsp; | &nbsp;
+👨‍💻 <span class="highlight">DILIP RIMAL – FOUNDER & DEVELOPER OF D SATHI</span>
+&nbsp; | &nbsp;
+📩 आफ्नै डिजिटल प्लेटफर्म बनाउन आजै सम्पर्क गर्नुहोस्!
+</marquee>
+</div>
+
 <!-- HEADER -->
-<header class="hero">
+<header class="hero" id="home">
  <div>
   <div class="logo">🇳🇵 D SATHI</div>
   <div class="tagline">नेपालको आफ्नै डिजिटल साथी</div>
@@ -333,7 +369,7 @@ footer strong{color:#ffd45c}
  <a href="#developer">👨‍💻 Developer</a>
 </nav>
 
-<main class="container" id="home">
+<main class="container">
 
 <!-- ADVERTISEMENT -->
 <section class="card ad">
@@ -382,27 +418,16 @@ footer strong{color:#ffd45c}
  <h2 class="section-title">🌐 हाम्रा डिजिटल सेवाहरू</h2>
 
  <div class="grid">
-
   <a class="service" href="https://www.google.com" target="_blank"><span>🔍</span><strong>Google Search</strong></a>
-
   <a class="service" href="https://www.youtube.com" target="_blank"><span>▶️</span><strong>YouTube</strong></a>
-
   <a class="service" href="https://www.hamropatro.com" target="_blank"><span>📅</span><strong>Hamro Patro</strong></a>
-
   <a class="service" href="https://www.facebook.com" target="_blank"><span>📘</span><strong>Facebook</strong></a>
-
   <a class="service" href="https://www.tiktok.com" target="_blank"><span>🎵</span><strong>TikTok</strong></a>
-
   <a class="service" href="https://www.esewa.com.np" target="_blank"><span>💳</span><strong>eSewa</strong></a>
-
   <a class="service" href="https://khalti.com" target="_blank"><span>💰</span><strong>Khalti</strong></a>
-
   <a class="service" href="https://www.ntc.net.np" target="_blank"><span>📱</span><strong>NTC</strong></a>
-
   <a class="service" href="https://www.ncell.com.np" target="_blank"><span>📶</span><strong>Ncell</strong></a>
-
   <a class="service" href="https://www.accuweather.com" target="_blank"><span>🌤️</span><strong>Weather</strong></a>
-
  </div>
 </section>
 
@@ -411,11 +436,8 @@ footer strong{color:#ffd45c}
  <h2 class="section-title">📰 नेपाली ताजा समाचार</h2>
 
  <a class="news-link" href="https://ekantipur.com" target="_blank">📰 कान्तिपुर समाचार</a>
-
  <a class="news-link" href="https://www.onlinekhabar.com" target="_blank">📰 Online Khabar</a>
-
  <a class="news-link" href="https://ratopati.com" target="_blank">📰 रातोपाटी</a>
-
  <a class="news-link" href="https://www.setopati.com" target="_blank">📰 सेतोपाटी</a>
 </section>
 
@@ -424,15 +446,10 @@ footer strong{color:#ffd45c}
  <h2 class="section-title">📈 NEPSE तथा शेयर बजार</h2>
 
  <div class="grid">
-
   <a class="service" href="https://www.nepalstock.com" target="_blank"><span>📊</span><strong>NEPSE</strong></a>
-
   <a class="service" href="https://meroshare.cdsc.com.np" target="_blank"><span>📁</span><strong>MeroShare</strong></a>
-
   <a class="service" href="https://www.sharesansar.com" target="_blank"><span>📈</span><strong>ShareSansar</strong></a>
-
   <a class="service" href="https://iporesult.cdsc.com.np" target="_blank"><span>🎯</span><strong>IPO Result</strong></a>
-
  </div>
 </section>
 
@@ -446,7 +463,6 @@ footer strong{color:#ffd45c}
  <input id="fname" type="text" placeholder="नाम लेख्नुहोस्">
 
  <label>रेटिङ दिनुहोस्</label>
-
  <div class="stars" id="stars">
   <span data-value="1">★</span>
   <span data-value="2">★</span>
