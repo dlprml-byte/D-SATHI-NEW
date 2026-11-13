@@ -1,272 +1,342 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-<meta name="google-site-verification" content="bwbsj4oHwUXWy8LiO5vcNqbYP-LNw4IflYMLVl_-Bh8">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071a38">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
 <meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी">
 <link rel="manifest" href="./manifest.json">
 <title>D SATHI | नेपालको आफ्नै डिजिटल साथी</title>
 <style>
+:root{
+ --bg:#f4f6ff;--surface:#fff;--ink:#17233d;--muted:#78839a;--line:#e8ebf4;
+ --blue:#2465e8;--teal:#16a995;--pink:#e64c8d;--purple:#7654e8;
+ --shadow:0 9px 24px rgba(45,66,112,.10)
+}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#07152e;color:#fff}
-a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans Devanagari",sans-serif;padding-bottom:84px}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
 button{cursor:pointer}
-.dev-tv-ad{background:linear-gradient(90deg,#07152e,#a90000,#e60000,#07152e);color:#fff;padding:13px 0;overflow:hidden;border-top:2px solid #ffd45c;border-bottom:2px solid #ffd45c;white-space:nowrap;box-shadow:0 3px 12px #0008}
-.dev-tv-ad marquee{font-size:18px;font-weight:900;text-shadow:2px 2px 4px #000}
-.dev-tv-ad .highlight{color:#ffd45c}
-
-/* LIVE DATE / PANCHANGA / KUSMA WEATHER BAR */
-.live-topbar{background:linear-gradient(90deg,#031027,#123d70,#031027);color:#fff;padding:11px 0;overflow:hidden;white-space:nowrap;border-bottom:2px solid #ffd45c;box-shadow:0 3px 12px #0007}
-.live-topbar marquee{font-size:15px;font-weight:700}
-.live-topbar .live-item{display:inline-block;margin:0 17px}
-.live-topbar b{color:#ffd45c}
-.live-topbar a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-.live-dot{color:#ff4545;margin-right:5px}
-.hero{min-height:310px;background:linear-gradient(180deg,rgba(2,12,35,.30),rgba(2,12,35,.85)),url("dsathi-bg.png") center 35%/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:35px 15px;border-bottom:3px solid #e60000}
-.logo{font-size:42px;font-weight:900;letter-spacing:3px;text-shadow:0 3px 12px #000}
-.tagline{font-size:17px;font-weight:bold}
-.hero-badge{display:inline-block;margin-top:15px;padding:9px 18px;border-radius:25px;background:#e60000;font-weight:bold}
-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px;background:#071d42;position:sticky;top:0;z-index:20;box-shadow:0 3px 12px #0008}
-nav a{padding:9px 13px;border-radius:20px;background:#12396a;font-size:13px}
-nav a:hover{background:#e60000}
-.container{width:min(1100px,94%);margin:20px auto}
-.card{background:linear-gradient(145deg,#102b50,#091b36);border:1px solid #294c78;border-radius:16px;padding:18px;margin-bottom:18px;box-shadow:0 5px 18px #0005}
-.section-title{font-size:21px;margin:0 0 15px;color:#ffd45c;border-bottom:1px solid #35577c;padding-bottom:10px}
-.btn{display:inline-block;background:#e60000;padding:10px 15px;border-radius:8px;margin:5px;font-size:14px;font-weight:bold}
-.btn.blue{background:#1266b5}.btn.green{background:#16864c}
-.ad{text-align:center;border:2px dashed #ffd45c;background:linear-gradient(120deg,#681414,#a12b13)}
-.ad h2{color:#ffe17b;margin:5px}.ad p{line-height:1.7}
-.greeting{text-align:center;background:linear-gradient(120deg,#7b160d,#c43b12,#5b0e28)}
-.greeting h2{font-size:27px;color:#ffe58b}.greeting p{line-height:1.8}
-.live-label{display:inline-block;background:#e60000;padding:6px 13px;border-radius:20px;font-weight:bold;animation:pulse 1.5s infinite}
-@keyframes pulse{50%{opacity:.55}}
-.score-box{background:#06152c;border:1px solid #31577e;border-radius:12px;padding:15px;text-align:center}
-.score-placeholder{padding:18px 5px;line-height:1.8;color:#c8d8ed}
-#npl-widget{min-height:100px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-.service{display:block;text-align:center;padding:17px 8px;border-radius:12px;background:#17385f;border:1px solid #31577e;transition:.2s}
-.service:hover{background:#24558a;transform:translateY(-3px)}
-.service span{display:block;font-size:27px;margin-bottom:8px}
-.service strong{font-size:14px}
-.news-link{display:block;padding:13px;margin:8px 0;background:#17385f;border-radius:9px;border-left:4px solid #e60000}
-input,textarea,select{width:100%;padding:12px;margin:7px 0;border:1px solid #45617e;border-radius:8px;background:#07152e;color:#fff;font-size:15px}
-textarea{min-height:100px}
-.stars{font-size:28px;color:#777;cursor:pointer}
-.stars span.active{color:#ffd45c}
-.submit{width:100%;padding:13px;border:0;border-radius:9px;background:#e60000;color:#fff;font-size:16px;font-weight:bold}
-.developer{text-align:center;background:linear-gradient(145deg,#142f57,#07152e);border:1px solid #d9ae48;border-radius:20px;padding:28px 15px;box-shadow:0 0 22px #d9ae4820}
-.dev-photo{width:145px;height:145px;object-fit:cover;object-position:center 25%;border-radius:50%;border:4px solid #ffd45c;padding:4px;background:#102b50;box-shadow:0 0 22px #ffd45c55}
-.dev-name{font-size:25px;color:#ffd45c;margin:15px 0 5px}
-.dev-role{color:#d4e5ff;font-size:15px;line-height:1.8}
-.dev-badge{display:inline-block;background:#e60000;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:bold;margin:10px 0}
-.dev-email{display:inline-block;background:#1266b5;padding:12px 20px;border-radius:25px;margin-top:12px;font-weight:bold;font-size:14px}
-.dev-email:hover{background:#e60000}
-footer{text-align:center;padding:25px 12px;background:#041024;color:#c6d5e8;line-height:1.8}
-footer strong{color:#ffd45c}
-@media(max-width:500px){.logo{font-size:34px}.greeting h2{font-size:22px}.dev-photo{width:125px;height:125px}.dev-tv-ad marquee{font-size:16px}.live-topbar marquee{font-size:14px}}
+.topbar{height:72px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 17px;position:sticky;top:0;z-index:50;box-shadow:0 3px 15px #1c31500c}
+.brand{display:flex;align-items:center;gap:7px;font-size:31px;font-weight:800;color:#1744b9;letter-spacing:-1.5px}
+.brand-mark{font-size:39px;line-height:1;background:linear-gradient(135deg,#e52e42,#ffb22d 48%,#245eea 50%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.header-actions{display:flex;align-items:center;gap:9px}
+.lang-select{border:1px solid #dce1eb;background:#fff;border-radius:12px;padding:9px 10px;color:#34415c}
+.icon-btn{width:43px;height:43px;border:1px solid #e4e8f1;border-radius:50%;background:#f5f7fc;font-size:20px}
+.menu-btn{border:0;background:transparent;font-size:27px;color:#17233d;padding:4px}
+.langbar{margin:9px 15px 0;background:#edf0f5;border-radius:22px;padding:4px;display:flex;gap:3px}
+.langbar button{flex:1;border:0;background:transparent;border-radius:18px;padding:6px 4px;color:#78839a;font-size:12px}
+.langbar button.active{background:#fff;color:#19233a;font-weight:700;box-shadow:0 2px 7px #1b2b4a12}
+.hero{margin:16px 15px 0;padding:19px 17px 18px;border-radius:23px;color:white;background:linear-gradient(120deg,#087c76,#16b7a3);box-shadow:0 10px 24px #0d99852c;min-height:138px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-62px;top:-76px;background:#ffffff13}
+.hero-kicker{display:inline-block;background:#ffffff28;border:1px solid #ffffff35;border-radius:20px;padding:5px 10px;font-size:11px;margin-bottom:9px}
+.hero-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hero h1{font-size:22px;margin:0 0 7px}
+.hero p{font-size:13px;line-height:1.55;margin:0;color:#e1fffb;max-width:255px}
+.hero-symbol{font-size:31px;background:#ffffff25;border:1px solid #ffffff50;border-radius:17px;width:55px;height:55px;display:grid;place-items:center;flex-shrink:0}
+.live-strip{margin:11px 15px 0;padding:9px 12px;background:#fff;border-radius:14px;box-shadow:var(--shadow);font-size:12px;color:#59657c;white-space:nowrap;overflow:hidden}
+.live-strip marquee{font-weight:600}
+.live-strip b{color:#17233d}
+.search-wrap{margin:15px 15px 0;position:relative}
+.search-wrap input{width:100%;height:49px;border:0;outline:0;background:#fff;border-radius:17px;padding:0 16px 0 44px;box-shadow:var(--shadow);color:var(--ink)}
+.search-icon{position:absolute;left:15px;top:14px;font-size:18px}
+.quick-row{display:flex;gap:9px;overflow-x:auto;padding:14px 15px 4px;scrollbar-width:none}
+.quick-row::-webkit-scrollbar{display:none}
+.quick-chip{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:25px;padding:10px 14px;font-weight:700;box-shadow:0 4px 12px #253b6510}
+.quick-chip span{margin-right:5px}
+.market-ticker{margin:13px 15px 20px;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:13px 10px;display:grid;grid-template-columns:repeat(3,1fr)}
+.market-item{text-align:center;border-right:1px solid var(--line);padding:2px 4px}
+.market-item:last-child{border:0}
+.market-icon{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fff2cf;font-size:17px;margin-bottom:5px}
+.market-item:nth-child(2) .market-icon{background:#edf0f5}
+.market-item:nth-child(3) .market-icon{background:#d9f8ed}
+.market-item small{display:block;color:var(--muted);font-weight:700}
+.market-item strong{font-size:12px}
+.section{margin:0 15px 21px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 12px}
+.section-head h2{font-size:20px;margin:0}
+.section-head small{color:#a0a8b8}
+.news-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:#fff;border-radius:20px;box-shadow:var(--shadow);min-height:205px}
+.news-feature{padding:13px;color:#fff;background:linear-gradient(145deg,#234a81,#12274b);display:flex;flex-direction:column;justify-content:flex-end;min-height:205px}
+.news-feature .news-tag{font-size:11px;opacity:.85}
+.news-feature strong{font-size:16px;line-height:1.5;margin-top:7px}
+.news-list{padding:12px 11px}
+.news-list article{padding:3px 0 10px;margin-bottom:9px;border-bottom:1px solid var(--line)}
+.news-list article:last-child{border:0;margin:0}
+.news-list small{color:#8490a5}
+.news-list strong{display:block;font-size:13px;line-height:1.5;margin-top:5px}
+.plan-card{background:#fff;border-radius:20px;padding:17px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between}
+.plan-card h2{font-size:20px;margin:0}
+.plan-card p{font-size:12px;color:var(--muted);margin:6px 0 0}
+.plan-card button{border:0;border-radius:20px;padding:9px 13px;background:#efedff;color:#7358df;font-weight:700}
+.services-hero{margin:0 15px 13px;padding:15px;border-radius:20px;background:linear-gradient(120deg,#07877d,#20b5a4);color:white}
+.services-hero h2{margin:0 0 5px;font-size:20px}
+.services-hero p{margin:0;font-size:12px;color:#e3fffb}
+.tools-search{margin:0 15px 12px;position:relative}
+.tools-search input{width:100%;height:44px;border:0;border-radius:14px;padding:0 14px 0 42px;box-shadow:var(--shadow);outline:0;background:#fff}
+.tools-search span{position:absolute;left:14px;top:11px}
+.pinned-head{display:flex;align-items:center;justify-content:space-between;margin:0 18px 10px}
+.pinned-head h3{margin:0;font-size:17px}
+.pinned-head small{color:#9aa3b3;font-size:10px}
+.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 15px}
+.tool-card{background:#fff;border-radius:20px;padding:8px 8px 12px;box-shadow:var(--shadow);min-width:0;position:relative;border:1px solid #edf0f6;transition:transform .15s}
+.tool-card:active{transform:scale(.98)}
+.tool-art{height:86px;border-radius:15px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;color:#fff;font-size:37px}
+.tool-art:before{content:"";position:absolute;width:130px;height:130px;border:1px solid #ffffff35;border-radius:50%;right:-40px;top:-68px}
+.tool-art:after{content:"";position:absolute;width:80px;height:80px;border:1px solid #ffffff30;border-radius:50%;left:-25px;bottom:-45px}
+.art-teal{background:linear-gradient(135deg,#08766e,#1b9e8e)}
+.art-purple{background:linear-gradient(135deg,#6b52db,#4936b9)}
+.art-pink{background:linear-gradient(135deg,#e94775,#b91e53)}
+.art-blue{background:linear-gradient(135deg,#2996b4,#137b9e)}
+.art-red{background:linear-gradient(135deg,#e13e45,#ad172d)}
+.art-gold{background:linear-gradient(135deg,#a57b2d,#72501b)}
+.art-violet{background:linear-gradient(135deg,#a36be9,#7046c5)}
+.art-orange{background:linear-gradient(135deg,#f29b24,#c96c0e)}
+.art-navy{background:linear-gradient(135deg,#2865e7,#2444aa)}
+.tool-label{position:absolute;top:7px;right:7px;background:#17233d55;border:1px solid #ffffff40;color:#fff;padding:3px 7px;border-radius:15px;font-size:9px}
+.pin-btn{position:absolute;left:7px;top:7px;border:0;border-radius:14px;background:#17233d66;color:#fff;padding:4px 7px;font-size:10px;z-index:2}
+.tool-card h4{font-size:14px;margin:9px 3px 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tool-card p{font-size:11px;color:#929bad;margin:0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty-state{display:none;text-align:center;color:var(--muted);padding:22px}
+.extra-tools{margin:19px 15px 0;background:#fff;border-radius:19px;padding:15px;box-shadow:var(--shadow)}
+.extra-tools h3{margin:0 0 11px;font-size:17px}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mini-tool{background:#f3f5fb;border-radius:12px;padding:11px 5px;text-align:center;font-size:11px;font-weight:700}
+.mini-tool span{display:block;font-size:21px;margin-bottom:5px}
+.pin-note{text-align:center;color:#9aa3b3;font-size:10px;margin:12px 15px 22px}
+.bottom-nav{position:fixed;z-index:60;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid #e8ebf3;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px calc(7px + env(safe-area-inset-bottom))}
+.bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#8791a5;font-size:11px}
+.bottom-nav .nav-icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-size:19px;background:#f0f2f8}
+.bottom-nav a.active{color:#2465e8;font-weight:700}
+.bottom-nav a.active .nav-icon{background:#2465e8;color:white;box-shadow:0 5px 12px #2465e855}
+.content-card{margin:15px;background:#fff;border-radius:19px;padding:16px;box-shadow:var(--shadow)}
+.content-card h2{margin:0 0 12px;font-size:19px}
+.link-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.link-list a{background:#f3f5fb;border-radius:12px;padding:12px;font-size:13px;font-weight:700}
+footer{text-align:center;color:#8b95a8;font-size:11px;padding:22px 12px}
+body.dark{--bg:#101827;--surface:#1c293c;--ink:#edf3ff;--muted:#a8b4c8;--line:#344257;background:var(--bg);color:var(--ink)}
+body.dark .topbar,body.dark .lang-select,body.dark .langbar button.active,body.dark .quick-chip,body.dark .market-ticker,body.dark .news-card,body.dark .plan-card,body.dark .tool-card,body.dark .extra-tools,body.dark .content-card,body.dark .bottom-nav{background:#1c293c;color:#edf3ff}
+body.dark .search-wrap input,body.dark .tools-search input{background:#1c293c;color:#edf3ff}
+body.dark .tool-card p,body.dark .news-list small{color:#a8b4c8}
+body.dark .mini-tool,body.dark .link-list a{background:#29384f;color:#edf3ff}
+body.dark .icon-btn{background:#29384f;color:#fff}
+@media(min-width:650px){.hero,.services-hero,.tools-search,.pinned-head,.tools-grid,.section,.market-ticker,.quick-row,.live-strip{max-width:760px;margin-left:auto;margin-right:auto}.tools-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{margin-top:18px}.market-ticker{margin-top:14px;margin-bottom:22px}.news-card{max-width:760px;margin:auto}.tools-grid{padding:0}.section{margin-bottom:25px}}
 </style>
 </head>
 <body>
+<header class="topbar">
+ <a class="brand" href="#home" aria-label="D SATHI Home"><span class="brand-mark">D</span><span>D Sathi</span></a>
+ <div class="header-actions">
+  <select class="lang-select" aria-label="भाषा" id="language"><option>नेपाली</option><option>English</option><option>हिन्दी</option></select>
+  <button class="icon-btn" id="themeToggle" aria-label="थिम बदल्नुहोस्">☀️</button>
+  <button class="menu-btn" id="menuBtn" aria-label="मेनु">☰</button>
+ </div>
+</header>
 
-<!-- EXISTING DEVELOPER ADVERTISEMENT -->
-<div class="dev-tv-ad"><marquee direction="left" scrollamount="5">
-🚀 <span class="highlight">MOBILE APP DEVELOPMENT</span> &nbsp; | &nbsp; 📰 आफ्नै NEWS PORTAL बनाउन चाहनुहुन्छ?
-&nbsp; | &nbsp; 💻 WEBSITE DESIGN & DEVELOPMENT &nbsp; | &nbsp; 📱 MOBILE APPLICATION
-&nbsp; | &nbsp; 🖥️ SOFTWARE DEVELOPMENT &nbsp; | &nbsp;
-👨‍💻 <span class="highlight">DILIP RIMAL – FOUNDER & DEVELOPER OF D SATHI</span>
-&nbsp; | &nbsp; 📩 आफ्नै डिजिटल प्लेटफर्म बनाउन आजै सम्पर्क गर्नुहोस्!
-</marquee></div>
-
-<!-- NEW LIVE SCROLLING BAR -->
-<div class="live-topbar">
-<marquee direction="left" scrollamount="4" id="liveMarquee">
-<span class="live-item"><span class="live-dot">●</span>LIVE</span>
-<span class="live-item">📅 आजको मिति: <b id="todayDate">लोड हुँदैछ...</b></span>
-<span class="live-item">📆 बार: <b id="todayDay">लोड हुँदैछ...</b></span>
-<span class="live-item">🌙 तिथि / नक्षत्र: <a href="https://www.hamropatro.com/" target="_blank" rel="noopener">Hamro Patro मा हेर्नुहोस्</a></span>
-<span class="live-item">📍 मौसम: <b>कुश्मा, पर्वत</b></span>
-<span class="live-item">🌡️ तापक्रम: <b id="kusmaTemp">लोड हुँदैछ...</b></span>
-<span class="live-item">🌤️ अवस्था: <b id="kusmaWeather">लोड हुँदैछ...</b></span>
-<span class="live-item">🌧️ वर्षाको सम्भावना: <b id="kusmaRain">लोड हुँदैछ...</b></span>
-</marquee>
+<div class="langbar">
+ <button>English</button><button class="active">• नेपाली</button><button>हिन्दी</button>
 </div>
 
-<header class="hero" id="home"><div>
-<div class="logo">🇳🇵 D SATHI</div>
-<div class="tagline">नेपालको आफ्नै डिजिटल साथी</div>
-<div class="hero-badge">एकै ठाउँमा सबै डिजिटल सेवा</div>
-</div></header>
+<section class="hero" id="home">
+ <span class="hero-kicker">🇳🇵 D SATHI DIGITAL SERVICES</span>
+ <div class="hero-row">
+  <div><h1>सेवा तथा उपकरणहरू</h1><p>डिजिटल सेवाहरू, दैनिक उपयोगिता र व्यावहारिक टुल्सहरू — सबै एकै ठाउँमा।</p></div>
+  <div class="hero-symbol">▦</div>
+ </div>
+</section>
 
-<nav>
-<a href="#home">🏠 गृहपृष्ठ</a><a href="#news">📰 समाचार</a><a href="#npl">🏏 NPL Live</a>
-<a href="#services">🌐 सेवाहरू</a><a href="#market">📈 शेयर बजार</a>
-<a href="#feedback">💬 Feedback</a><a href="#developer">👨‍💻 Developer</a>
+<div class="live-strip"><marquee scrollamount="4">🟢 LIVE &nbsp; 📅 आज: <b id="todayDate">लोड हुँदैछ...</b> &nbsp; 📆 <b id="todayDay">लोड हुँदैछ...</b> &nbsp; 📍 मौसम: <b>कुश्मा, पर्वत</b> &nbsp; 🌡️ <b id="kusmaTemp">लोड हुँदैछ...</b> &nbsp; 🌤️ <b id="kusmaWeather">मौसम अपडेट</b> &nbsp; 🌧️ वर्षा: <b id="kusmaRain">--</b></marquee></div>
+
+<div class="search-wrap"><span class="search-icon">🔍</span><input id="globalSearch" type="search" placeholder="सेवा, समाचार वा टुल्स खोज्नुहोस्..." autocomplete="off"></div>
+
+<div class="quick-row">
+ <a class="quick-chip" href="https://www.hamropatro.com/" target="_blank" rel="noopener"><span>📅</span>पात्रो</a>
+ <a class="quick-chip" href="#tools"><span>🧰</span>उपकरण</a>
+ <a class="quick-chip" href="#market"><span>🪙</span>सुन–चाँदी</a>
+ <a class="quick-chip" href="#market"><span>💱</span>विदेशी मुद्रा</a>
+ <a class="quick-chip" href="#news"><span>📰</span>समाचार</a>
+</div>
+
+<div class="market-ticker" id="market">
+ <div class="market-item"><span class="market-icon">Au</span><small>सुन</small><strong>आजको दर हेर्नुहोस्</strong></div>
+ <div class="market-item"><span class="market-icon">Ag</span><small>चाँदी</small><strong>आजको दर हेर्नुहोस्</strong></div>
+ <div class="market-item"><span class="market-icon">$</span><small>डलर</small><strong>विनिमय दर हेर्नुहोस्</strong></div>
+</div>
+
+<section class="section" id="news">
+ <div class="section-head"><h2>🔴 ताजा समाचार</h2><small>नेपाल र विश्व</small></div>
+ <div class="news-card">
+  <a class="news-feature" href="https://www.onlinekhabar.com/" target="_blank" rel="noopener">
+   <span class="news-tag">नेपाल • समाचार</span><strong>नेपालका ताजा समाचार पढ्न यहाँ थिच्नुहोस्</strong>
+  </a>
+  <div class="news-list">
+   <article><small>नेपाल • समाचार</small><a href="https://ekantipur.com/" target="_blank" rel="noopener"><strong>कान्तिपुरका ताजा समाचारहरू</strong></a></article>
+   <article><small>नेपाल • समाचार</small><a href="https://www.setopati.com/" target="_blank" rel="noopener"><strong>सेतोपाटीका मुख्य समाचारहरू</strong></a></article>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="plan-card"><div><h2>🗓️ आजको योजना</h2><p>आजका काम र सम्झनाहरू लेख्नुहोस्।</p></div><button id="addNote">＋ नोट</button></div>
+ <div id="noteArea" style="display:none;margin-top:9px"><input id="noteInput" placeholder="आजको योजना लेख्नुहोस्"><button class="quick-chip" id="saveNote">सेभ गर्नुहोस्</button><p id="savedNote" style="font-size:12px;color:var(--muted)"></p></div>
+</section>
+
+<section id="tools">
+ <div class="services-hero"><h2>🧰 D SATHI Tools Center</h2><p>आफ्नो चाहिएको सेवा खोज्नुहोस्। कार्ड पिन गर्नुहोस् र सबै उपकरण तल स्क्रोल गरेर हेर्नुहोस्।</p></div>
+ <div class="tools-search"><span>🔎</span><input id="toolSearch" type="search" placeholder="सेवा वा टुल्स खोज्नुहोस्..."></div>
+ <div class="pinned-head"><h3>📌 पिन गरिएका</h3><small>Hold to unpin • 📌 थिचेर पिन गर्नुहोस्</small></div>
+ <div class="tools-grid" id="pinnedGrid"></div>
+ <div class="empty-state" id="pinnedEmpty">पिन गरिएका टुल्स यहाँ देखिनेछन्।</div>
+ <div class="pinned-head" style="margin-top:18px"><h3>⭐ सेवाहरू</h3><small id="toolCount">सबै उपकरण</small></div>
+ <div class="tools-grid" id="allTools">
+  <a class="tool-card" data-name="कोठा खोजी room rent housing" href="https://www.facebook.com/marketplace/" target="_blank" rel="noopener"><button class="pin-btn" type="button" aria-label="पिन">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Verified*</span>🏠</div><h4>कोठा खोजी</h4><p>नेपालभर कोठा खोज्नुहोस्</p></a>
+  <a class="tool-card" data-name="फोटो भिडियो एडिटर photo video editor" href="https://www.canva.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">Editor</span>🖼️</div><h4>फोटो र भिडियो एडिटर</h4><p>डिजाइन तथा भिडियो सम्पादन</p></a>
+  <a class="tool-card" data-name="कम्युनिटी community post poll" href="https://www.facebook.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-pink"><span class="tool-label">Social</span>👥</div><h4>कम्युनिटी</h4><p>पोस्ट र पोल</p></a>
+  <a class="tool-card" data-name="कागजात documents pdf scan" href="https://www.ilovepdf.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-blue"><span class="tool-label">PDF</span>📄</div><h4>कागजातहरू</h4><p>स्क्यान, मर्ज र पीडीएफ</p></a>
+  <a class="tool-card" data-name="क्याल्कुलेटर उपकरण calculator converter" href="#digital-tools"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">18 Tools</span>🧮</div><h4>उपकरण तथा क्याल्कुलेटर</h4><p>क्याल्कुलेटर र उपयोगी टुल्स</p></a>
+  <a class="tool-card" data-name="निर्वाचन election civic" href="https://election.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-red"><span class="tool-label">Civic</span>🗳️</div><h4>निर्वाचन</h4><p>निर्वाचनसम्बन्धी आधिकारिक जानकारी</p></a>
+  <a class="tool-card" data-name="सुन चाँदी मूल्य gold silver price" href="https://www.fenegosida.org/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-gold"><span class="tool-label">Live</span>🪙</div><h4>सुन–चाँदीको मूल्य</h4><p>नेपालको प्रकाशित दर हेर्नुहोस्</p></a>
+  <a class="tool-card" data-name="कालीमाटी तरकारी बजार मूल्य vegetable market" href="https://kalimatimarket.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-violet"><span class="tool-label">Bazaar</span>🥬</div><h4>कालीमाटी तरकारी बजार</h4><p>दैनिक बजार मूल्य</p></a>
+  <a class="tool-card" data-name="सरकारी सेवा पोर्टल government services" href="https://nepal.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Portal</span>🏛️</div><h4>सरकारी सेवा तथा पोर्टल</h4><p>सरकारी सेवाहरू</p></a>
+  <a class="tool-card" data-name="भिसा जानकारी visa travel" href="https://nepalimmigration.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-orange"><span class="tool-label">Travel</span>🛂</div><h4>भिसा जानकारी</h4><p>भिसा तथा यात्रा जानकारी</p></a>
+  <a class="tool-card" data-name="प्रीति unicode typing converter" href="https://www.google.com/search?q=Preeti+to+Unicode+converter+Nepali" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-red"><span class="tool-label">Typing</span>🔤</div><h4>प्रीति ↔ युनिकोड</h4><p>नेपाली टाइपिङ रूपान्तरण</p></a>
+  <a class="tool-card" data-name="इन्टरनेट स्पिड टेस्ट internet speed test" href="https://www.speedtest.net/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-navy"><span class="tool-label">Live</span>📶</div><h4>इन्टरनेट स्पिड टेस्ट</h4><p>डाउनलोड र अपलोड स्पिड</p></a>
+  <a class="tool-card" data-name="मौसम weather forecast" href="https://www.meteoblue.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-blue"><span class="tool-label">Weather</span>🌤️</div><h4>मौसम पूर्वानुमान</h4><p>कुश्मा तथा अन्य स्थानको मौसम</p></a>
+  <a class="tool-card" data-name="नक्सा maps direction" href="https://maps.google.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Maps</span>🗺️</div><h4>नक्सा तथा बाटो</h4><p>स्थान र दिशा खोज्नुहोस्</p></a>
+  <a class="tool-card" data-name="अनुवाद translator language" href="https://translate.google.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">Language</span>🌐</div><h4>भाषा अनुवाद</h4><p>विभिन्न भाषा अनुवाद</p></a>
+  <a class="tool-card" data-name="स्वास्थ्य doctor health" href="https://www.hamrodoctor.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-pink"><span class="tool-label">Health</span>🩺</div><h4>स्वास्थ्य तथा डाक्टर</h4><p>स्वास्थ्य जानकारी र डाक्टर खोजी</p></a>
+  <a class="tool-card" data-name="शिक्षा learning knowledge" href="https://moecdc.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-orange"><span class="tool-label">Learn</span>📚</div><h4>शिक्षा तथा ज्ञान</h4><p>शैक्षिक सामग्री र स्रोतहरू</p></a>
+  <a class="tool-card" data-name="युट्युब भिडियो entertainment" href="https://www.youtube.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-red"><span class="tool-label">Video</span>▶️</div><h4>भिडियो तथा मनोरञ्जन</h4><p>YouTube र भिडियो सामग्री</p></a>
+ </div>
+ <div class="empty-state" id="allEmpty">खोजिएको टुल भेटिएन। अर्को शब्द प्रयोग गर्नुहोस्।</div>
+
+ <div class="extra-tools" id="digital-tools">
+  <h3>🧮 दैनिक डिजिटल उपकरणहरू</h3>
+  <div class="mini-grid">
+   <a class="mini-tool" href="https://www.calculator.net/" target="_blank" rel="noopener"><span>🧮</span>क्याल्कुलेटर</a>
+   <a class="mini-tool" href="https://www.unitconverters.net/" target="_blank" rel="noopener"><span>📏</span>Unit Convert</a>
+   <a class="mini-tool" href="https://www.xe.com/currencyconverter/" target="_blank" rel="noopener"><span>💱</span>Currency</a>
+   <a class="mini-tool" href="https://www.timeanddate.com/" target="_blank" rel="noopener"><span>⏰</span>समय</a>
+   <a class="mini-tool" href="https://www.qr-code-generator.com/" target="_blank" rel="noopener"><span>▦</span>QR Code</a>
+   <a class="mini-tool" href="https://www.ilovepdf.com/" target="_blank" rel="noopener"><span>📑</span>PDF Tools</a>
+   <a class="mini-tool" href="https://www.remove.bg/" target="_blank" rel="noopener"><span>🖼️</span>BG Remove</a>
+   <a class="mini-tool" href="https://www.canva.com/" target="_blank" rel="noopener"><span>🎨</span>Design</a>
+   <a class="mini-tool" href="https://www.speedtest.net/" target="_blank" rel="noopener"><span>📶</span>Speed Test</a>
+   <a class="mini-tool" href="https://www.google.com/drive/" target="_blank" rel="noopener"><span>☁️</span>Drive</a>
+   <a class="mini-tool" href="https://www.google.com/maps/" target="_blank" rel="noopener"><span>📍</span>Maps</a>
+   <a class="mini-tool" href="https://translate.google.com/" target="_blank" rel="noopener"><span>🌍</span>Translate</a>
+  </div>
+ </div>
+ <p class="pin-note">* बाह्य सेवा/वेबसाइटमा खुल्ने सुविधाहरूको उपलब्धता सम्बन्धित सेवा प्रदायकमा निर्भर हुन्छ।</p>
+</section>
+
+<section class="content-card" id="patro">
+ <h2>📅 नेपाली पात्रो</h2><p>नेपाली पात्रो, तिथि र चाडपर्व हेर्नुहोस्।</p>
+ <a class="quick-chip" href="https://www.hamropatro.com/" target="_blank" rel="noopener">Hamro Patro खोल्नुहोस् ↗</a>
+</section>
+<section class="content-card" id="games">
+ <h2>🎮 गेमिङ जोन</h2><p>Game Kingdom र अन्य खेलहरू।</p>
+ <a class="quick-chip" href="https://dlprml-byte.github.io/GAME-KINGDOM/" target="_blank" rel="noopener">Game Kingdom खोल्नुहोस् ↗</a>
+</section>
+<section class="content-card" id="account">
+ <h2>👤 D SATHI खाता</h2><p>D SATHI प्रयोग गर्नुभएकोमा धन्यवाद।</p>
+ <a class="quick-chip" href="mailto:dlprml@gmail.com">Developer लाई सम्पर्क गर्नुहोस्</a>
+</section>
+
+<footer><strong>D SATHI 🇳🇵</strong><br>नेपालको आफ्नै डिजिटल साथी<br>Made with ❤️ in Nepal · © 2026</footer>
+
+<nav class="bottom-nav" aria-label="मुख्य नेभिगेसन">
+ <a href="#home" class="active"><span class="nav-icon">⌂</span><span>गृहपृष्ठ</span></a>
+ <a href="#patro"><span class="nav-icon">▦</span><span>पात्रो</span></a>
+ <a href="#tools"><span class="nav-icon">▣</span><span>सेवाहरू</span></a>
+ <a href="#games"><span class="nav-icon">🎮</span><span>खेलहरू</span></a>
+ <a href="#account"><span class="nav-icon">♟</span><span>खाता</span></a>
 </nav>
 
-<main class="container">
-<section class="card ad">
-<h2>📢 विशेष विज्ञापन</h2><h2>वरदान फेन्सी एवं पूजा सामग्री भण्डार</h2>
-<p>पूजा सामग्री तथा फेन्सी सामानका लागि सम्पर्क गर्नुहोस्।</p><p>📍 मोदी–२, पातिचौर</p>
-</section>
-
-<section class="card greeting">
-<h2>🪔 शुभ तिहार तथा छठ पर्वको हार्दिक मंगलमय शुभकामना 🪔</h2>
-<p>उज्यालो र खुसीले तपाईंको घरपरिवारमा सुख, शान्ति, समृद्धि र सफलताको नयाँ किरण ल्याओस्।</p>
-<strong>शुभकामना – D SATHI परिवार 🇳🇵</strong>
-</section>
-
-<section class="card" id="npl">
-<h2 class="section-title">🏏 NPL LIVE SCORE</h2>
-<div class="score-box">
-<span class="live-label">🔴 LIVE</span><h3>नेपाल प्रिमियर लिग</h3>
-<div id="npl-widget"><div data-npl-widget="live-score"></div></div>
-<div class="score-placeholder">Live Score लोड नभए आधिकारिक NPL पेजमा हेर्नुहोस्।</div>
-<a class="btn" href="https://www.kantipurmax.com/npl" target="_blank" rel="noopener">🏏 NPL Score हेर्नुहोस्</a>
-</div>
-</section>
-
-<section class="card" id="services">
-<h2 class="section-title">🌐 हाम्रा डिजिटल सेवाहरू</h2>
-<div class="grid">
-<a class="service" href="https://www.google.com" target="_blank" rel="noopener"><span>🔍</span><strong>Google Search</strong></a>
-<a class="service" href="https://www.youtube.com" target="_blank" rel="noopener"><span>▶️</span><strong>YouTube</strong></a>
-<a class="service" href="https://www.hamropatro.com" target="_blank" rel="noopener"><span>📅</span><strong>Hamro Patro</strong></a>
-<a class="service" href="https://www.facebook.com" target="_blank" rel="noopener"><span>📘</span><strong>Facebook</strong></a>
-<a class="service" href="https://www.tiktok.com" target="_blank" rel="noopener"><span>🎵</span><strong>TikTok</strong></a>
-<a class="service" href="https://www.esewa.com.np" target="_blank" rel="noopener"><span>💳</span><strong>eSewa</strong></a>
-<a class="service" href="https://khalti.com" target="_blank" rel="noopener"><span>💰</span><strong>Khalti</strong></a>
-<a class="service" href="https://www.ntc.net.np" target="_blank" rel="noopener"><span>📱</span><strong>NTC</strong></a>
-<a class="service" href="https://www.ncell.com.np" target="_blank" rel="noopener"><span>📶</span><strong>Ncell</strong></a>
-<a class="service" href="https://www.accuweather.com" target="_blank" rel="noopener"><span>🌤️</span><strong>Weather</strong></a>
-</div>
-</section>
-
-<section class="card" id="news">
-<h2 class="section-title">📰 नेपाली ताजा समाचार</h2>
-<a class="news-link" href="https://ekantipur.com" target="_blank" rel="noopener">📰 कान्तिपुर समाचार</a>
-<a class="news-link" href="https://www.onlinekhabar.com" target="_blank" rel="noopener">📰 Online Khabar</a>
-<a class="news-link" href="https://ratopati.com" target="_blank" rel="noopener">📰 रातोपाटी</a>
-<a class="news-link" href="https://www.setopati.com" target="_blank" rel="noopener">📰 सेतोपाटी</a>
-</section>
-
-<section class="card" id="market">
-<h2 class="section-title">📈 NEPSE तथा शेयर बजार</h2>
-<div class="grid">
-<a class="service" href="https://www.nepalstock.com" target="_blank" rel="noopener"><span>📊</span><strong>NEPSE</strong></a>
-<a class="service" href="https://meroshare.cdsc.com.np" target="_blank" rel="noopener"><span>📁</span><strong>MeroShare</strong></a>
-<a class="service" href="https://www.sharesansar.com" target="_blank" rel="noopener"><span>📈</span><strong>ShareSansar</strong></a>
-<a class="service" href="https://iporesult.cdsc.com.np" target="_blank" rel="noopener"><span>🎯</span><strong>IPO Result</strong></a>
-</div>
-</section>
-
-<section class="card" id="feedback">
-<h2 class="section-title">💬 तपाईंको सुझाव तथा Feedback</h2>
-<p>D SATHI लाई अझ राम्रो बनाउन आफ्नो सुझाव दिनुहोस्।</p>
-<label for="fname">तपाईंको नाम</label><input id="fname" type="text" placeholder="नाम लेख्नुहोस्">
-<label>रेटिङ दिनुहोस्</label>
-<div class="stars" id="stars"><span data-value="1">★</span><span data-value="2">★</span><span data-value="3">★</span><span data-value="4">★</span><span data-value="5">★</span></div>
-<label for="fmessage">तपाईंको सुझाव</label><textarea id="fmessage" placeholder="आफ्नो सुझाव लेख्नुहोस्..."></textarea>
-<button class="submit" onclick="sendFeedback()">सुझाव पठाउनुहोस्</button><p id="feedbackMsg"></p>
-</section>
-
-<section class="card developer" id="developer">
-<h2 class="section-title">👨‍💻 D SATHI Developer</h2>
-<img src="./dilip-rimal.jpg" alt="Dilip Rimal - D SATHI Founder" class="dev-photo">
-<h2 class="dev-name">Dilip Rimal</h2>
-<div class="dev-badge">🇳🇵 FOUNDER & DEVELOPER</div>
-<p class="dev-role">Creator of D SATHI<br>नेपालको आफ्नै डिजिटल साथी<br>Made with ❤️ in Nepal</p>
-<a class="dev-email" href="mailto:dlprml@gmail.com">📧 Contact Developer</a>
-<a href="https://www.facebook.com/share/1M55pe1bcx/?mibextid=wwXIfr" target="_blank" rel="noopener" style="display:block;background:#1877F2;color:white;padding:14px;border-radius:12px;text-align:center;font-weight:bold;margin-top:12px">📘 Developer Facebook Profile</a>
-<p style="font-size:12px;color:#9eb4d1;margin-top:15px">D SATHI को निर्माण तथा व्यवस्थापन</p>
-</section>
-</main>
-
-<footer><strong>D SATHI 🇳🇵</strong><br>नेपालको आफ्नै डिजिटल साथी<br>Made with ❤️ in Nepal<br>© 2026 D SATHI. All Rights Reserved.</footer>
-
-<script async src="https://kantipurmax.com/embed.js"></script>
 <script>
-/* DATE AND DAY: localized Nepali-language display */
-function updateDateAndDay(){
- const now = new Date();
- document.getElementById("todayDate").textContent =
-   new Intl.DateTimeFormat("ne-NP",{day:"numeric",month:"long",year:"numeric"}).format(now);
- document.getElementById("todayDay").textContent =
-   new Intl.DateTimeFormat("ne-NP",{weekday:"long"}).format(now);
+const $=id=>document.getElementById(id);
+function updateDate(){
+ const now=new Date();
+ $('todayDate').textContent=new Intl.DateTimeFormat('ne-NP',{day:'numeric',month:'long',year:'numeric'}).format(now);
+ $('todayDay').textContent=new Intl.DateTimeFormat('ne-NP',{weekday:'long'}).format(now);
 }
-updateDateAndDay();
-setInterval(updateDateAndDay,60000);
+updateDate();setInterval(updateDate,60000);
 
-/* LIVE WEATHER FOR KUSHMA, PARBAT */
-async function updateKusmaWeather(){
- const tempEl=document.getElementById("kusmaTemp");
- const weatherEl=document.getElementById("kusmaWeather");
- const rainEl=document.getElementById("kusmaRain");
+async function updateWeather(){
  try{
-  const url="https://api.open-meteo.com/v1/forecast?latitude=28.22&longitude=83.69&current=temperature_2m,relative_humidity_2m,precipitation,weather_code&hourly=precipitation_probability&forecast_days=1&timezone=Asia%2FKathmandu";
-  const response=await fetch(url);
-  if(!response.ok) throw new Error("Weather request failed");
-  const data=await response.json();
-  const c=data.current;
-  tempEl.textContent=Math.round(c.temperature_2m)+"°C";
+  const url='https://api.open-meteo.com/v1/forecast?latitude=28.22&longitude=83.69&current=temperature_2m,weather_code&hourly=precipitation_probability&forecast_days=1&timezone=Asia%2FKathmandu';
+  const res=await fetch(url);if(!res.ok)throw Error('weather');
+  const d=await res.json(),c=d.current;
+  $('kusmaTemp').textContent=Math.round(c.temperature_2m)+'°C';
   const code=c.weather_code;
-  let condition="सामान्य मौसम";
-  if(code===0) condition="खुला आकाश ☀️";
-  else if([1,2,3].includes(code)) condition="आंशिक बदली 🌤️";
-  else if([45,48].includes(code)) condition="कुहिरो 🌫️";
-  else if(code>=51&&code<=67) condition="सिमसिमे/मध्यम वर्षा 🌧️";
-  else if(code>=71&&code<=77) condition="हिमपात 🌨️";
-  else if(code>=80&&code<=82) condition="वर्षा 🌧️";
-  else if(code>=95) condition="चट्याङसहित वर्षा ⛈️";
-  weatherEl.textContent=condition;
-  const hour=new Date().getHours();
-  const times=data.hourly.time;
-  let idx=times.findIndex(t=>new Date(t).getHours()===hour);
-  if(idx<0) idx=0;
-  const chance=data.hourly.precipitation_probability?.[idx];
-  rainEl.textContent=(chance==null?"उपलब्ध छैन":chance+"%");
- }catch(e){
-  tempEl.textContent="उपलब्ध छैन";
-  weatherEl.textContent="पछि प्रयास गर्नुहोस्";
-  rainEl.textContent="उपलब्ध छैन";
- }
+  $('kusmaWeather').textContent=code===0?'खुला आकाश ☀️':[1,2,3].includes(code)?'आंशिक बदली 🌤️':[45,48].includes(code)?'कुहिरो 🌫️':code>=51&&code<=82?'वर्षा 🌧️':code>=95?'चट्याङ ⛈️':'सामान्य मौसम';
+  const hour=new Date().getHours(),idx=d.hourly.time.findIndex(t=>new Date(t).getHours()===hour);
+  $('kusmaRain').textContent=(d.hourly.precipitation_probability?.[Math.max(0,idx)]??'--')+'%';
+ }catch(e){$('kusmaTemp').textContent='उपलब्ध छैन';$('kusmaWeather').textContent='अपडेट हुन सकेन';$('kusmaRain').textContent='--';}
 }
-updateKusmaWeather();
-setInterval(updateKusmaWeather,10*60*1000);
+updateWeather();setInterval(updateWeather,15*60*1000);
 
-/* STAR RATING */
-let selectedRating=0;
-document.querySelectorAll("#stars span").forEach(star=>{
- star.addEventListener("click",()=>{
-  selectedRating=Number(star.dataset.value);
-  document.querySelectorAll("#stars span").forEach(item=>{
-   item.classList.toggle("active",Number(item.dataset.value)<=selectedRating);
-  });
- });
+/* Theme toggle */
+$('themeToggle').addEventListener('click',()=>{
+ document.body.classList.toggle('dark');
+ const dark=document.body.classList.contains('dark');
+ $('themeToggle').textContent=dark?'🌙':'☀️';
+ localStorage.setItem('dsathi_theme',dark?'dark':'light');
 });
+if(localStorage.getItem('dsathi_theme')==='dark'){document.body.classList.add('dark');$('themeToggle').textContent='🌙';}
 
-/* LOCAL FEEDBACK */
-function sendFeedback(){
- const name=document.getElementById("fname").value.trim();
- const message=document.getElementById("fmessage").value.trim();
- const output=document.getElementById("feedbackMsg");
- if(!name||!message||!selectedRating){
-  output.textContent="कृपया नाम, रेटिङ र सुझाव भर्नुहोस्।";
-  return;
- }
- const feedback={name:name,rating:selectedRating,message:message,date:new Date().toLocaleString()};
- let list=[];
- try{list=JSON.parse(localStorage.getItem("dsathi_feedback")||"[]");}catch(e){}
- list.push(feedback);
- localStorage.setItem("dsathi_feedback",JSON.stringify(list));
- output.textContent="धन्यवाद! तपाईंको सुझाव यो डिभाइसमा सुरक्षित भयो।";
- document.getElementById("fname").value="";
- document.getElementById("fmessage").value="";
- selectedRating=0;
- document.querySelectorAll("#stars span").forEach(s=>s.classList.remove("active"));
+/* Pin/unpin tools */
+const PIN_KEY='dsathi_pinned_tools_v2';
+function getPins(){try{return JSON.parse(localStorage.getItem(PIN_KEY)||'[]')}catch(e){return []}}
+function setPins(a){localStorage.setItem(PIN_KEY,JSON.stringify(a))}
+function renderPins(){
+ const pins=getPins(),grid=$('pinnedGrid');grid.innerHTML='';
+ let count=0;
+ document.querySelectorAll('#allTools .tool-card').forEach(card=>{
+  const name=card.dataset.name||card.querySelector('h4').textContent;
+  const isPinned=pins.includes(name);
+  const button=card.querySelector('.pin-btn');
+  button.textContent=isPinned?'📌 पिन':'＋ पिन';
+  button.onclick=(ev)=>{ev.preventDefault();ev.stopPropagation();let p=getPins();p=p.includes(name)?p.filter(x=>x!==name):[...p,name];setPins(p);renderPins();};
+  if(isPinned){const clone=card.cloneNode(true);clone.querySelector('.pin-btn').textContent='📌 हटाउनु';clone.querySelector('.pin-btn').onclick=(ev)=>{ev.preventDefault();ev.stopPropagation();setPins(getPins().filter(x=>x!==name));renderPins();};grid.appendChild(clone);count++;}
+ });
+ $('pinnedEmpty').style.display=count?'none':'block';
 }
+renderPins();
+
+/* Search all tools, also quick search redirects to tools list */
+function filterTools(){
+ const q=$('toolSearch').value.trim().toLocaleLowerCase();
+ let visible=0;
+ document.querySelectorAll('#allTools .tool-card').forEach(card=>{
+  const match=(card.dataset.name+' '+card.innerText).toLocaleLowerCase().includes(q);
+  card.style.display=match?'':'none';if(match)visible++;
+ });
+ $('allEmpty').style.display=visible?'none':'block';
+ $('toolCount').textContent=visible+' वटा सेवा';
+}
+$('toolSearch').addEventListener('input',filterTools);
+$('globalSearch').addEventListener('input',()=>{
+ $('toolSearch').value=$('globalSearch').value;
+ filterTools();
+ if($('globalSearch').value.trim())$('tools').scrollIntoView({behavior:'smooth'});
+});
+$('menuBtn').addEventListener('click',()=>{$('tools').scrollIntoView({behavior:'smooth'});});
+
+/* Simple personal note stored on this device */
+$('addNote').onclick=()=>{$('noteArea').style.display=$('noteArea').style.display==='none'?'block':'none';};
+$('saveNote').onclick=()=>{
+ const val=$('noteInput').value.trim();if(!val)return;
+ localStorage.setItem('dsathi_today_note',val);$('savedNote').textContent='सेभ भयो: '+val;$('noteInput').value='';
+};
+const oldNote=localStorage.getItem('dsathi_today_note');if(oldNote)$('savedNote').textContent='आजको नोट: '+oldNote;
+
+/* Bottom navigation active state */
+document.querySelectorAll('.bottom-nav a').forEach(a=>a.addEventListener('click',()=>{
+ document.querySelectorAll('.bottom-nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active');
+}));
 </script>
 </body>
 </html>
