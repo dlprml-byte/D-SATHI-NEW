@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी">
+<meta name="description" content="D SATHI - नेपालको आफ्नै डिजिटल साथी। नेपाली पात्रो, मौसम, समाचार, NPL Live Score र डिजिटल सेवाहरू।">
+<meta name="keywords" content="D SATHI, Nepal, Nepali app, NPL Live Score, Nepali Patro, Digital Services">
+<meta name="author" content="Dilip Rimal">
 <link rel="manifest" href="./manifest.json">
 <title>D SATHI | नेपालको आफ्नै डिजिटल साथी</title>
+
 <style>
 :root{
  --bg:#f4f6ff;--surface:#fff;--ink:#17233d;--muted:#78839a;--line:#e8ebf4;
@@ -19,6 +22,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans
 a{color:inherit;text-decoration:none}
 button,input{font:inherit}
 button{cursor:pointer}
+
 .topbar{height:72px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 17px;position:sticky;top:0;z-index:50;box-shadow:0 3px 15px #1c31500c}
 .brand{display:flex;align-items:center;gap:7px;font-size:31px;font-weight:800;color:#1744b9;letter-spacing:-1.5px}
 .brand-mark{font-size:39px;line-height:1;background:linear-gradient(135deg,#e52e42,#ffb22d 48%,#245eea 50%);background-clip:text;-webkit-background-clip:text;color:transparent}
@@ -26,9 +30,11 @@ button{cursor:pointer}
 .lang-select{border:1px solid #dce1eb;background:#fff;border-radius:12px;padding:9px 10px;color:#34415c}
 .icon-btn{width:43px;height:43px;border:1px solid #e4e8f1;border-radius:50%;background:#f5f7fc;font-size:20px}
 .menu-btn{border:0;background:transparent;font-size:27px;color:#17233d;padding:4px}
+
 .langbar{margin:9px 15px 0;background:#edf0f5;border-radius:22px;padding:4px;display:flex;gap:3px}
 .langbar button{flex:1;border:0;background:transparent;border-radius:18px;padding:6px 4px;color:#78839a;font-size:12px}
 .langbar button.active{background:#fff;color:#19233a;font-weight:700;box-shadow:0 2px 7px #1b2b4a12}
+
 .hero{margin:16px 15px 0;padding:19px 17px 18px;border-radius:23px;color:white;background:linear-gradient(120deg,#087c76,#16b7a3);box-shadow:0 10px 24px #0d99852c;min-height:138px;position:relative;overflow:hidden}
 .hero:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-62px;top:-76px;background:#ffffff13}
 .hero-kicker{display:inline-block;background:#ffffff28;border:1px solid #ffffff35;border-radius:20px;padding:5px 10px;font-size:11px;margin-bottom:9px}
@@ -36,16 +42,30 @@ button{cursor:pointer}
 .hero h1{font-size:22px;margin:0 0 7px}
 .hero p{font-size:13px;line-height:1.55;margin:0;color:#e1fffb;max-width:255px}
 .hero-symbol{font-size:31px;background:#ffffff25;border:1px solid #ffffff50;border-radius:17px;width:55px;height:55px;display:grid;place-items:center;flex-shrink:0}
+
 .live-strip{margin:11px 15px 0;padding:9px 12px;background:#fff;border-radius:14px;box-shadow:var(--shadow);font-size:12px;color:#59657c;white-space:nowrap;overflow:hidden}
 .live-strip marquee{font-weight:600}
 .live-strip b{color:#17233d}
+
+.npl-top{margin:12px 15px 0;padding:13px 15px;border-radius:17px;background:linear-gradient(110deg,#142c5b,#1767bd);color:white;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.npl-top strong{font-size:15px}
+.npl-top small{display:block;color:#d8e8ff;font-size:11px;margin-top:4px}
+.npl-top a{background:#fff;color:#174da2;border-radius:20px;padding:9px 13px;font-size:12px;font-weight:800;white-space:nowrap}
+
+.download-card{margin:13px 15px 0;padding:15px;border-radius:18px;background:linear-gradient(120deg,#eaf2ff,#fff);border:1px solid #dce8ff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.download-card h3{margin:0;font-size:16px;color:#1744a0}
+.download-card p{margin:5px 0 0;font-size:11px;color:#65738e}
+.download-btn{display:inline-block;background:#1763dc;color:#fff;padding:11px 14px;border-radius:13px;font-weight:800;font-size:12px;white-space:nowrap}
+
 .search-wrap{margin:15px 15px 0;position:relative}
 .search-wrap input{width:100%;height:49px;border:0;outline:0;background:#fff;border-radius:17px;padding:0 16px 0 44px;box-shadow:var(--shadow);color:var(--ink)}
 .search-icon{position:absolute;left:15px;top:14px;font-size:18px}
+
 .quick-row{display:flex;gap:9px;overflow-x:auto;padding:14px 15px 4px;scrollbar-width:none}
 .quick-row::-webkit-scrollbar{display:none}
 .quick-chip{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:25px;padding:10px 14px;font-weight:700;box-shadow:0 4px 12px #253b6510}
 .quick-chip span{margin-right:5px}
+
 .market-ticker{margin:13px 15px 20px;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:13px 10px;display:grid;grid-template-columns:repeat(3,1fr)}
 .market-item{text-align:center;border-right:1px solid var(--line);padding:2px 4px}
 .market-item:last-child{border:0}
@@ -54,10 +74,18 @@ button{cursor:pointer}
 .market-item:nth-child(3) .market-icon{background:#d9f8ed}
 .market-item small{display:block;color:var(--muted);font-weight:700}
 .market-item strong{font-size:12px}
+
 .section{margin:0 15px 21px}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 12px}
 .section-head h2{font-size:20px;margin:0}
 .section-head small{color:#a0a8b8}
+
+.npl-card{background:#fff;border-radius:19px;padding:15px;box-shadow:var(--shadow)}
+.npl-card h3{margin:0 0 8px;font-size:17px}
+.npl-card p{font-size:12px;color:var(--muted);line-height:1.6}
+.npl-frame{width:100%;height:420px;border:0;border-radius:12px;background:#f2f5fb}
+.npl-link{display:inline-block;margin-top:10px;background:#1559b9;color:#fff;padding:11px 15px;border-radius:12px;font-weight:700;font-size:13px}
+
 .news-card{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:#fff;border-radius:20px;box-shadow:var(--shadow);min-height:205px}
 .news-feature{padding:13px;color:#fff;background:linear-gradient(145deg,#234a81,#12274b);display:flex;flex-direction:column;justify-content:flex-end;min-height:205px}
 .news-feature .news-tag{font-size:11px;opacity:.85}
@@ -67,10 +95,12 @@ button{cursor:pointer}
 .news-list article:last-child{border:0;margin:0}
 .news-list small{color:#8490a5}
 .news-list strong{display:block;font-size:13px;line-height:1.5;margin-top:5px}
+
 .plan-card{background:#fff;border-radius:20px;padding:17px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between}
 .plan-card h2{font-size:20px;margin:0}
 .plan-card p{font-size:12px;color:var(--muted);margin:6px 0 0}
 .plan-card button{border:0;border-radius:20px;padding:9px 13px;background:#efedff;color:#7358df;font-weight:700}
+
 .services-hero{margin:0 15px 13px;padding:15px;border-radius:20px;background:linear-gradient(120deg,#07877d,#20b5a4);color:white}
 .services-hero h2{margin:0 0 5px;font-size:20px}
 .services-hero p{margin:0;font-size:12px;color:#e3fffb}
@@ -106,25 +136,49 @@ button{cursor:pointer}
 .mini-tool{background:#f3f5fb;border-radius:12px;padding:11px 5px;text-align:center;font-size:11px;font-weight:700}
 .mini-tool span{display:block;font-size:21px;margin-bottom:5px}
 .pin-note{text-align:center;color:#9aa3b3;font-size:10px;margin:12px 15px 22px}
+
+.content-card{margin:15px;background:#fff;border-radius:19px;padding:16px;box-shadow:var(--shadow)}
+.content-card h2{margin:0 0 12px;font-size:19px}
+.link-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.link-list a{background:#f3f5fb;border-radius:12px;padding:12px;font-size:13px;font-weight:700}
+
+.developer-card{margin:15px;background:linear-gradient(135deg,#132c58,#1765a8);border-radius:22px;padding:20px;color:#fff;box-shadow:0 10px 25px #173d702c;text-align:center}
+.developer-card img{width:112px;height:112px;object-fit:cover;object-position:center 25%;border-radius:50%;border:4px solid #fff;box-shadow:0 5px 18px #0003}
+.developer-card h2{margin:12px 0 5px;font-size:21px}
+.developer-card .role{font-size:12px;color:#d8eaff}
+.developer-card p{font-size:12px;color:#e4efff;line-height:1.7}
+.developer-contact{display:inline-block;background:#fff;color:#174b91;border-radius:20px;padding:10px 16px;font-weight:800;font-size:12px;margin-top:5px}
+
+footer{text-align:center;color:#8b95a8;font-size:11px;padding:22px 12px}
+
 .bottom-nav{position:fixed;z-index:60;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid #e8ebf3;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px calc(7px + env(safe-area-inset-bottom))}
 .bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#8791a5;font-size:11px}
 .bottom-nav .nav-icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;font-size:19px;background:#f0f2f8}
 .bottom-nav a.active{color:#2465e8;font-weight:700}
 .bottom-nav a.active .nav-icon{background:#2465e8;color:white;box-shadow:0 5px 12px #2465e855}
-.content-card{margin:15px;background:#fff;border-radius:19px;padding:16px;box-shadow:var(--shadow)}
-.content-card h2{margin:0 0 12px;font-size:19px}
-.link-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
-.link-list a{background:#f3f5fb;border-radius:12px;padding:12px;font-size:13px;font-weight:700}
-footer{text-align:center;color:#8b95a8;font-size:11px;padding:22px 12px}
+
 body.dark{--bg:#101827;--surface:#1c293c;--ink:#edf3ff;--muted:#a8b4c8;--line:#344257;background:var(--bg);color:var(--ink)}
-body.dark .topbar,body.dark .lang-select,body.dark .langbar button.active,body.dark .quick-chip,body.dark .market-ticker,body.dark .news-card,body.dark .plan-card,body.dark .tool-card,body.dark .extra-tools,body.dark .content-card,body.dark .bottom-nav{background:#1c293c;color:#edf3ff}
+body.dark .topbar,body.dark .lang-select,body.dark .langbar button.active,body.dark .quick-chip,body.dark .market-ticker,body.dark .news-card,body.dark .plan-card,body.dark .tool-card,body.dark .extra-tools,body.dark .content-card,body.dark .bottom-nav,body.dark .npl-card{background:#1c293c;color:#edf3ff}
 body.dark .search-wrap input,body.dark .tools-search input{background:#1c293c;color:#edf3ff}
 body.dark .tool-card p,body.dark .news-list small{color:#a8b4c8}
 body.dark .mini-tool,body.dark .link-list a{background:#29384f;color:#edf3ff}
 body.dark .icon-btn{background:#29384f;color:#fff}
-@media(min-width:650px){.hero,.services-hero,.tools-search,.pinned-head,.tools-grid,.section,.market-ticker,.quick-row,.live-strip{max-width:760px;margin-left:auto;margin-right:auto}.tools-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{margin-top:18px}.market-ticker{margin-top:14px;margin-bottom:22px}.news-card{max-width:760px;margin:auto}.tools-grid{padding:0}.section{margin-bottom:25px}}
+body.dark .download-card{background:#1c293c;border-color:#344257}
+body.dark .download-card h3{color:#dce8ff}
+
+@media(min-width:650px){
+ .hero,.services-hero,.tools-search,.pinned-head,.tools-grid,.section,.market-ticker,.quick-row,.live-strip,.npl-top,.download-card{max-width:760px;margin-left:auto;margin-right:auto}
+ .tools-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hero{margin-top:18px}
+ .market-ticker{margin-top:14px;margin-bottom:22px}
+ .news-card{max-width:760px;margin:auto}
+ .tools-grid{padding:0}
+ .section{margin-bottom:25px}
+ .npl-frame{height:550px}
+}
 </style>
 </head>
+
 <body>
 <header class="topbar">
  <a class="brand" href="#home" aria-label="D SATHI Home"><span class="brand-mark">D</span><span>D Sathi</span></a>
@@ -147,7 +201,20 @@ body.dark .icon-btn{background:#29384f;color:#fff}
  </div>
 </section>
 
+<!-- NPL LIVE TOP LINK -->
+<div class="npl-top">
+ <div><strong>🏏 NEPAL PREMIER LEAGUE</strong><small>NPL Live Score • Fixtures • Results</small></div>
+ <a href="https://nepalpremierleague.org/" target="_blank" rel="noopener">LIVE SCORE ↗</a>
+</div>
+
+<!-- DATE AND WEATHER -->
 <div class="live-strip"><marquee scrollamount="4">🟢 LIVE &nbsp; 📅 आज: <b id="todayDate">लोड हुँदैछ...</b> &nbsp; 📆 <b id="todayDay">लोड हुँदैछ...</b> &nbsp; 📍 मौसम: <b>कुश्मा, पर्वत</b> &nbsp; 🌡️ <b id="kusmaTemp">लोड हुँदैछ...</b> &nbsp; 🌤️ <b id="kusmaWeather">मौसम अपडेट</b> &nbsp; 🌧️ वर्षा: <b id="kusmaRain">--</b></marquee></div>
+
+<!-- APK DOWNLOAD -->
+<div class="download-card">
+ <div><h3>📲 D SATHI Android App</h3><p>आफ्नो मोबाइलमा D SATHI डाउनलोड गर्नुहोस्।</p></div>
+ <a class="download-btn" href="https://raw.githubusercontent.com/dlprml-byte/D-SATHI-NEW/main/D.sathi.1.apk" download="D.sathi.1.apk">⬇ DOWNLOAD APK</a>
+</div>
 
 <div class="search-wrap"><span class="search-icon">🔍</span><input id="globalSearch" type="search" placeholder="सेवा, समाचार वा टुल्स खोज्नुहोस्..." autocomplete="off"></div>
 
@@ -157,6 +224,7 @@ body.dark .icon-btn{background:#29384f;color:#fff}
  <a class="quick-chip" href="#market"><span>🪙</span>सुन–चाँदी</a>
  <a class="quick-chip" href="#market"><span>💱</span>विदेशी मुद्रा</a>
  <a class="quick-chip" href="#news"><span>📰</span>समाचार</a>
+ <a class="quick-chip" href="#npl"><span>🏏</span>NPL</a>
 </div>
 
 <div class="market-ticker" id="market">
@@ -164,6 +232,17 @@ body.dark .icon-btn{background:#29384f;color:#fff}
  <div class="market-item"><span class="market-icon">Ag</span><small>चाँदी</small><strong>आजको दर हेर्नुहोस्</strong></div>
  <div class="market-item"><span class="market-icon">$</span><small>डलर</small><strong>विनिमय दर हेर्नुहोस्</strong></div>
 </div>
+
+<!-- NPL LIVE SCORE SECTION -->
+<section class="section" id="npl">
+ <div class="section-head"><h2>🏏 NPL Live Score</h2><small>Official NPL</small></div>
+ <div class="npl-card">
+  <h3>नेपाल प्रिमियर लिग</h3>
+  <p>प्रत्यक्ष स्कोर, खेल तालिका, नतिजा र अंकतालिका हेर्न आधिकारिक NPL वेबसाइट खोल्नुहोस्। तलको वेबसाइट एम्बेड सबै मोबाइल वा ब्राउजरमा नदेखिन सक्छ।</p>
+  <iframe class="npl-frame" src="https://nepalpremierleague.org/" title="Official Nepal Premier League website" loading="lazy"></iframe>
+  <a class="npl-link" href="https://nepalpremierleague.org/" target="_blank" rel="noopener">🏏 NPL Live Score / Results खोल्नुहोस् ↗</a>
+ </div>
+</section>
 
 <section class="section" id="news">
  <div class="section-head"><h2>🔴 ताजा समाचार</h2><small>नेपाल र विश्व</small></div>
@@ -190,19 +269,20 @@ body.dark .icon-btn{background:#29384f;color:#fff}
  <div class="tools-grid" id="pinnedGrid"></div>
  <div class="empty-state" id="pinnedEmpty">पिन गरिएका टुल्स यहाँ देखिनेछन्।</div>
  <div class="pinned-head" style="margin-top:18px"><h3>⭐ सेवाहरू</h3><small id="toolCount">सबै उपकरण</small></div>
+
  <div class="tools-grid" id="allTools">
-  <a class="tool-card" data-name="कोठा खोजी room rent housing" href="https://www.facebook.com/marketplace/" target="_blank" rel="noopener"><button class="pin-btn" type="button" aria-label="पिन">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Verified*</span>🏠</div><h4>कोठा खोजी</h4><p>नेपालभर कोठा खोज्नुहोस्</p></a>
+  <a class="tool-card" data-name="कोठा खोजी room rent housing" href="https://www.facebook.com/marketplace/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Housing</span>🏠</div><h4>कोठा खोजी</h4><p>नेपालभर कोठा खोज्नुहोस्</p></a>
   <a class="tool-card" data-name="फोटो भिडियो एडिटर photo video editor" href="https://www.canva.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">Editor</span>🖼️</div><h4>फोटो र भिडियो एडिटर</h4><p>डिजाइन तथा भिडियो सम्पादन</p></a>
   <a class="tool-card" data-name="कम्युनिटी community post poll" href="https://www.facebook.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-pink"><span class="tool-label">Social</span>👥</div><h4>कम्युनिटी</h4><p>पोस्ट र पोल</p></a>
   <a class="tool-card" data-name="कागजात documents pdf scan" href="https://www.ilovepdf.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-blue"><span class="tool-label">PDF</span>📄</div><h4>कागजातहरू</h4><p>स्क्यान, मर्ज र पीडीएफ</p></a>
-  <a class="tool-card" data-name="क्याल्कुलेटर उपकरण calculator converter" href="#digital-tools"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">18 Tools</span>🧮</div><h4>उपकरण तथा क्याल्कुलेटर</h4><p>क्याल्कुलेटर र उपयोगी टुल्स</p></a>
+  <a class="tool-card" data-name="क्याल्कुलेटर उपकरण calculator converter" href="#digital-tools"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">Tools</span>🧮</div><h4>उपकरण तथा क्याल्कुलेटर</h4><p>क्याल्कुलेटर र उपयोगी टुल्स</p></a>
   <a class="tool-card" data-name="निर्वाचन election civic" href="https://election.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-red"><span class="tool-label">Civic</span>🗳️</div><h4>निर्वाचन</h4><p>निर्वाचनसम्बन्धी आधिकारिक जानकारी</p></a>
-  <a class="tool-card" data-name="सुन चाँदी मूल्य gold silver price" href="https://www.fenegosida.org/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-gold"><span class="tool-label">Live</span>🪙</div><h4>सुन–चाँदीको मूल्य</h4><p>नेपालको प्रकाशित दर हेर्नुहोस्</p></a>
+  <a class="tool-card" data-name="सुन चाँदी मूल्य gold silver price" href="https://www.fenegosida.org/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-gold"><span class="tool-label">Price</span>🪙</div><h4>सुन–चाँदीको मूल्य</h4><p>नेपालको प्रकाशित दर हेर्नुहोस्</p></a>
   <a class="tool-card" data-name="कालीमाटी तरकारी बजार मूल्य vegetable market" href="https://kalimatimarket.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-violet"><span class="tool-label">Bazaar</span>🥬</div><h4>कालीमाटी तरकारी बजार</h4><p>दैनिक बजार मूल्य</p></a>
   <a class="tool-card" data-name="सरकारी सेवा पोर्टल government services" href="https://nepal.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Portal</span>🏛️</div><h4>सरकारी सेवा तथा पोर्टल</h4><p>सरकारी सेवाहरू</p></a>
   <a class="tool-card" data-name="भिसा जानकारी visa travel" href="https://nepalimmigration.gov.np/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-orange"><span class="tool-label">Travel</span>🛂</div><h4>भिसा जानकारी</h4><p>भिसा तथा यात्रा जानकारी</p></a>
   <a class="tool-card" data-name="प्रीति unicode typing converter" href="https://www.google.com/search?q=Preeti+to+Unicode+converter+Nepali" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-red"><span class="tool-label">Typing</span>🔤</div><h4>प्रीति ↔ युनिकोड</h4><p>नेपाली टाइपिङ रूपान्तरण</p></a>
-  <a class="tool-card" data-name="इन्टरनेट स्पिड टेस्ट internet speed test" href="https://www.speedtest.net/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-navy"><span class="tool-label">Live</span>📶</div><h4>इन्टरनेट स्पिड टेस्ट</h4><p>डाउनलोड र अपलोड स्पिड</p></a>
+  <a class="tool-card" data-name="इन्टरनेट स्पिड टेस्ट internet speed test" href="https://www.speedtest.net/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-navy"><span class="tool-label">Speed</span>📶</div><h4>इन्टरनेट स्पिड टेस्ट</h4><p>डाउनलोड र अपलोड स्पिड</p></a>
   <a class="tool-card" data-name="मौसम weather forecast" href="https://www.meteoblue.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-blue"><span class="tool-label">Weather</span>🌤️</div><h4>मौसम पूर्वानुमान</h4><p>कुश्मा तथा अन्य स्थानको मौसम</p></a>
   <a class="tool-card" data-name="नक्सा maps direction" href="https://maps.google.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-teal"><span class="tool-label">Maps</span>🗺️</div><h4>नक्सा तथा बाटो</h4><p>स्थान र दिशा खोज्नुहोस्</p></a>
   <a class="tool-card" data-name="अनुवाद translator language" href="https://translate.google.com/" target="_blank" rel="noopener"><button class="pin-btn" type="button">＋ पिन</button><div class="tool-art art-purple"><span class="tool-label">Language</span>🌐</div><h4>भाषा अनुवाद</h4><p>विभिन्न भाषा अनुवाद</p></a>
@@ -224,7 +304,7 @@ body.dark .icon-btn{background:#29384f;color:#fff}
    <a class="mini-tool" href="https://www.remove.bg/" target="_blank" rel="noopener"><span>🖼️</span>BG Remove</a>
    <a class="mini-tool" href="https://www.canva.com/" target="_blank" rel="noopener"><span>🎨</span>Design</a>
    <a class="mini-tool" href="https://www.speedtest.net/" target="_blank" rel="noopener"><span>📶</span>Speed Test</a>
-   <a class="mini-tool" href="https://www.google.com/drive/" target="_blank" rel="noopener"><span>☁️</span>Drive</a>
+   <a class="mini-tool" href="https://drive.google.com/" target="_blank" rel="noopener"><span>☁️</span>Drive</a>
    <a class="mini-tool" href="https://www.google.com/maps/" target="_blank" rel="noopener"><span>📍</span>Maps</a>
    <a class="mini-tool" href="https://translate.google.com/" target="_blank" rel="noopener"><span>🌍</span>Translate</a>
   </div>
@@ -236,16 +316,27 @@ body.dark .icon-btn{background:#29384f;color:#fff}
  <h2>📅 नेपाली पात्रो</h2><p>नेपाली पात्रो, तिथि र चाडपर्व हेर्नुहोस्।</p>
  <a class="quick-chip" href="https://www.hamropatro.com/" target="_blank" rel="noopener">Hamro Patro खोल्नुहोस् ↗</a>
 </section>
+
 <section class="content-card" id="games">
  <h2>🎮 गेमिङ जोन</h2><p>Game Kingdom र अन्य खेलहरू।</p>
  <a class="quick-chip" href="https://dlprml-byte.github.io/GAME-KINGDOM/" target="_blank" rel="noopener">Game Kingdom खोल्नुहोस् ↗</a>
 </section>
+
 <section class="content-card" id="account">
  <h2>👤 D SATHI खाता</h2><p>D SATHI प्रयोग गर्नुभएकोमा धन्यवाद।</p>
  <a class="quick-chip" href="mailto:dlprml@gmail.com">Developer लाई सम्पर्क गर्नुहोस्</a>
 </section>
 
-<footer><strong>D SATHI 🇳🇵</strong><br>नेपालको आफ्नै डिजिटल साथी<br>Made with ❤️ in Nepal · © 2026</footer>
+<!-- DEVELOPER PROFILE -->
+<section class="developer-card" id="developer">
+ <img src="./dilip-rimal.jpg" alt="D SATHI Developer Dilip Rimal" loading="lazy">
+ <h2>Dilip Rimal</h2>
+ <div class="role">Founder & Developer · D SATHI</div>
+ <p>नेपालको आफ्नै डिजिटल साथी — D SATHI<br>Made with ❤️ in Nepal 🇳🇵</p>
+ <a class="developer-contact" href="mailto:dlprml@gmail.com">✉ Contact Developer</a>
+</section>
+
+<footer><strong>D SATHI 🇳🇵</strong><br>नेपालको आफ्नै डिजिटल साथी<br>Developed by Dilip Rimal · © 2026</footer>
 
 <nav class="bottom-nav" aria-label="मुख्य नेभिगेसन">
  <a href="#home" class="active"><span class="nav-icon">⌂</span><span>गृहपृष्ठ</span></a>
@@ -257,26 +348,37 @@ body.dark .icon-btn{background:#29384f;color:#fff}
 
 <script>
 const $=id=>document.getElementById(id);
+
+/* Nepali date and day */
 function updateDate(){
  const now=new Date();
  $('todayDate').textContent=new Intl.DateTimeFormat('ne-NP',{day:'numeric',month:'long',year:'numeric'}).format(now);
  $('todayDay').textContent=new Intl.DateTimeFormat('ne-NP',{weekday:'long'}).format(now);
 }
-updateDate();setInterval(updateDate,60000);
+updateDate();
+setInterval(updateDate,60000);
 
+/* Kusma weather */
 async function updateWeather(){
  try{
   const url='https://api.open-meteo.com/v1/forecast?latitude=28.22&longitude=83.69&current=temperature_2m,weather_code&hourly=precipitation_probability&forecast_days=1&timezone=Asia%2FKathmandu';
-  const res=await fetch(url);if(!res.ok)throw Error('weather');
+  const res=await fetch(url);
+  if(!res.ok)throw Error('weather');
   const d=await res.json(),c=d.current;
   $('kusmaTemp').textContent=Math.round(c.temperature_2m)+'°C';
   const code=c.weather_code;
   $('kusmaWeather').textContent=code===0?'खुला आकाश ☀️':[1,2,3].includes(code)?'आंशिक बदली 🌤️':[45,48].includes(code)?'कुहिरो 🌫️':code>=51&&code<=82?'वर्षा 🌧️':code>=95?'चट्याङ ⛈️':'सामान्य मौसम';
-  const hour=new Date().getHours(),idx=d.hourly.time.findIndex(t=>new Date(t).getHours()===hour);
+  const hour=new Date().getHours();
+  const idx=d.hourly.time.findIndex(t=>new Date(t).getHours()===hour);
   $('kusmaRain').textContent=(d.hourly.precipitation_probability?.[Math.max(0,idx)]??'--')+'%';
- }catch(e){$('kusmaTemp').textContent='उपलब्ध छैन';$('kusmaWeather').textContent='अपडेट हुन सकेन';$('kusmaRain').textContent='--';}
+ }catch(e){
+  $('kusmaTemp').textContent='उपलब्ध छैन';
+  $('kusmaWeather').textContent='अपडेट हुन सकेन';
+  $('kusmaRain').textContent='--';
+ }
 }
-updateWeather();setInterval(updateWeather,15*60*1000);
+updateWeather();
+setInterval(updateWeather,15*60*1000);
 
 /* Theme toggle */
 $('themeToggle').addEventListener('click',()=>{
@@ -285,34 +387,60 @@ $('themeToggle').addEventListener('click',()=>{
  $('themeToggle').textContent=dark?'🌙':'☀️';
  localStorage.setItem('dsathi_theme',dark?'dark':'light');
 });
-if(localStorage.getItem('dsathi_theme')==='dark'){document.body.classList.add('dark');$('themeToggle').textContent='🌙';}
+if(localStorage.getItem('dsathi_theme')==='dark'){
+ document.body.classList.add('dark');
+ $('themeToggle').textContent='🌙';
+}
 
-/* Pin/unpin tools */
+/* Pin and unpin tools */
 const PIN_KEY='dsathi_pinned_tools_v2';
-function getPins(){try{return JSON.parse(localStorage.getItem(PIN_KEY)||'[]')}catch(e){return []}}
+function getPins(){
+ try{return JSON.parse(localStorage.getItem(PIN_KEY)||'[]')}
+ catch(e){return []}
+}
 function setPins(a){localStorage.setItem(PIN_KEY,JSON.stringify(a))}
 function renderPins(){
- const pins=getPins(),grid=$('pinnedGrid');grid.innerHTML='';
+ const pins=getPins(),grid=$('pinnedGrid');
+ grid.innerHTML='';
  let count=0;
  document.querySelectorAll('#allTools .tool-card').forEach(card=>{
   const name=card.dataset.name||card.querySelector('h4').textContent;
   const isPinned=pins.includes(name);
   const button=card.querySelector('.pin-btn');
   button.textContent=isPinned?'📌 पिन':'＋ पिन';
-  button.onclick=(ev)=>{ev.preventDefault();ev.stopPropagation();let p=getPins();p=p.includes(name)?p.filter(x=>x!==name):[...p,name];setPins(p);renderPins();};
-  if(isPinned){const clone=card.cloneNode(true);clone.querySelector('.pin-btn').textContent='📌 हटाउनु';clone.querySelector('.pin-btn').onclick=(ev)=>{ev.preventDefault();ev.stopPropagation();setPins(getPins().filter(x=>x!==name));renderPins();};grid.appendChild(clone);count++;}
+  button.onclick=(ev)=>{
+   ev.preventDefault();
+   ev.stopPropagation();
+   let p=getPins();
+   p=p.includes(name)?p.filter(x=>x!==name):[...p,name];
+   setPins(p);
+   renderPins();
+  };
+  if(isPinned){
+   const clone=card.cloneNode(true);
+   clone.querySelector('.pin-btn').textContent='📌 हटाउनु';
+   clone.querySelector('.pin-btn').onclick=(ev)=>{
+    ev.preventDefault();
+    ev.stopPropagation();
+    setPins(getPins().filter(x=>x!==name));
+    renderPins();
+   };
+   grid.appendChild(clone);
+   count++;
+  }
  });
  $('pinnedEmpty').style.display=count?'none':'block';
 }
 renderPins();
 
-/* Search all tools, also quick search redirects to tools list */
+/* Search tools */
 function filterTools(){
  const q=$('toolSearch').value.trim().toLocaleLowerCase();
  let visible=0;
  document.querySelectorAll('#allTools .tool-card').forEach(card=>{
   const match=(card.dataset.name+' '+card.innerText).toLocaleLowerCase().includes(q);
-  card.style.display=match?'':'none';if(match)visible++;
+  card.style.display=match?'':'none';
+  if(match)visible++;
  });
  $('allEmpty').style.display=visible?'none':'block';
  $('toolCount').textContent=visible+' वटा सेवा';
@@ -323,19 +451,28 @@ $('globalSearch').addEventListener('input',()=>{
  filterTools();
  if($('globalSearch').value.trim())$('tools').scrollIntoView({behavior:'smooth'});
 });
-$('menuBtn').addEventListener('click',()=>{$('tools').scrollIntoView({behavior:'smooth'});});
+$('menuBtn').addEventListener('click',()=>{
+ $('tools').scrollIntoView({behavior:'smooth'});
+});
 
-/* Simple personal note stored on this device */
-$('addNote').onclick=()=>{$('noteArea').style.display=$('noteArea').style.display==='none'?'block':'none';};
-$('saveNote').onclick=()=>{
- const val=$('noteInput').value.trim();if(!val)return;
- localStorage.setItem('dsathi_today_note',val);$('savedNote').textContent='सेभ भयो: '+val;$('noteInput').value='';
+/* Personal notes saved on this device */
+$('addNote').onclick=()=>{
+ $('noteArea').style.display=$('noteArea').style.display==='none'?'block':'none';
 };
-const oldNote=localStorage.getItem('dsathi_today_note');if(oldNote)$('savedNote').textContent='आजको नोट: '+oldNote;
+$('saveNote').onclick=()=>{
+ const val=$('noteInput').value.trim();
+ if(!val)return;
+ localStorage.setItem('dsathi_today_note',val);
+ $('savedNote').textContent='सेभ भयो: '+val;
+ $('noteInput').value='';
+};
+const oldNote=localStorage.getItem('dsathi_today_note');
+if(oldNote)$('savedNote').textContent='आजको नोट: '+oldNote;
 
-/* Bottom navigation active state */
+/* Bottom navigation */
 document.querySelectorAll('.bottom-nav a').forEach(a=>a.addEventListener('click',()=>{
- document.querySelectorAll('.bottom-nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active');
+ document.querySelectorAll('.bottom-nav a').forEach(x=>x.classList.remove('active'));
+ a.classList.add('active');
 }));
 </script>
 </body>
